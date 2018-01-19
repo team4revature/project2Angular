@@ -1,0 +1,81 @@
+/*https://www.awwwards.com/sites/magnium-multipurpose-woocommerce-theme* 
+reference 
+* blue: #4484CE;
+* silver: #D9D9D9;
+* yellow: #F9CF00;
+* orange: #F19F4D;
+* light blue: #4d9ff1;
+*/
+
+nav {
+	background-color: #4484CE;
+	color: white;
+}
+
+nav a {
+	color: white;
+	font-weight: 400;
+}
+
+nav li {
+	margin-right: 1.8em;
+}
+
+nav a:hover {
+	color: #F19F4D;
+}
+
+.navbar {
+	padding-left: 7%;
+}
+
+button {
+	background-color: #4484CE;
+	color: white;
+	padding: 0em;
+}
+
+h1 {
+	background-color: white;
+	color: black;
+	font-size: 2.4em;
+	font-family: 'Yantramanav', sans-serif;
+	font-weight: 300;
+	padding-top:1.9%;
+	padding-left:7%;
+	padding-right:1%;
+	padding-bottom:1.9%;
+	margin:0%;
+}
+
+body {
+	font-family: 'Yantramanav', sans-serif;
+	font-weight:100;
+	font-size: 87.5%;
+	background-color: #D9D9D9;
+	color: white;
+	margin: 0%;
+}
+
+.header-middle {
+	display:inline-block;
+	margin-left: 32%;
+}
+
+.signin {
+	margin: auto;
+	width: 20em;
+}
+
+.form-signin > *{
+	margin-bottom: 0.6em;
+}
+
+.container {
+	margin-top: 15em;
+}
+
+.swim-lane {
+	background-color: #F19F4D;
+	margin: 0.8%;
+}
