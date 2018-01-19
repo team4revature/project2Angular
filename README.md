@@ -1,3 +1,0 @@
-# project2Angular
-
-test
