@@ -1,18 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
-
+import { StoryComponent } from './story/story.component';
+import { MatCardModule } from '@angular/material/card'; 
+import { SigninComponent } from './components/signin/signin.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,StoryComponent, SigninComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, MatCardModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [SigninComponent]
 })
 export class AppModule { }
