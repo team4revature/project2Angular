@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-
+import { StoryComponent } from './story/story.component';
+import { MatCardModule } from '@angular/material/card'; 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StoryComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
