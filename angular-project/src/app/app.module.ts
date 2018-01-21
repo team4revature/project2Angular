@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { Router } from '@angular/router';
 
@@ -11,6 +14,10 @@ import { BurndownComponent } from './components/burndown/burndown.component';
 
 import { MatCardModule } from '@angular/material/card'; 
 
+//services
+import { UserService } from './services/user.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,11 +25,14 @@ import { MatCardModule } from '@angular/material/card';
     StoryComponent,
   ],
   imports: [
-    BrowserModule,
+     BrowserModule,
+     FormsModule,
      AppRoutingModule, 
+     HttpClientModule,
+     //    NgbModule.forRoot(),
      MatCardModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
