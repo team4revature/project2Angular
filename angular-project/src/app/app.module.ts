@@ -4,10 +4,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { Router } from '@angular/router';
+
 import { AppComponent } from './app.component';
-import { StoryComponent } from './story/story.component';
-import { MatCardModule } from '@angular/material/card'; 
+import { AppRoutingModule } from './/app-routing.module';
 import { SigninComponent } from './components/signin/signin.component';
+import { StoryComponent } from './components/story/story.component';
+import { BurndownComponent } from './components/burndown/burndown.component';
+
+import { MatCardModule } from '@angular/material/card'; 
 
 //services
 import { UserService } from './services/user.service';
@@ -15,16 +20,23 @@ import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
-    AppComponent, StoryComponent, SigninComponent
+    AppComponent,
+    SigninComponent, 
+    StoryComponent,
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    NgbModule.forRoot(),
-    MatCardModule
+     BrowserModule,
+     FormsModule,
+     AppRoutingModule, 
+     HttpClientModule,
+     //    NgbModule.forRoot(),
+     MatCardModule
   ],
   providers: [UserService],
-  bootstrap: [SigninComponent]
+  bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  }
+ }
