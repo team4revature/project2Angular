@@ -11,7 +11,7 @@ const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const loginUrl = `http://localhost:80/api/v1/login`;
+const loginUrl = `http://localhost:80/api/v1/authenticate`;
 
 @Injectable()
 export class UserService {
@@ -26,17 +26,18 @@ export class UserService {
     }
 
     public login(user: User): Observable<User> {
-        return this.http.post<User>(loginUrl,
+        return this.http.post<any>(loginUrl,
             JSON.stringify({username: user.username, password: user.password}),
             httpOptions)
+            .map(response => {
+                if (response && response.headers) {
+                    console.log(response.headers);
+                    /*localStorage.setItem('currentUser',
+                        JSON.stringify(response.headers("")));*/
+                }
+            })
             .catch(this.handleError);
         }
-
-        /*
-    public get(user: User): Observable<User> {
-        return this.http.get<User>(databaseUrl, httpOptions)
-        .catch(this.handleError);
-    }*/
 
     private handleError(error: Response) {
         return Observable.throw(error.statusText);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
@@ -18,7 +19,8 @@ export class SigninComponent implements OnInit {
   }
 
   login() {
-    //this.userService.get(this.user).subscribe(user => this.user = user);
-    this.userService.login(this.user).subscribe(user => this.user = user);
+    this.userService.login(this.user).subscribe(
+      //do something
+    );
   }
 }
