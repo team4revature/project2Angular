@@ -8,14 +8,13 @@ import { AppRoutingModule } from './/app-routing.module';
 
 import { Router } from '@angular/router';
 
-// components
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { MatCardModule } from '@angular/material/card'; 
 import { SigninComponent } from './components/signin/signin.component';
 import { StoryComponent } from './components/story/story.component';
 import { BurndownComponent } from './components/burndown/burndown.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
+import { MatCardModule } from '@angular/material/card';
 
 // services
 import { UserService } from './services/user.service';
