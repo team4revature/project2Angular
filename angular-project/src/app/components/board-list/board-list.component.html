@@ -1,0 +1,13 @@
+<label class="bList">Personal Boards</label>
+<ul class="nav nav-justified">
+  <li  *ngFor="let board of boards"  >
+    <app-board-item [bName]=board.bName></app-board-item>
+  </li>
+  <br/>
+  <li class="default">
+      <app-board-item></app-board-item>
+  </li>
+  
+</ul>
+
+
