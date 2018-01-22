@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-//import { BoardListServiceService } from '../components/board-list-service.service';
-=======
-import { BoardListService } from '../../services/board-list-service.service';
->>>>>>> 137d63ddb6ebe5664aa22e01cf94bd81f7b34ae8
+import { BoardListServiceService } from '../board-list-service.service';
 import { BoardItemComponent } from '../board-item/board-item.component';
 
 @Component({
@@ -14,7 +10,7 @@ import { BoardItemComponent } from '../board-item/board-item.component';
 export class BoardListComponent implements OnInit {
 
   public  boards = [];
-  constructor(private _boardListService: BoardListService) {}
+  constructor(private _boardListService: BoardListServiceService) {}
 
   ngOnInit() {
     this.boards = this._boardListService.getBoardListByUser();

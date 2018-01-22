@@ -30,9 +30,9 @@ import { UserService } from './services/user.service';
     AppComponent,
     SigninComponent,
     StoryComponent,
-    NavbarComponent, 
-    BoardPageComponent, 
-    BoardListComponent, 
+    NavbarComponent,
+    BoardPageComponent,
+    BoardListComponent,
     BoardItemComponent
   ],
   imports: [
