@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class BoardListServiceService {
+export class BoardListService {
 
  public boardlist = [
    {'bid' : 1, 'bName' : 'project1'},
