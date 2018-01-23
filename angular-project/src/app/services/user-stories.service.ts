@@ -15,8 +15,8 @@ const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const getStoryUrl   = `http://localhost:81/api/v1/story/50`;
-const createUserUrl = 'http://localhost:81/api/v1/createStory'; 
+const getStoryUrl   = `http://localhost:80/api/v1/story/50`;
+const createUserUrl = 'http://localhost:80/api/v1/createStory'; 
 
 @Injectable()
 export class UserStoriesService {
