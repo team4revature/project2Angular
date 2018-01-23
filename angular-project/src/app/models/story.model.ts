@@ -1,10 +1,10 @@
-export class User {
-    id: number;
+export class Story {
+    stId: number;
     storyName: string;
     difficulty: number;
 
-    constructor(id: number, storyName: string, difficulty: number) {
-        this.id = id;
+    constructor(stId: number, storyName: string, difficulty: number) {
+        this.stId = stId;
         this.storyName = storyName;
         this.difficulty = difficulty; 
     }

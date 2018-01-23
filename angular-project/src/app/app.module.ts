@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './/app-routing.module';
 
 import { Router } from '@angular/router';
@@ -16,7 +17,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BoardPageComponent } from './components/board-page/board-page.component'; 
 import { BoardListComponent } from './components/board-list/board-list.component'; 
 import { BoardItemComponent } from './components/board-item/board-item.component'; 
+import { UserStoriesComponent } from './components/user-stories/user-stories.component';
 
+import { UserStoriesService } from './services/user-stories.service';
 import { BoardListService } from './services/board-list-service.service';
 
 import { MatCardModule } from '@angular/material/card';
@@ -33,16 +36,17 @@ import { UserService } from './services/user.service';
     NavbarComponent, 
     BoardPageComponent, 
     BoardListComponent, 
-    BoardItemComponent
+    BoardItemComponent, UserStoriesComponent
   ],
   imports: [
      BrowserModule,
      FormsModule,
      AppRoutingModule,
+     HttpModule,
      HttpClientModule,
      MatCardModule
   ],
-  providers: [ UserService, BoardListService ],
+  providers: [ UserService, BoardListService, UserStoriesService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
