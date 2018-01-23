@@ -1,42 +1,18 @@
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
-
-	<title>Project 2 Example</title>
-
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	 crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Yantramanav:300,400,700,900" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-	 crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-	 crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-	 crossorigin="anonymous"></script>
-</head>
-
-<body>
-	<app-navbar></app-navbar>
-	<h1>PROJECT 2</h1>
-	<div class="container">
-		<div class="card">
-			<div class="card-block">
-				<div class="card-title">
-					Login
-				</div>
-				<form class="form-signin" (ngSubmit)="login()">
-					<label for="inputUsername" class="sr-only">Username</label>
-					<input type="text" name="inputUsername" id="inputUsername" class="form-control form-control-lg" 
-						placeholder="Username" [(ngModel)]="user.username" required autofocus>
-					<label for="inputPassword" class="sr-only">Password</label>
-					<input type="password" name="inputPassword" id="inputPassword" class="form-control form-control-lg" 
-						placeholder="Password" [(ngModel)]="user.password" required>
-					<button class="btn btn-block btn-lg" type="submit">Login</button>
-				</form>
+<div class="container">
+	<div class="card">
+		<div class="card-block">
+			<div class="card-title">
+				Login
 			</div>
+			<form class="form-signin" (ngSubmit)="login()">
+				<label for="inputUsername" class="sr-only">Username</label>
+				<input type="text" name="inputUsername" id="inputUsername" class="form-control form-control-lg" placeholder="Username" [(ngModel)]="user.username"
+				 required autofocus>
+				<label for="inputPassword" class="sr-only">Password</label>
+				<input type="password" name="inputPassword" id="inputPassword" class="form-control form-control-lg" placeholder="Password"
+				 [(ngModel)]="user.password" required>
+				<button class="btn btn-block btn-lg" type="submit">Login</button>
+			</form>
 		</div>
 	</div>
-	<!-- /container -->
-</body>
+</div>

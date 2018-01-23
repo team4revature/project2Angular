@@ -1,4 +1,4 @@
-export class User {
+export class Story {
     id: number;
     storyName: string;
     difficulty: number;
@@ -6,6 +6,6 @@ export class User {
     constructor(id: number, storyName: string, difficulty: number) {
         this.id = id;
         this.storyName = storyName;
-        this.difficulty = difficulty; 
+        this.difficulty = difficulty;
     }
 }

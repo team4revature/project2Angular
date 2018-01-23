@@ -10,7 +10,7 @@ import { BoardItemComponent } from '../board-item/board-item.component';
 export class BoardListComponent implements OnInit {
 
   public  boards = [];
-  constructor(private _boardListService: BoardListServiceService) {}
+  constructor(private _boardListService: BoardListService) {}
 
   ngOnInit() {
     this.boards = this._boardListService.getBoardListByUser();

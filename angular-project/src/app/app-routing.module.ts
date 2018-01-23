@@ -5,20 +5,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { StoryComponent } from './components/story/story.component'; 
 import { SigninComponent } from './components/signin/signin.component'; 
 import { BoardPageComponent } from './components/board-page/board-page.component';
+import { projection } from '@angular/core/src/render3/instructions';
+import { ProjectPageComponent } from './components/project-page/project-page.component';
 //import { BoardPageComponent } from './components/board-page/board-page.component';
 
 const appRoutes: Routes = [
   { path:'login', component: SigninComponent }, 
   { path:'story', component: StoryComponent }, 
   { path:'boardpage', component: BoardPageComponent}, 
-  { path:'', redirectTo: '/login', pathMatch: 'full'}
-]
+  { path:'', redirectTo: '/login', pathMatch: 'full'},
+  { path:'projectpage', component: ProjectPageComponent}
+];
 
 @NgModule({
   imports: [
     RouterModule.forRoot( appRoutes )
   ],
-  declarations: [], 
+  declarations: [],
   exports: [
     RouterModule
   ]
