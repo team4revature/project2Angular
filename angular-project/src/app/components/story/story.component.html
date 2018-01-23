@@ -1,7 +1,8 @@
 <div>
 <mat-card id="story"> 
-    <mat-card-title>My Story</mat-card-title>
-    <mat-card-subtitle>some comments</mat-card-subtitle>
+    <mat-card-title>Story Name: {{ story.storyName }}</mat-card-title>
+    <mat-card-subtitle> Story Id: {{ story.stId }} </mat-card-subtitle>
+    <p> Story Difficulty: {{ story.difficulty }} </p>
     <p> Comments </p>
     <mat-card id="card2"> 
             <form action="/action_page.php">
