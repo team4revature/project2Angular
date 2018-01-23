@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { BoardListService } from '../../services/board-list-service.service';
-=======
-import { BoardListServiceService } from '../../services/board-list-service.service';
->>>>>>> a02fafcb26d2f7a1ba6891dc1e8415edf6aece0b
 import { BoardItemComponent } from '../board-item/board-item.component';
 
 

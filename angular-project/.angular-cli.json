@@ -19,14 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-<<<<<<< HEAD
         "styles.css", 
         "../node_modules/bootstrap/dist/css/bootstrap.css"      ],
-=======
-        "styles.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.css"
-      ],
->>>>>>> a02fafcb26d2f7a1ba6891dc1e8415edf6aece0b
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
         "../node_modules/popper.js/dist/umd/popper.js",
