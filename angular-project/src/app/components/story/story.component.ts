@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Story } from '../../models/story.model';
 import { UserStoriesService } from '../../services/user-stories.service';
@@ -11,7 +11,7 @@ import { UserStoriesService } from '../../services/user-stories.service';
 
 export class StoryComponent implements OnInit {
 
-  story: Story; 
+  @Input() story: Story; 
 
   constructor(private storyService: UserStoriesService) { } 
 

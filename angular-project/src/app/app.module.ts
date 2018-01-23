@@ -18,6 +18,7 @@ import { BoardPageComponent } from './components/board-page/board-page.component
 import { BoardListComponent } from './components/board-list/board-list.component'; 
 import { BoardItemComponent } from './components/board-item/board-item.component'; 
 import { UserStoriesComponent } from './components/user-stories/user-stories.component';
+import { StoryItemComponent } from './components/story-item/story-item.component';
 
 import { UserStoriesService } from './services/user-stories.service';
 import { ProjectPageComponent } from './components/project-page/project-page.component';
@@ -40,7 +41,7 @@ import { UserService } from './services/user.service';
     BoardItemComponent,
     UserStoriesComponent,
     ProjectPageComponent, 
-    HeaderComponent
+    HeaderComponent, StoryItemComponent
   ],
   imports: [
      BrowserModule,
