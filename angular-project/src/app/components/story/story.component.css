@@ -3,10 +3,17 @@ div {
     width: 500px;
 }
 
+/* mat-card-subtitle, mat-card-title, p{
+    background-color: powderblue;
+
+} */
+
 /* #story {
     height: 100vh;
 } */
-
+#story {
+    background-color: grey;
+}
 
 #card2{
     background-color: powderblue;
