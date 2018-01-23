@@ -20,8 +20,9 @@ import { BoardItemComponent } from './components/board-item/board-item.component
 import { UserStoriesComponent } from './components/user-stories/user-stories.component';
 
 import { UserStoriesService } from './services/user-stories.service';
+import { ProjectPageComponent } from './components/project-page/project-page.component';
 import { BoardListService } from './services/board-list-service.service';
-
+import { HeaderComponent } from './components/header/header.component';
 import { MatCardModule } from '@angular/material/card';
 
 // services
@@ -36,7 +37,10 @@ import { UserService } from './services/user.service';
     NavbarComponent, 
     BoardPageComponent, 
     BoardListComponent, 
-    BoardItemComponent, UserStoriesComponent
+    BoardItemComponent,
+    UserStoriesComponent,
+    ProjectPageComponent, 
+    HeaderComponent
   ],
   imports: [
      BrowserModule,

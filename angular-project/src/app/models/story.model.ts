@@ -6,6 +6,6 @@ export class Story {
     constructor(stId: number, storyName: string, difficulty: number) {
         this.stId = stId;
         this.storyName = storyName;
-        this.difficulty = difficulty; 
+        this.difficulty = difficulty;
     }
 }
