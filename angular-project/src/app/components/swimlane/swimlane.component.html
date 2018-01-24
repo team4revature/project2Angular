@@ -1,0 +1,11 @@
+<mat-card>
+  <app-story></app-story>
+  <app-story *ngFor="let story of stories"
+  [story]="story"> 
+</app-story>
+
+  <button (click)="addStory()">Add Story</button>
+</mat-card>
+
+
+
