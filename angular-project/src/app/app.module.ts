@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './/app-routing.module';
+import { MatGridListModule, MatGridList } from '@angular/material/grid-list';
 
 import { Router } from '@angular/router';
 
@@ -14,9 +15,9 @@ import { StoryComponent } from './components/story/story.component';
 import { BurndownComponent } from './components/burndown/burndown.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
-import { BoardPageComponent } from './components/board-page/board-page.component'; 
-import { BoardListComponent } from './components/board-list/board-list.component'; 
-import { BoardItemComponent } from './components/board-item/board-item.component'; 
+import { BoardPageComponent } from './components/board-page/board-page.component';
+import { BoardListComponent } from './components/board-list/board-list.component';
+import { BoardItemComponent } from './components/board-item/board-item.component';
 import { UserStoriesComponent } from './components/user-stories/user-stories.component';
 import { StoryItemComponent } from './components/story-item/story-item.component';
 
@@ -31,6 +32,7 @@ import { MatCardModule } from '@angular/material/card';
 import { UserService } from './services/user.service';
 import { BoardListService } from './services/board-list-service.service';
 import { CreateSwimlaneComponent } from './components/create-swimlane/create-swimlane.component';
+import { ProjectPageSwimlanesComponent } from './components/project-page-swimlanes/project-page-swimlanes.component';
 import { ProjectService } from './services/project.service';
 
 
@@ -39,32 +41,39 @@ import { ProjectService } from './services/project.service';
     AppComponent,
     SigninComponent,
     StoryComponent,
-    NavbarComponent, 
-    BoardPageComponent, 
-    BoardListComponent, 
-    BoardItemComponent, 
+    NavbarComponent,
+    BoardPageComponent,
+    BoardListComponent,
+    BoardItemComponent,
     ProjectPageComponent,
-    HeaderComponent, 
-    ProjectSwimlaneComponent, 
+    HeaderComponent,
+    ProjectSwimlaneComponent,
     CreateSwimlaneComponent,
     UserStoriesComponent,
-    ProjectPageComponent, 
-    HeaderComponent, 
-    StoryItemComponent
+    ProjectPageComponent,
+    HeaderComponent,
+    StoryItemComponent,
+    ProjectPageSwimlanesComponent
   ],
   imports: [
-     BrowserModule,
-     FormsModule,
-     AppRoutingModule,
-     HttpModule,
-     HttpClientModule,
-     MatCardModule
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpModule,
+    HttpClientModule,
+    MatCardModule,
+    MatGridListModule
   ],
+<<<<<<< Updated upstream
   providers: [ UserService, BoardListService, UserStoriesService, ProjectService ],
   bootstrap: [ AppComponent ]
+=======
+  providers: [UserService, BoardListService, UserStoriesService, ProjectService],
+  bootstrap: [AppComponent]
+>>>>>>> Stashed changes
 })
 export class AppModule {
   constructor(router: Router) {
     console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
   }
- }
+}

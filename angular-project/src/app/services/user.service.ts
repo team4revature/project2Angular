@@ -15,7 +15,7 @@ const httpOptions = {
     observe: 'response' as 'response'
 };
 
-const loginUrl = `http://localhost:80/api/v1/login`;
+const loginUrl = 'http://localhost:80/api/v1/login';
 const getUserUrl = 'http://localhost:80/api/v1/userName/';
 
 @Injectable()
@@ -25,22 +25,15 @@ export class UserService {
     //for testing
     username: string = 'sean';
     // Injecting the http object
-    constructor(private http: HttpClient) {
-        this.init();
-    }
-
-    private init() {
-        // this.requestOptions = new RequestOptions({headers: headers});
-    }
+    constructor(private http: HttpClient) { }
 
     public login(user: User) {
-        this.http.post(loginUrl,
+        this.http.post<any>(loginUrl,
             JSON.stringify({ username: user.username, password: user.password }),
             httpOptions).subscribe(
             response => {
-                user = <User>JSON.parse(JSON.stringify(response));
+                user = <User>JSON.parse(JSON.stringify(response.body));
                 this.username = user.username;
-                console.log(response.headers.get("Authentication"));
             }
             );
         /*
