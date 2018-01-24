@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './/app-routing.module';
 
@@ -31,7 +31,7 @@ import { MatCardModule } from '@angular/material/card';
 import { UserService } from './services/user.service';
 import { BoardListService } from './services/board-list-service.service';
 import { CreateSwimlaneComponent } from './components/create-swimlane/create-swimlane.component';
-
+import { ProjectService } from './services/project.service';
 
 
 @NgModule({
@@ -60,7 +60,7 @@ import { CreateSwimlaneComponent } from './components/create-swimlane/create-swi
      HttpClientModule,
      MatCardModule
   ],
-  providers: [ UserService, BoardListService, UserStoriesService ],
+  providers: [ UserService, BoardListService, UserStoriesService, ProjectService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
