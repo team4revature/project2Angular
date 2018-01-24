@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../models/user.model';
+import { Board } from '../../models/board.model';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-project-page',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectPageComponent implements OnInit {
 
-  constructor() { }
+  user: User;
+  board: Board;
+
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getUser().subscribe(user => this.user = user);
   }
 
 }

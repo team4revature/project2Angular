@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './/app-routing.module';
 
 import { Router } from '@angular/router';
@@ -16,13 +17,21 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BoardPageComponent } from './components/board-page/board-page.component'; 
 import { BoardListComponent } from './components/board-list/board-list.component'; 
 import { BoardItemComponent } from './components/board-item/board-item.component'; 
+import { UserStoriesComponent } from './components/user-stories/user-stories.component';
+import { StoryItemComponent } from './components/story-item/story-item.component';
+
+import { UserStoriesService } from './services/user-stories.service';
 import { ProjectPageComponent } from './components/project-page/project-page.component';
-import { BoardListService } from './services/board-list-service.service';
+import { ProjectSwimlaneComponent } from './components/project-swimlane/project-swimlane.component';
+
 import { HeaderComponent } from './components/header/header.component';
 import { MatCardModule } from '@angular/material/card';
 
 // services
 import { UserService } from './services/user.service';
+import { BoardListService } from './services/board-list-service.service';
+import { CreateSwimlaneComponent } from './components/create-swimlane/create-swimlane.component';
+
 
 
 @NgModule({
@@ -34,17 +43,24 @@ import { UserService } from './services/user.service';
     BoardPageComponent, 
     BoardListComponent, 
     BoardItemComponent, 
+    ProjectPageComponent,
+    HeaderComponent, 
+    ProjectSwimlaneComponent, 
+    CreateSwimlaneComponent,
+    UserStoriesComponent,
     ProjectPageComponent, 
-    HeaderComponent
+    HeaderComponent, 
+    StoryItemComponent
   ],
   imports: [
      BrowserModule,
      FormsModule,
      AppRoutingModule,
+     HttpModule,
      HttpClientModule,
      MatCardModule
   ],
-  providers: [ UserService, BoardListService ],
+  providers: [ UserService, BoardListService, UserStoriesService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
