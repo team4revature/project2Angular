@@ -15,10 +15,10 @@ export class SigninComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.user = new User(0, "", "", "", "", "");
+    this.user = new User(0, "", "", "", "", "", null);
   }
 
   login() {
-    this.userService.login(this.user).subscribe();
+    this.userService.login(this.user);
   }
 }
