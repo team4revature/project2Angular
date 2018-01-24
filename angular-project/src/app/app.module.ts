@@ -65,8 +65,13 @@ import { ProjectService } from './services/project.service';
     MatGridListModule
   ],
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   providers: [ UserService, BoardListService, UserStoriesService, ProjectService ],
   bootstrap: [ AppComponent ]
+=======
+  providers: [UserService, BoardListService, UserStoriesService, ProjectService],
+  bootstrap: [AppComponent]
+>>>>>>> Stashed changes
 =======
   providers: [UserService, BoardListService, UserStoriesService, ProjectService],
   bootstrap: [AppComponent]
