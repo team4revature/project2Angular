@@ -1,23 +1,17 @@
-import { Injectable } from '@angular/core';
-
+import {NgModule, Injectable} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import { Observable } from 'rxjs/Observable';
+// Import HttpClientModule from @angular/common/http
+import {HttpClient} from '@angular/common/http';
+import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { User } from '../models/user.model';
+import { Board } from '../models/board.model';
 @Injectable()
 export class BoardListService {
+  constructor(private http: HttpClient) { }
+  private _url  = 'http://localhost:80/api/v1/user/1';
+  getBoardListByUser(): Observable<User[]> {
 
- public boardlist = [
-   {'bid' : 1, 'bName' : 'project1'},
-   {'bid' : 2, 'bName' : 'project2'},
-   {'bid' : 3, 'bName' : 'project3'},
-   {'bid' : 4, 'bName' : 'project4'},
- ];
-  constructor() { }
-
-  getBoardListByUser() {
-    return [
-      {'bid' : 1, 'bName' : 'project1'},
-      {'bid' : 2, 'bName' : 'project2'},
-      {'bid' : 3, 'bName' : 'project3'},
-      {'bid' : 4, 'bName' : 'project4'},
-    ];
-  }
-
+    return this.http.get<User[]>(this._url);
+   }
 }
