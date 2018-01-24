@@ -15,7 +15,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { StoryComponent } from './components/story/story.component';
 import { BurndownComponent } from './components/burndown/burndown.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { BoardListServiceService } from  './services/board-list-service.service';
+import { BoardListServiceService } from './services/board-list-service.service';
 import { MatCardModule } from '@angular/material/card';
 
 // services
