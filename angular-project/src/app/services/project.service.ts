@@ -20,8 +20,9 @@ export class ProjectService {
     public constructor(private http: HttpClient) { }
 
     public createSwimLane(board: Board, swimlane: Swimlane): Observable<Swimlane> {
+        //for testing only set boardid static
         return this.http.post<any>(createSwimLaneUrl,
-            JSON.stringify({ bid: board.bid, swimlane: swimlane }), httpOptions)
+            JSON.stringify({ boardId: 1, swimlane: swimlane }), httpOptions)
             .map(response => {
                 return JSON.parse(JSON.stringify(response.body));
             })
