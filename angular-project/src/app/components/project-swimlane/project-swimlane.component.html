@@ -1,1 +1,25 @@
 <
+<mat-card id="swimlane">
+
+    <app-story 
+        *ngFor="let story of stories"
+        [story]="story"
+        (onDelete)="onDelete($event)"> 
+        <button (onClick)="deleteStory"> Delete </button>
+    </app-story>
+
+
+    <tbody>
+        <tr *ngFor="let hero of heroes; trackBy: trackHero" >
+            <td>{{hero.name}}</td>
+        </tr>
+    </tbody>
+
+    <ul>
+        <li></li>
+    </ul>
+
+
+    <button (click)="addStory()">Add Story</button>
+          
+</mat-card>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Story } from '../../models/story.model';
 import { UserStoriesService } from '../../services/user-stories.service';
@@ -12,6 +12,7 @@ import { UserStoriesService } from '../../services/user-stories.service';
 export class StoryComponent implements OnInit {
 
   @Input() story: Story; 
+  @Output() onDelete = new EventEmitter<boolean>();
 
   constructor(private storyService: UserStoriesService) { } 
 
@@ -21,5 +22,10 @@ export class StoryComponent implements OnInit {
     this.storyService.getStoryInformation(0).subscribe(
       service => this.story = service
     ); 
+  }
+
+
+  deleteStory(){
+    this.onDelete.emit(true); 
   }
 }

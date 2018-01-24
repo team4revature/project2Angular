@@ -46,7 +46,7 @@ import { CreateSwimlaneComponent } from './components/create-swimlane/create-swi
     UserStoriesComponent,
     ProjectPageComponent,
     HeaderComponent,
-    StoryItemComponent
+    StoryItemComponent,
   ],
   imports: [
     BrowserModule,
