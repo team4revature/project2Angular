@@ -1,1 +1,20 @@
-<mat-card> My Story </mat-card>
+<div>
+<mat-card id="story"> 
+    <mat-card-title>Story Name: {{ story.storyName }}</mat-card-title>
+    <mat-card-subtitle> Story Id: {{ story.stId }} </mat-card-subtitle>
+    <p> Story Difficulty: {{ story.difficulty }} </p>
+    <p> Comments </p>
+    <mat-card id="card2"> 
+            <form action="/action_page.php">
+                <textarea cols="40" rows="3" type="text" name="fname"></textarea><br>
+                <input type="submit" value="Submit">
+              </form>        
+    </mat-card>
+
+    <mat-card-actions>	
+            <button>Exit</button>
+            <button>CreateStory</button>
+    </mat-card-actions>
+    
+</mat-card> 
+</div>

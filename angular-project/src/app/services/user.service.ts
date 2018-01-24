@@ -6,6 +6,7 @@ import 'rxjs/Rx';
 
 // Models
 import { User } from '../models/user.model';
+import { Token } from '../models/token.model';
 
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -25,18 +26,19 @@ export class UserService {
        // this.requestOptions = new RequestOptions({headers: headers});
     }
 
-    public login(user: User): Observable<User> {
-        return this.http.post<User>(loginUrl,
+    public login(user: User): Observable<Token> {
+        return this.http.post<any>(loginUrl,
             JSON.stringify({username: user.username, password: user.password}),
             httpOptions)
+            .map(token => {
+                if (token) {
+                    console.log(token);
+                    localStorage.setItem('access-token',
+                        JSON.stringify(token));
+                }
+            })
             .catch(this.handleError);
         }
-
-        /*
-    public get(user: User): Observable<User> {
-        return this.http.get<User>(databaseUrl, httpOptions)
-        .catch(this.handleError);
-    }*/
 
     private handleError(error: Response) {
         return Observable.throw(error.statusText);

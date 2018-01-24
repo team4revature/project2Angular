@@ -1,13 +1,10 @@
 // modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './/app-routing.module';
-import { BoardPageComponent } from './components/board-page/board-page.component';
-import { BoardListComponent } from './components/board-list/board-list.component';
-import { BoardItemComponent } from './components/board-item/board-item.component';
 import { Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -20,6 +17,13 @@ import { MatCardModule } from '@angular/material/card';
 
 // services
 import { UserService } from './services/user.service';
+import { BoardPageComponent } from './components/board-page/board-page.component';
+import { BoardListComponent } from './components/board-list/board-list.component';
+import { BoardItemComponent } from './components/board-item/board-item.component';
+import { ProjectPageComponent } from './components/project-page/project-page.component';
+import { UserStoriesComponent } from './components/user-stories/user-stories.component';
+import { HeaderComponent } from './components/header/header.component';
+import { UserStoriesService } from './services/user-stories.service';
 
 
 @NgModule({
@@ -28,18 +32,22 @@ import { UserService } from './services/user.service';
     SigninComponent,
     StoryComponent,
     NavbarComponent,
-    BoardItemComponent,
+    BoardPageComponent,
     BoardListComponent,
-    BoardPageComponent
+    BoardItemComponent,
+    UserStoriesComponent,
+    ProjectPageComponent,
+    HeaderComponent
   ],
   imports: [
      BrowserModule,
      FormsModule,
      AppRoutingModule,
+     HttpModule,
      HttpClientModule,
      MatCardModule
   ],
-  providers: [ UserService, BoardListServiceService ],
+  providers: [ UserService, BoardListServiceService, UserStoriesService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
