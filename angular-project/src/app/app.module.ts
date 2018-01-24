@@ -12,7 +12,11 @@ import { SigninComponent } from './components/signin/signin.component';
 import { StoryComponent } from './components/story/story.component';
 import { BurndownComponent } from './components/burndown/burndown.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { BoardListServiceService } from './services/board-list-service.service';
+
+import { StoryItemComponent } from './components/story-item/story-item.component';
+
+import { ProjectSwimlaneComponent } from './components/project-swimlane/project-swimlane.component';
+
 import { MatCardModule } from '@angular/material/card';
 
 // services
@@ -24,6 +28,8 @@ import { ProjectPageComponent } from './components/project-page/project-page.com
 import { UserStoriesComponent } from './components/user-stories/user-stories.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UserStoriesService } from './services/user-stories.service';
+import { BoardListService } from './services/board-list-service.service';
+import { CreateSwimlaneComponent } from './components/create-swimlane/create-swimlane.component';
 
 
 @NgModule({
@@ -35,23 +41,26 @@ import { UserStoriesService } from './services/user-stories.service';
     BoardPageComponent,
     BoardListComponent,
     BoardItemComponent,
+    ProjectSwimlaneComponent,
+    CreateSwimlaneComponent,
     UserStoriesComponent,
     ProjectPageComponent,
-    HeaderComponent
+    HeaderComponent,
+    StoryItemComponent
   ],
   imports: [
-     BrowserModule,
-     FormsModule,
-     AppRoutingModule,
-     HttpModule,
-     HttpClientModule,
-     MatCardModule
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpModule,
+    HttpClientModule,
+    MatCardModule
   ],
-  providers: [ UserService, BoardListServiceService, UserStoriesService ],
-  bootstrap: [ AppComponent ]
+  providers: [UserService, BoardListService, UserStoriesService],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor(router: Router) {
     console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
   }
- }
+}

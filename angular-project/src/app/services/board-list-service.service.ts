@@ -7,7 +7,7 @@ import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { User } from '../models/user.model';
 import { Board } from '../models/board.model';
 @Injectable()
-export class BoardListServiceService {
+export class BoardListService {
   constructor(private http: HttpClient) { }
   private _url  = 'http://localhost:80/api/v1/user/1';
   getBoardListByUser(): Observable<User[]> {

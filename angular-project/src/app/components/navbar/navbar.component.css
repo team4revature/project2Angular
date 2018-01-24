@@ -3,6 +3,13 @@ nav {
 	color: white;
 }
 
+#hamburgerbutton {
+	color: green; 
+	background-color: transparent; 
+	border-color: green;
+	border-bottom-width: 2px
+}
+
 nav a {
 	color: white;
 	font-weight: 400;

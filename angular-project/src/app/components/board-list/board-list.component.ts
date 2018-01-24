@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BoardListServiceService } from '../../services/board-list-service.service';
+import { BoardListService } from '../../services/board-list-service.service';
 import { BoardItemComponent } from '../board-item/board-item.component';
 import { User } from '../../models/user.model';
 
@@ -11,7 +11,7 @@ import { User } from '../../models/user.model';
 export class BoardListComponent implements OnInit {
 
   public  boards: User[];
-  constructor(private _boardListService: BoardListServiceService) {}
+  constructor(private _boardListService: BoardListService) {}
 
   ngOnInit() {
     this._boardListService.getBoardListByUser().subscribe(
