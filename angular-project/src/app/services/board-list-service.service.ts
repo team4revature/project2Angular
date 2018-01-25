@@ -10,8 +10,8 @@ import { Board } from '../models/board.model';
 export class BoardListService {
   constructor(private http: HttpClient) { }
   private _url  = 'http://localhost:80/api/v1/user/1';
-  getBoardListByUser(): Observable<User[]> {
+  getBoardListByUser(): Observable<User> {
 
-    return this.http.get<User[]>(this._url);
+    return this.http.get<User>(this._url);
    }
 }

@@ -18,7 +18,7 @@ import { StoryItemComponent } from './components/story-item/story-item.component
 import { ProjectSwimlaneComponent } from './components/project-swimlane/project-swimlane.component';
 
 import { MatCardModule } from '@angular/material/card';
-
+import { ModalModule } from 'ngx-bootstrap';
 // services
 import { UserService } from './services/user.service';
 import { BoardPageComponent } from './components/board-page/board-page.component';
@@ -46,7 +46,8 @@ import { CreateSwimlaneComponent } from './components/create-swimlane/create-swi
     UserStoriesComponent,
     ProjectPageComponent,
     HeaderComponent,
-    StoryItemComponent
+    StoryItemComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -54,7 +55,8 @@ import { CreateSwimlaneComponent } from './components/create-swimlane/create-swi
     AppRoutingModule,
     HttpModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    ModalModule.forRoot()
   ],
   providers: [UserService, BoardListService, UserStoriesService],
   bootstrap: [AppComponent]
