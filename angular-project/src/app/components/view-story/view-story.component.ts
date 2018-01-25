@@ -31,6 +31,6 @@ export class ViewStoryComponent implements OnInit {
   deleteTask(m_task: Task) {
     var index = this.tasks.indexOf(m_task);
     this.tasks.splice(index, 1);
-  }
+  } 
 
 }

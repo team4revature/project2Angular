@@ -38,6 +38,7 @@ import { ProjectPageSwimlanesComponent } from './components/project-page-swimlan
 import { ProjectService } from './services/project.service';
 import { ViewStoryComponent } from './components/view-story/view-story.component';
 import { TaskComponent } from './components/task/task.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { TaskComponent } from './components/task/task.component';
     UserStoriesComponent,
     ProjectPageSwimlanesComponent,
     ViewStoryComponent,
-    TaskComponent
+    TaskComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

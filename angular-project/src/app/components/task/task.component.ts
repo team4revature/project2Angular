@@ -22,4 +22,4 @@ export class TaskComponent implements OnInit {
     this.onDelete.emit(this.task); 
   }
 
-}
+} 

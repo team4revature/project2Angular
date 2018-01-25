@@ -14,7 +14,9 @@ export class StoryComponent implements OnInit {
   @Input() story: Story; 
   @Output() onDelete = new EventEmitter<boolean>();
 
-  constructor(private storyService: UserStoriesService) { } 
+  constructor(private storyService: UserStoriesService) {
+    this.story = new Story(1, "Example Story", 10)
+   } 
 
   ngOnInit() { 
     //new Story(50, "My Story", 10); 

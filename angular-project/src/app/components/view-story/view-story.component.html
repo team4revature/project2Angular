@@ -1,8 +1,25 @@
 <div id="container">
-  <mat-card id="story">
-    <mat-card-header>
-      <mat-card-title>{{ story.difficulty }} {{ story.storyName }}</mat-card-title>
-    </mat-card-header>
+  <mat-card id="card">
+    <!-- <mat-card-header> -->
+      <!-- <mat-card-title>{{ story.difficulty }} {{ story.storyName }}</mat-card-title> -->
+      <!-- <form>
+      <mat-form-field class="example-full-width" #storyNameInput>
+          <!-- <input value=[(story.storyName)]="name"> -->
+          <!-- <input matInput value=[(story.storyName)]=story.storyName> -->
+      <!-- </mat-form-field> -->
+      <!-- </form> -->
+      <!-- <button id="saveTitleButton" type="submit" (click) = 'addTask(titleInput.value)'> Save Title </button> -->
+
+
+    <!-- </mat-card-header> -->
+
+    <input [value]="story.storyName"
+           (input)="story.storyName=$event.target.value" >
+
+    <input type="number" name="difficulty" [value]="story.difficulty" (input)="story.difficulty=$event.target.value" min="1" max="10" />
+
+    <br/>
+    <br/> 
 
     <app-task *ngFor="let task of tasks" [task]="task" (onDelete)="deleteTask($event)">
     </app-task>
@@ -14,18 +31,11 @@
           <input matInput value="Sushi"  #titleInput>
         </mat-form-field>
       </form>
-      <button type="submit" (click) = 'addTask(titleInput.value)'> Add a Task </button>
-
-      <br/>
-
+      <button id="addTaskButton" type="submit" (click) = 'addTask(titleInput.value)'> Add a Task </button>
     </mat-card>
-
+    <!-- Some bottom card -->
   </mat-card>
 
-</div>
-
-<div id="bottom">
-  
 </div>
 
 <!-- <button (click)="addTask()"> Add a Task </button> -->
