@@ -6,6 +6,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './/app-routing.module';
 import { MatGridListModule, MatGridList } from '@angular/material/grid-list';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatTabsModule} from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 
 import { Router } from '@angular/router';
 
@@ -15,11 +20,8 @@ import { StoryComponent } from './components/story/story.component';
 import { BurndownComponent } from './components/burndown/burndown.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
-import { StoryItemComponent } from './components/story-item/story-item.component';
-
 import { ProjectSwimlaneComponent } from './components/project-swimlane/project-swimlane.component';
 
-import { MatCardModule } from '@angular/material/card';
 
 // services
 import { UserService } from './services/user.service';
@@ -34,6 +36,8 @@ import { BoardListService } from './services/board-list-service.service';
 import { CreateSwimlaneComponent } from './components/create-swimlane/create-swimlane.component';
 import { ProjectPageSwimlanesComponent } from './components/project-page-swimlanes/project-page-swimlanes.component';
 import { ProjectService } from './services/project.service';
+import { ViewStoryComponent } from './components/view-story/view-story.component';
+import { TaskComponent } from './components/task/task.component';
 
 @NgModule({
   declarations: [
@@ -49,8 +53,9 @@ import { ProjectService } from './services/project.service';
     ProjectSwimlaneComponent,
     CreateSwimlaneComponent,
     UserStoriesComponent,
-    StoryItemComponent,
-    ProjectPageSwimlanesComponent
+    ProjectPageSwimlanesComponent,
+    ViewStoryComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +64,10 @@ import { ProjectService } from './services/project.service';
     HttpModule,
     HttpClientModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule, 
+    MatInputModule,
+    MatTabsModule, 
+    BrowserAnimationsModule
   ],
   providers: [UserService, BoardListService, UserStoriesService, ProjectService],
   bootstrap: [AppComponent]

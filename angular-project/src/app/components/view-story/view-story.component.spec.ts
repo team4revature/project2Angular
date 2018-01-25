@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SwimlaneComponent } from './swimlane.component';
+import { ViewStoryComponent } from './view-story.component';
 
-describe('SwimlaneComponent', () => {
-  let component: SwimlaneComponent;
-  let fixture: ComponentFixture<SwimlaneComponent>;
+describe('ViewStoryComponent', () => {
+  let component: ViewStoryComponent;
+  let fixture: ComponentFixture<ViewStoryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SwimlaneComponent ]
+      declarations: [ ViewStoryComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SwimlaneComponent);
+    fixture = TestBed.createComponent(ViewStoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
