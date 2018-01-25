@@ -30,6 +30,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { UserStoriesService } from './services/user-stories.service';
 import { BoardListService } from './services/board-list-service.service';
 import { CreateSwimlaneComponent } from './components/create-swimlane/create-swimlane.component';
+import { UserListServiceService } from './services/user-list-service.service';
 
 
 @NgModule({
@@ -58,7 +59,7 @@ import { CreateSwimlaneComponent } from './components/create-swimlane/create-swi
     MatCardModule,
     ModalModule.forRoot()
   ],
-  providers: [UserService, BoardListService, UserStoriesService],
+  providers: [UserService, BoardListService, UserStoriesService, UserListServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

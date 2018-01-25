@@ -8,6 +8,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http/src/module';
 import { Headers } from '@angular/http/src/headers';
 
+import { UserService } from '../../services/user.service';
+import { UserListServiceService } from '../../services/user-list-service.service';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   observe: 'response' as 'response'
@@ -26,41 +29,29 @@ export class BoardListComponent implements OnInit {
   public user: User;
   public bIn: string;
   
-  constructor(private _boardListService: BoardListService, public http: HttpClient) {}
+  constructor(private _boardListService: BoardListService, public http: HttpClient, private _userListService: UserListServiceService ) {}
 
   ngOnInit() {
-    this._boardListService.getBoardListByUser().subscribe(
-      data => this.boards = data.boards);
-    this._boardListService.getBoardListByUser().subscribe(
-      data => this.user = data);
-
+  this._boardListService.getBoardListByUser().subscribe(data => this.boards=data);
+    console.log(this.boards);
+   this._userListService.getUser().subscribe(data=> this.user=data);
+    console.log(this.user);
+    
+      
   }
 
   
   createBoard(){
-    //console.log(this.bIn);
-    //console.log(this.user['boards'][0]);
-    let userDTO: User;
-    userDTO = this.user;
-    let obj = {};
-    
-    let boardD = new Board(null,this.bIn, null, userDTO.id, null, null);
-    console.log(boardD);
-    let boardS = '{ boardName: "' + this.bIn + '"}';
-    obj=boardD;
-    userDTO.boards;
-   // push(new Board(this.bIn, userDTO));
-    //console.log(userDTO);
-    let surl: string = 'http://localhost:80/api/v1/createUser';
-    userDTO.boards.push(boardD);
-    //console.log(this.user);
-    
-    const userString = this.circular(this.user)
-    console.log(userString);
-    const customString =this.circular(userDTO);
-    //console.log('my custom string:' + customString);
-   this.http.post(surl,userDTO,httpOptions ).subscribe();
-
+    let boardD = new Board(null,this.bIn, null, this.user, null, null);
+    console.log(this.user);
+    console.log(this.boards);
+    //console.log(boardD);
+    this.user.boards.push(boardD);
+    let s: string = this.circular(boardD);
+    //console.log('boardL ' + s);
+    let surl: string = 'http://localhost:80/api/v1/createBoard';
+   this.http.post(surl,s,httpOptions ).subscribe();
+   //console.log(this.user);
   }
 
   circular(v) {
