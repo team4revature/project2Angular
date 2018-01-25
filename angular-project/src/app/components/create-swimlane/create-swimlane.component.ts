@@ -33,11 +33,11 @@ export class CreateSwimlaneComponent implements OnInit {
     }
 
     console.log('preparing to send swimlane ' + this.swimlane.swimlaneName);
-    /*this.projectService.createSwimLane(this.board, this.swimlane)
+    this.projectService.createSwimLane(this.board, this.swimlane)
       .subscribe(
       data => {
         this.swimlane = data;
-      })*/
+      })
     //send this data back
     //this.board.swimlanes.concat(this.swimlane);
   }

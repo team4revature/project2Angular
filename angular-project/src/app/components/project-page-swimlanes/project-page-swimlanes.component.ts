@@ -9,13 +9,11 @@ import { Story } from '../../models/story.model';
   styleUrls: ['./project-page-swimlanes.component.css']
 })
 export class ProjectPageSwimlanesComponent implements OnInit {
-  @Input() board: Board;
+  @Input() board;
 
   constructor() { 
   }
 
   ngOnInit() {
-    console.log('swimlanes length: ' + this.board.swimlanes.length);
-    console.log('board id: ' + this.board.bid);
   }
 }
