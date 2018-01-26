@@ -1,20 +1,29 @@
-div {
-    height: 100px;
-    width: 500px;
-}
-
-/* mat-card-subtitle, mat-card-title, p{
-    background-color: powderblue;
-
-} */
-
-/* #story {
-    height: 100vh;
-} */
 #story {
-    background-color: grey;
+    border-width: 2px;
+    border-color: black;
+    background-color:  darkslategrey;
+    margin-top: 2px; 
 }
 
 #card2{
     background-color: powderblue;
+}
+
+button {
+    background-color: red; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#editStoryButton {
+    background-color: #4CAF50; /* Green */
+}
+
+.modal-title{
+    color:black; 
 }

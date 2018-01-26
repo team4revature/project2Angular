@@ -1,20 +1,36 @@
-<div>
 <mat-card id="story"> 
-    <mat-card-title>Story Name: {{ story.storyName }}</mat-card-title>
+    <mat-card-title>Story Name: {{ story.storyName }} </mat-card-title>
     <mat-card-subtitle> Story Id: {{ story.stId }} </mat-card-subtitle>
-    <p> Story Difficulty: {{ story.difficulty }} </p>
-    <p> Comments </p>
-    <mat-card id="card2"> 
-            <form action="/action_page.php">
-                <textarea cols="40" rows="3" type="text" name="fname"></textarea><br>
-                <input type="submit" value="Submit">
-              </form>        
-    </mat-card>
+    <p> Story Difficulty: {{ story.difficulty }} </p> 
+    <button class="btn btn-primary" (click)="deleteStory()"> Delete </button>
+    <button type="button" id="editStoryButton" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Edit Story
+          </button>
+          
+</mat-card>
 
-    <mat-card-actions>	
-            <button>Exit</button>
-            <button>CreateStory</button>
-    </mat-card-actions>
-    
-</mat-card> 
-</div>
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">{{story.difficulty}} {{story.storyName}}</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body" *ngIf='story'>
+              <app-view-story  [story]="story" [tasks]="story.tasks"></app-view-story>
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+      

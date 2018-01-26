@@ -1,0 +1,25 @@
+mat-card{
+    background-color: teal;
+    margin-bottom: 2px; 
+}
+
+button {
+    background-color: red; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    
+    /* Move to the left*/ 
+    /* float: left;
+    clear:both;  */
+}
+
+#task_content{
+    /* float: left;
+    overflow: hidden;  */
+}
+
