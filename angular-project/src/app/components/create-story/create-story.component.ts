@@ -43,6 +43,8 @@ export class CreateStoryComponent implements OnInit {
         this.swimlane = data;
       })
     this.sendNewStory();
+    //new story object so that it no longer references sent object
+    this.story = new Story("", 0);
     this.toggleCreate();
   }
 }

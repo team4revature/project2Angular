@@ -11,9 +11,12 @@ import { Story } from '../../models/story.model';
 export class ProjectPageSwimlanesComponent implements OnInit {
   @Input() board;
 
-  constructor() { 
+  //handler for child output
+  newSwimlaneEvent(swimlane: Swimlane) {
+    this.board.swimlanes.push(swimlane);
   }
 
-  ngOnInit() {
-  }
+  constructor() { }
+
+  ngOnInit() { }
 }

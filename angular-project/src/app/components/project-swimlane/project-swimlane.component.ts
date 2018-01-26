@@ -17,10 +17,6 @@ export class ProjectSwimlaneComponent implements OnInit {
 
   ngOnInit() { }
 
-  addStory() {
-      this.swimlane.stories.push(new Story("Story 2", 5));
-  }
-
   newStoryEvent(story: Story) {
     this.swimlane.stories.push(story);
     console.log('in update swimlane');
