@@ -22,7 +22,7 @@
       
             <!-- Modal body -->
             <div class="modal-body" *ngIf='story'>
-              <app-view-story  [story]="story"></app-view-story>
+              <app-view-story  [story]="story" [tasks]="story.tasks"></app-view-story>
             </div>
       
             <!-- Modal footer -->

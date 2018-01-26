@@ -8,7 +8,6 @@ import { BoardPageComponent } from './components/board-page/board-page.component
 import { projection } from '@angular/core/src/render3/instructions';
 import { ProjectPageComponent } from './components/project-page/project-page.component';
 import { ProjectSwimlaneComponent } from './components/project-swimlane/project-swimlane.component';
-import { ViewStoryComponent } from './components/view-story/view-story.component';
 import { ModalComponent } from './components/modal/modal.component';
 
 const appRoutes: Routes = [
@@ -17,9 +16,8 @@ const appRoutes: Routes = [
   { path:'boardpage', component: BoardPageComponent}, 
   { path:'', redirectTo: '/login', pathMatch: 'full'},
   { path:'projectpage', component: ProjectPageComponent}, 
-  { path:'swimlane', component: ProjectSwimlaneComponent },
-  { path:'view-story', component: ViewStoryComponent }, 
-  { path: 'modal', component: ModalComponent }
+  { path:'swimlane', component: ProjectSwimlaneComponent }, 
+  { path:'view-story', component: StoryComponent }
 ];
 
 @NgModule({
