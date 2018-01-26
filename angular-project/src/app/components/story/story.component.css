@@ -3,15 +3,6 @@ div {
     width: 500px;
 }
 
-/* mat-card-subtitle, mat-card-title, p{
-    background-color: powderblue;
-
-} */
-
-/* #story {
-    height: 100vh;
-} */
-
 #story {
     border-width: 2px;
     border-color: black;
@@ -20,8 +11,8 @@ div {
     color: black;
 }
 
-#card2{
-    background-color: powderblue;
+#card2 {
+    background-color: white;
 }
 
 button {
