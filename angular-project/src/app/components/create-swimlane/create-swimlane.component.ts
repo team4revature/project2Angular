@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProjectService } from '../../services/project.service';
 import { Board } from '../../models/board.model';
 import { Swimlane } from '../../models/swimlane.model';
@@ -11,7 +11,10 @@ import { Swimlane } from '../../models/swimlane.model';
 
 export class CreateSwimlaneComponent implements OnInit {
   createIsOpen: boolean = false;
+  @Input() 
   board: Board;
+  @Output()
+  createSwimlaneEvent = new EventEmitter<Swimlane>();
   swimlane: Swimlane;
 
   constructor(private projectService: ProjectService) { }
@@ -24,21 +27,26 @@ export class CreateSwimlaneComponent implements OnInit {
     this.createIsOpen = !this.createIsOpen;
   }
 
+  sendNewSwimlane() {
+    this.createSwimlaneEvent.emit(this.swimlane);
+  }
+
   addSwimlane() {
     //if empty then can't submit
     //potentially some popup alert
     if (this.swimlane.swimlaneName.length < 1) { 
-      console.log('swimlane name is empty');
+      this.toggleCreate();
       return; 
     }
 
-    console.log('preparing to send swimlane ' + this.swimlane.swimlaneName);
-    /*this.projectService.createSwimLane(this.board, this.swimlane)
+    this.projectService.createSwimLane(this.board, this.swimlane)
       .subscribe(
       data => {
         this.swimlane = data;
-      })*/
-    //send this data back
-    //this.board.swimlanes.concat(this.swimlane);
+      })
+      this.sendNewSwimlane();
+      //new story object so that it no longer references sent object
+      this.swimlane = new Swimlane("");
+      this.toggleCreate();
   }
 }

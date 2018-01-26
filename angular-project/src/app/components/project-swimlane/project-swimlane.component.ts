@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Story } from '../../models/story.model';
+import { Swimlane } from '../../models/swimlane.model';
 
 @Component({
   selector: 'app-project-swimlane',
@@ -7,22 +8,23 @@ import { Story } from '../../models/story.model';
   styleUrls: ['./project-swimlane.component.css']
 })
 export class ProjectSwimlaneComponent implements OnInit {
+  @Input()
+  swimlane: Swimlane;
+  
+  stories: Story[] = []; 
 
-  stories : Story[] = []; 
+  constructor() { }
 
-  constructor() { 
-      this.stories.push(new Story(0, "Story 1", 10)); 
-      this.stories.push(new Story(1, "Story 2", 5)); 
-  }
+  ngOnInit() { }
 
-  ngOnInit() {
-  }
-
-  addStory() {
-      this.stories.push(new Story(2, "Story 2", 5)); 
+  newStoryEvent(story: Story) {
+    this.swimlane.stories.push(story);
+    console.log('in update swimlane');
+    console.log(this.swimlane);
   }
 
   onDelete(agreed: boolean) {
+    this.swimlane.stories.pop();
     this.stories.pop(); 
   }
 }

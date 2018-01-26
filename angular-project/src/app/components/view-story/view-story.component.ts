@@ -14,7 +14,7 @@ export class ViewStoryComponent implements OnInit {
 
   constructor() { 
       //Mock a story 
-      this.story = new Story(0, "My Story", 10); 
+      this.story = new Story("My Story", 10); 
 
       //Mock a couple initial tasks
       this.tasks.push(new Task(0, "Task 1")); 
