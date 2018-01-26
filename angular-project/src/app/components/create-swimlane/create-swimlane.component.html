@@ -6,11 +6,11 @@
     <mat-card>
         <input class="form-control input-lg" type="text" 
             [(ngModel)]="swimlane.swimlaneName" placeholder="New List">
-        <button class="btn" type="submit" (click)="createService()">
+        <button class="btn" type="submit" (click)="addSwimlane()">
             Submit
         </button>
-        <button class="btn" type="reset" (click)="toggleCreate()">
-            Close
+        <button class="btn close" type="reset" aria-label="Close" (click)="toggleCreate()">
+            <span aria-hidden="true">&times;</span>
         </button>
 
     </mat-card>

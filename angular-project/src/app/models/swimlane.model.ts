@@ -6,6 +6,8 @@ export class Swimlane {
     stories: Story[];
 
     constructor (swimlaneName: string) {
+        this.sid = 0;
         this.swimlaneName = swimlaneName;
+        this.stories = [];
     }
 }

@@ -6,8 +6,8 @@ export class Story {
     difficulty: number;
     tasks: Task[] = []; 
 
-    constructor(stId: number, storyName: string, difficulty: number) {
-        this.stId = stId;
+    constructor(storyName: string, difficulty: number) {
+        this.stId = 0;
         this.storyName = storyName;
         this.difficulty = difficulty;
     }
