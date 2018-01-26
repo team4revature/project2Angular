@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProjectService } from '../../services/project.service';
 import { Board } from '../../models/board.model';
 import { Swimlane } from '../../models/swimlane.model';
@@ -11,7 +11,7 @@ import { Swimlane } from '../../models/swimlane.model';
 
 export class CreateSwimlaneComponent implements OnInit {
   createIsOpen: boolean = false;
-  board: Board;
+  @Input() board: Board;
   swimlane: Swimlane;
 
   constructor(private projectService: ProjectService) { }
@@ -32,7 +32,8 @@ export class CreateSwimlaneComponent implements OnInit {
       return; 
     }
 
-    console.log('preparing to send swimlane ' + this.swimlane.swimlaneName);
+    console.log('preparing to send swimlane ' + this.swimlane.swimlaneName
+      + ' to board ' + this.board.bid);
     this.projectService.createSwimLane(this.board, this.swimlane)
       .subscribe(
       data => {

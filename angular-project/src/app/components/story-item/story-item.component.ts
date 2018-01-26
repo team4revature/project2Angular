@@ -14,7 +14,7 @@ export class StoryItemComponent implements OnInit {
 
   ngOnInit() {
     //TODO: get story from Input or Service
-    this.story = new Story(50, "My story", 10); 
+    this.story = new Story("My story", 10); 
   }
 
 }

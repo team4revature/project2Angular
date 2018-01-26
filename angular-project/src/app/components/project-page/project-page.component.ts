@@ -22,8 +22,8 @@ export class ProjectPageComponent implements OnInit {
     private projectService: ProjectService) { }
 
   ngOnInit() {
-    this.userService.getUser().subscribe(user => this.user = user);
-    this.projectService.getBoard(1)
+    this.userService.getUser(localStorage.getItem('username')).subscribe(user => this.user = user);
+    this.projectService.getBoard(8)
       .subscribe( 
         data => { 
           this.board = data;

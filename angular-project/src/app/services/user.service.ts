@@ -23,7 +23,7 @@ export class UserService {
 
     //username: string;
     //for testing
-    username: string = 'sean';
+    username: string = 'larry';
     // Injecting the http object
     constructor(private http: HttpClient) { }
 
@@ -34,6 +34,7 @@ export class UserService {
             response => {
                 user = <User>JSON.parse(JSON.stringify(response.body));
                 this.username = user.username;
+                localStorage.setItem('username', this.username);
             }
             );
         /*
@@ -47,14 +48,15 @@ export class UserService {
         .catch(this.handleError);*/
     }
 
-    public getUser(): Observable<User> {
-        const myHttpOptions = {
+    //get user by username
+    public getUser(username: string): Observable<User> {
+       /* const myHttpOptions = {
             headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
             observe: 'response' as 'response',
             params: new HttpParams().set('id', this.username)
-        };
+        };*/
 
-        return this.http.get(getUserUrl + this.username, httpOptions)
+        return this.http.get(getUserUrl + username, httpOptions)
             .map(response => {
                 console.log(response);
                 return JSON.parse(JSON.stringify(response.body));

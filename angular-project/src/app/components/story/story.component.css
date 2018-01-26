@@ -11,10 +11,26 @@ div {
 /* #story {
     height: 100vh;
 } */
+
 #story {
-    background-color: grey;
+    border-width: 2px;
+    border-color: black;
+    background-color: white;
+    margin-top: 2px;
+    color: black;
 }
 
 #card2{
     background-color: powderblue;
+}
+
+button {
+    background-color: red; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }

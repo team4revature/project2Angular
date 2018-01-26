@@ -3,8 +3,8 @@ export class Story {
     storyName: string;
     difficulty: number;
 
-    constructor(stId: number, storyName: string, difficulty: number) {
-        this.stId = stId;
+    constructor(storyName: string, difficulty: number) {
+        this.stId = 0;
         this.storyName = storyName;
         this.difficulty = difficulty;
     }

@@ -7,9 +7,14 @@ export class Board {
     swimlanes: Swimlane[];
     scrumMaster: User;
     scrumProductOwner: User;
-    scrumTeam: User;
+    scrumTeam: User[];
 
     constructor(boardName: string) {
+        this.bid = 0;
         this.boardName = boardName;
+        this.swimlanes = [];
+        this.scrumMaster = null;
+        this.scrumProductOwner = null;
+        this.scrumTeam = null;
     }
 }
