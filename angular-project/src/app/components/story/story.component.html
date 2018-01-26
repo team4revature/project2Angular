@@ -1,7 +1,7 @@
 <mat-card id="story"> 
-    <mat-card-title>Story Name: {{ story.storyName }} </mat-card-title>
-    <mat-card-subtitle> Story Id: {{ story.stId }} </mat-card-subtitle>
-    <p> Story Difficulty: {{ story.difficulty }} </p> 
+    <p id="title">{{story.stId}} {{ story.storyName }} </p>
+    <!-- <mat-card-subtitle> Story Id: {{ story.stId }} </mat-card-subtitle> -->
+    <!-- <p> Story Difficulty: {{ story.difficulty }} </p>  -->
     <button class="btn btn-primary" (click)="deleteStory()"> Delete </button>
     <button type="button" id="editStoryButton" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             Edit Story
