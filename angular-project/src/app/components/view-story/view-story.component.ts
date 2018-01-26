@@ -9,28 +9,22 @@ import { Story } from '../../models/story.model';
 })
 export class ViewStoryComponent implements OnInit {
 
-  //@Input() tasks : Task[] = []; 
   @Input() story : Story; 
 
-  constructor() { 
+  constructor() {
       //Mock a story 
       this.story = new Story("My Story", 10); 
-
-      //Mock a couple initial tasks
-      this.tasks.push(new Task(0, "Task 1")); 
-      this.tasks.push(new Task(1, "Task 2")); 
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   addTask(input : string) { 
-      this.tasks.push(new Task(this.tasks.length, input)); //"Task " + (this.tasks.length+1))); 
+      this.story.tasks.push(new Task(this.story.tasks.length, input));
   }
 
   deleteTask(m_task: Task) {
-    var index = this.tasks.indexOf(m_task);
-    this.tasks.splice(index, 1);
-  } 
-
+    var index = this.story.tasks.indexOf(m_task);
+    this.story.tasks.splice(index, 1);
+  }
+  
 }

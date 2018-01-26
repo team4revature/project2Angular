@@ -21,7 +21,7 @@
     <br/>
     <br/> 
 
-    <app-task *ngFor="let task of tasks" [task]="task" (onDelete)="deleteTask($event)">
+    <app-task *ngFor="let task of story.tasks" [task]="task" (onDelete)="deleteTask($event)">
     </app-task>
     <!-- </div> -->
 
