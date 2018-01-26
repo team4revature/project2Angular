@@ -9,7 +9,7 @@ import { Story } from '../../models/story.model';
 })
 export class ViewStoryComponent implements OnInit {
 
-  @Input() tasks : Task[] = []; 
+  //@Input() tasks : Task[] = []; 
   @Input() story : Story; 
 
   constructor() { 
