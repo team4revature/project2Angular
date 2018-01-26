@@ -9,9 +9,9 @@ import { Board } from '../models/board.model';
 @Injectable()
 export class BoardListService {
   constructor(private http: HttpClient) { }
-  private _url  = 'http://localhost:80/api/v1/user/1';
-  getBoardListByUser(): Observable<User[]> {
+  private _url  = 'http://localhost:80/api/v1/getboards/1';
+  getBoardListByUser(): Observable<Board[]> {
 
-    return this.http.get<User[]>(this._url);
+    return this.http.get<Board[]>(this._url);
    }
 }

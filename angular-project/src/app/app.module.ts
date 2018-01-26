@@ -22,6 +22,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { ProjectSwimlaneComponent } from './components/project-swimlane/project-swimlane.component';
 
+import { ModalModule } from 'ngx-bootstrap';
 
 // services
 import { UserService } from './services/user.service';
@@ -34,6 +35,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { UserStoriesService } from './services/user-stories.service';
 import { BoardListService } from './services/board-list-service.service';
 import { CreateSwimlaneComponent } from './components/create-swimlane/create-swimlane.component';
+import { UserListServiceService } from './services/user-list-service.service';
+
 import { ProjectPageSwimlanesComponent } from './components/project-page-swimlanes/project-page-swimlanes.component';
 import { ProjectService } from './services/project.service';
 import { ViewStoryComponent } from './components/view-story/view-story.component';
@@ -54,6 +57,7 @@ import { ModalComponent } from './components/modal/modal.component';
     ProjectSwimlaneComponent,
     CreateSwimlaneComponent,
     UserStoriesComponent,
+    HeaderComponent,
     ProjectPageSwimlanesComponent,
     ViewStoryComponent,
     TaskComponent,
@@ -69,9 +73,10 @@ import { ModalComponent } from './components/modal/modal.component';
     MatGridListModule, 
     MatInputModule,
     MatTabsModule, 
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ModalModule.forRoot()
   ],
-  providers: [UserService, BoardListService, UserStoriesService, ProjectService],
+  providers: [UserService, BoardListService, UserStoriesService, UserListServiceService,ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
