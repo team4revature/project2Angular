@@ -12,7 +12,7 @@ import { UserStoriesService } from '../../services/user-stories.service';
 export class StoryComponent implements OnInit {
 
   @Input() story: Story; 
-  @Output() onDelete = new EventEmitter<boolean>();
+  @Output() onDelete = new EventEmitter<Story>();
 
   constructor(private storyService: UserStoriesService) {
     this.story = new Story(1, "Example Story", 10)
@@ -20,14 +20,13 @@ export class StoryComponent implements OnInit {
 
   ngOnInit() { 
     //new Story(50, "My Story", 10); 
-    //this.story = new Story(50, "My story", 10); 
-    this.storyService.getStoryInformation(0).subscribe(
-      service => this.story = service
-    ); 
+    this.story = new Story(50, "Mock story", 10); 
+    //this.storyService.getStoryInformation(0).subscribe(
+    //  service => this.story = service
+    //); 
   }
 
-
   deleteStory(){
-    this.onDelete.emit(true); 
+    this.onDelete.emit(this.story); 
   }
 }
