@@ -1,0 +1,71 @@
+/* Style the div container so that it's scrollable and centered */ 
+/* #container {
+    height: 100px;
+    width: 500px; */
+
+    /* CSS to center the div element */ 
+    /* position: fixed; */
+
+    /* height: 80%;  */
+    /* margin-top: 10%;  */
+    /* margin-bottom: 10%;  */
+
+    /* width: 50%; Set your desired with */
+    /* z-index: 2; Make sure its above other items. */
+    /* top: 50%; */
+    /* left: 50%; */
+    /* bottom: 20%;  */
+    /* margin-top: -10%; Changes with height. */
+    /* margin-left: -25%; Your width divided by 2. */
+    
+    /* need to scroll */ 
+    /* overflow: auto; */
+/* } */
+
+/* Used to color and set border for the container card.*/ 
+#card {
+    border-width: 2px;
+    border-color: black;
+    background-color: darkslategrey;
+    margin-top: 2px; 
+}
+
+/* Used for the input field */ 
+.example-form {
+    background-color: white; 
+    text-decoration-color: black; 
+    color:black; 
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+    
+/* Used for the task cards and Add a task card */ 
+#input_card{
+    background-color: teal;
+}
+
+/* For Add a task button */ 
+#addTaskButton {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    margin-top: 10px; 
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#saveTitleButton{ 
+    background-color: turquoise; /* Green */
+    border: none;
+    color: white;
+    padding: 7px 12px;
+    text-align: center;
+    margin-top: 10px; 
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; 
+}

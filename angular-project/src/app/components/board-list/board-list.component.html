@@ -1,0 +1,31 @@
+<label class="bList">Personal Boards</label>
+<ul class="nav nav-justified">
+  <li  *ngFor="let board of boards"  >
+    <app-board-item [bName]=board.boardName [bid]=board.bid></app-board-item>
+  </li>
+  <br/>
+  <li class="default" (click)="staticModal.show()">
+    <button class="default bnt-lg .btn-block" type="button" 
+    class="btn btn-primary btn-xl" (click)="staticModal.show()">Create New Board</button>
+  </li>
+  
+</ul>
+
+<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title pull-left"><font color="black">Enter board name:</font></p>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" [(ngModel)]="bIn">
+        <input type="button" class = "btn" value="Create" (click)="createBoard()" (click)="staticModal.hide()">
+      </div>
+    </div>
+  </div>
+</div>
+

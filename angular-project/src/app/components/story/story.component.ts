@@ -1,15 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+import { Story } from '../../models/story.model';
+import { UserStoriesService } from '../../services/user-stories.service';
 
 @Component({
   selector: 'app-story',
   templateUrl: './story.component.html',
   styleUrls: ['./story.component.css']
 })
+
 export class StoryComponent implements OnInit {
 
-  constructor() { }
+  @Input() story: Story; 
+  @Output() onDelete = new EventEmitter<Story>();
 
-  ngOnInit() {
+  constructor(private storyService: UserStoriesService) {
+   } 
+
+  ngOnInit() { 
+    //new Story(50, "My Story", 10); 
+    //this.story = new Story("Mock story", 10); 
+    //this.storyService.getStoryInformation(0).subscribe(
+    //  service => this.story = service
+    //); 
   }
 
+  deleteStory(){
+    this.onDelete.emit(this.story); 
+  }
 }
