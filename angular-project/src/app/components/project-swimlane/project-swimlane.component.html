@@ -1,4 +1,4 @@
-<div class="swimlane">
+<div class="swimlane" [dragula]='"bag-one"'>
     <app-story *ngFor="let story of swimlane.stories" [story]=story (onDelete)="onDelete($event)">
     </app-story>
     <app-create-story (createStoryEvent)="newStoryEvent($event)" 

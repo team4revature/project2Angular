@@ -24,6 +24,9 @@ import { ProjectSwimlaneComponent } from './components/project-swimlane/project-
 
 import { ModalModule } from 'ngx-bootstrap';
 
+// drag and Drop 
+import { DragulaModule } from 'ng2-dragula/ng2-dragula';
+
 // services
 import { UserService } from './services/user.service';
 import { BoardPageComponent } from './components/board-page/board-page.component';
@@ -76,6 +79,7 @@ import { CreateStoryComponent } from './components/create-story/create-story.com
     MatInputModule,
     MatTabsModule, 
     BrowserAnimationsModule,
+    DragulaModule,    
     ModalModule.forRoot()
   ],
   providers: [UserService, BoardListService, UserStoriesService, UserListServiceService,ProjectService],
