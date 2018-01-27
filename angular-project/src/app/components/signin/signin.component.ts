@@ -21,8 +21,8 @@ export class SigninComponent implements OnInit {
   }
 
   login() {
-    console.log("starting login");
+
     this.userService.login(this.user)
-    console.log("fuck this" , this.userId);
+
   }
 }

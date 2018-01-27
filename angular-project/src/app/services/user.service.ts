@@ -25,7 +25,7 @@ export class UserService {
     //username: string;
     //for testing
     username: string = 'larry';
-   
+    userId: string;
     router: Router;
 
     // Injecting the http object
@@ -39,6 +39,7 @@ export class UserService {
                 user = <User>JSON.parse(JSON.stringify(response.body));
                 this.username = user.username;
                 localStorage.setItem('username', this.username);
+                localStorage.setItem('userId' , user.uid.toString());
             }
             );
         /*
