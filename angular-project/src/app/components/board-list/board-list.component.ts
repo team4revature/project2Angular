@@ -7,9 +7,10 @@ import { RequestOptions, RequestMethod, Http, Response } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http/src/module';
 import { Headers } from '@angular/http/src/headers';
-
+import { Location } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { UserListServiceService } from '../../services/user-list-service.service';
+import { Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -29,13 +30,14 @@ export class BoardListComponent implements OnInit {
   public user: User;
   public bIn: string;
   
-  constructor(private _boardListService: BoardListService, public http: HttpClient, private _userListService: UserListServiceService ) {}
+  constructor(private _boardListService: BoardListService, public http: HttpClient, private _userListService: UserListServiceService,
+  private router: Router ) {}
 
   ngOnInit() {
   this._boardListService.getBoardListByUser().subscribe(data => this.boards=data);
-    console.log(this.boards);
+
    this._userListService.getUser().subscribe(data=> this.user=data);
-    console.log(this.user);
+
     
       
   }
@@ -43,14 +45,15 @@ export class BoardListComponent implements OnInit {
   
   createBoard(){
     let boardD = new Board(null,this.bIn, null, this.user, null, null);
-    console.log(this.user);
-    console.log(this.boards);
+
     //console.log(boardD);
     this.user.boards.push(boardD);
     let s: string = this.circular(boardD);
     //console.log('boardL ' + s);
     let surl: string = 'http://localhost:80/api/v1/createBoard';
    this.http.post(surl,s,httpOptions ).subscribe();
+ 
+   window.location.href = "/boardpage";
    //console.log(this.user);
   }
 
@@ -68,5 +71,9 @@ export class BoardListComponent implements OnInit {
       return value;
     });
   };
+
+  reload(){
+    this.router.navigate(["boardpage"]);
+  }
 
 }
