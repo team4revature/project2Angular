@@ -15,8 +15,7 @@ const appRoutes: Routes = [
   { path:'boardpage', component: BoardPageComponent}, 
   { path:'', redirectTo: '/login', pathMatch: 'full'},
   { path:'projectpage', component: ProjectPageComponent}, 
-  { path:'swimlane', component: ProjectSwimlaneComponent }, 
-  { path:'view-story', component: StoryComponent }
+  { path:'swimlane', component: ProjectSwimlaneComponent }
 ];
 
 @NgModule({

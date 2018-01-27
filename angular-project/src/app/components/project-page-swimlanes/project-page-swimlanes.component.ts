@@ -14,9 +14,26 @@ export class ProjectPageSwimlanesComponent implements OnInit {
   //handler for child output
   newSwimlaneEvent(swimlane: Swimlane) {
     this.board.swimlanes.push(swimlane);
+    console.log(this.board.swimlanes); 
   }
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() { }
+
+  onDrop(my_obj : Object){
+    console.log("Component Was Dropped: " + JSON.stringify(my_obj)); 
+  }
+
+  onDrag(my_obj : Object) {
+    console.log("Component Was Dragged: " + JSON.stringify(my_obj)); 
+  }
+
+  getSwimLaneIdWithStory(m_story_id: number) {
+    for(const m_swimlane of this.board.swimlanes) {
+      //if()
+    }
+  }
+
 }
