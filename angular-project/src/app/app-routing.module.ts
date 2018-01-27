@@ -13,7 +13,7 @@ import { ModalComponent } from './components/modal/modal.component';
 const appRoutes: Routes = [
   { path:'login', component: SigninComponent }, 
   { path:'story', component: StoryComponent }, 
-  { path:'boardpage', component: BoardPageComponent}, 
+  { path:'boardpage/:uid', component: BoardPageComponent}, 
   { path:'', redirectTo: '/login', pathMatch: 'full'},
   { path:'projectpage/:bid', component: ProjectPageComponent}, 
   { path:'swimlane', component: ProjectSwimlaneComponent }, 

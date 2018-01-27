@@ -1,7 +1,7 @@
 import { Board } from '../models/board.model';
 
 export class User {
-    id: number;
+    uid: number;
     username: string;
     password: string;
     email: string;
@@ -9,9 +9,9 @@ export class User {
     lastname: string;
     boards: Board[];
 
-    constructor(id: number, username: string, password: string, email: string,
+    constructor(uid: number, username: string, password: string, email: string,
         firstname: string, lastname: string, boards: Board[]) {
-        this.id = id;
+        this.uid = uid;
         this.username = username;
         this.email = email;
         this.firstname = firstname;

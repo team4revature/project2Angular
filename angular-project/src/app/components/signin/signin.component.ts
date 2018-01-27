@@ -11,7 +11,9 @@ import { UserService } from '../../services/user.service';
 })
 export class SigninComponent implements OnInit {
   user: User;
-
+  userDTO: User;
+  username: string;
+  userId: number;
   constructor(private userService: UserService) { }
 
   ngOnInit() {
@@ -19,6 +21,8 @@ export class SigninComponent implements OnInit {
   }
 
   login() {
-    this.userService.login(this.user);
+    console.log("starting login");
+    this.userService.login(this.user)
+    console.log("fuck this" , this.userId);
   }
 }

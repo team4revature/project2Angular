@@ -8,6 +8,7 @@ import 'rxjs/Rx';
 // Models
 import { User } from '../models/user.model';
 import { Token } from '../models/token.model';
+import { Router } from '@angular/router';
 
 //observe required to see all headers and body
 const httpOptions = {
@@ -17,13 +18,16 @@ const httpOptions = {
 
 const loginUrl = 'http://localhost:80/api/v1/login';
 const getUserUrl = 'http://localhost:80/api/v1/userName/';
-
+const getUserByIdURI= 'http://localhost:80/api/v1/user/';
 @Injectable()
 export class UserService {
 
     //username: string;
     //for testing
     username: string = 'larry';
+   
+    router: Router;
+
     // Injecting the http object
     constructor(private http: HttpClient) { }
 
@@ -63,6 +67,19 @@ export class UserService {
             });
     }
 
+    public getUserbyId(uid: number): Observable<User> {
+        /* const myHttpOptions = {
+             headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+             observe: 'response' as 'response',
+             params: new HttpParams().set('id', this.username)
+         };*/
+ 
+         return this.http.get(getUserByIdURI + uid, httpOptions)
+             .map(response => {
+                 console.log(response);
+                 return JSON.parse(JSON.stringify(response.body));
+             });
+     }
 
     private handleError(error: Response) {
         return Observable.throw(error.statusText);
