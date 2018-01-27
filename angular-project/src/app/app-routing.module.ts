@@ -15,7 +15,7 @@ const appRoutes: Routes = [
   { path:'story', component: StoryComponent }, 
   { path:'boardpage', component: BoardPageComponent}, 
   { path:'', redirectTo: '/login', pathMatch: 'full'},
-  { path:'projectpage', component: ProjectPageComponent}, 
+  { path:'projectpage/:bid', component: ProjectPageComponent}, 
   { path:'swimlane', component: ProjectSwimlaneComponent }, 
   { path:'view-story', component: StoryComponent }
 ];
