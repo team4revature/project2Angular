@@ -19,7 +19,7 @@ export class StoryComponent implements OnInit {
 
   ngOnInit() { 
     //new Story(50, "My Story", 10); 
-    this.story = new Story("Mock story", 10); 
+    //this.story = new Story("Mock story", 10); 
     //this.storyService.getStoryInformation(0).subscribe(
     //  service => this.story = service
     //); 
