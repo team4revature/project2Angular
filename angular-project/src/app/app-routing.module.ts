@@ -17,7 +17,7 @@ const appRoutes: Routes = [
 
   { path:'burndown', component: BurndownComponent }, // David Graves
   { path:'', redirectTo: '/login', pathMatch: 'full'},
-  { path:'boardpage', component: BoardPageComponent}, 
+  { path:'boardpage/:uid', component: BoardPageComponent}, 
   { path:'', redirectTo: '/login', pathMatch: 'full'},
   { path:'projectpage/:bid', component: ProjectPageComponent}, 
   { path:'swimlane', component: ProjectSwimlaneComponent }, 
