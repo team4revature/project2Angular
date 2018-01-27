@@ -66,7 +66,13 @@ export class BurndownService {
         getHistory(): Observable<History[]> { // change out for real data
             
             return this.http
-            .get<History[]>(this.url);
+            .get<History[]>(this.url, {withCredentials: true});
+
+            // return this.http
+            // .get(this.url, {withCredentials: true})
+            // .map((response: Response) => {
+            //     return <History[]> response.json();
+          //  });
         }
 //             .map((response: Response) => {
 // //                console.log('' + response.json());
