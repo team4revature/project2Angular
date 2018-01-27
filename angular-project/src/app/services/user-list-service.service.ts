@@ -7,9 +7,9 @@ import { User } from '../models/user.model';
 export class UserListServiceService {
 
   constructor(private http: HttpClient) { }
-  private _url  = 'http://localhost:80/api/v1/user/1';
-  getUser(): Observable<User> {
+  private _url  = 'http://localhost:80/api/v1/user/';
+  getUser(userId: number): Observable<User> {
 
-    return this.http.get<User>(this._url);
+    return this.http.get<User>(this._url+userId);
    }
 }

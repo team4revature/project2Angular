@@ -32,7 +32,7 @@ export class ProjectPageComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUser(localStorage.getItem('username')).subscribe(user => this.user = user);
-    this.projectService.getBoard(8)
+    this.projectService.getBoard(this.bid)  
       .subscribe( 
         data => { 
           this.board = data;
