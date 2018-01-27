@@ -10,26 +10,7 @@ import { Http, Response } from '@angular/http';
 import { History } from '../models/history.model';
 // import { Board } from '../models/board.model';
 
-/*
-import { Http, Response } from '@angular/http';
-import { Flashcardz } from './../models/flashcardz.model';
 
-@Injectable()
-export class FlashcardzService {
-  url = `http://localhost:8080/FlashCardAPI/api/v1/flashcard/all`;
-
-  //injecting dependencies
-  constructor(private http: Http) { }
-
-  getAllFlashcardz(): Observable<Flashcardz[]> {
-      return this.http
-      .get(this.url)
-      //must import response datatype
-      .map((response: Response) => {
-        return <Flashcardz[]> response.json();
-      });
-
-*/
 
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -68,48 +49,8 @@ export class BurndownService {
             return this.http
             .get<History[]>(this.url, {withCredentials: true});
 
-            // return this.http
-            // .get(this.url, {withCredentials: true})
-            // .map((response: Response) => {
-            //     return <History[]> response.json();
-          //  });
         }
-//             .map((response: Response) => {
-// //                console.log('' + response.json());
-//                 return <History[]> response.json();
-//             });
 
-            // this.getBoard().subscribe(board1 =>{ this.argBoard = board1; 
-            //     this.extractHistory(this.argBoard.burnDown); return of(board1.burnDown); });
-            
-            /*
-            this.burndownService.getHistory()
-            .subscribe(history1 =>{ this.history = history1; this.bindData(); });
-
-
-            */
-            
-            //return of(HISTORY);
-        
-
-        // extractHistory(boardHistory: History[]){
-
-        //     // let url3 = this.url2;
-
-        //     this.argHistory = boardHistory;
-
-        //     // for(const h of boardHistory) {
-        //     // }
-        // }
-
-        // getBoard(): Observable<Board> {
-        //     return this.http
-        //     .get(this.url)
-        //     .map((response: Response) => {
-        //         return <Board> response.json();
-        //     });
-
-        // }
     
         private handleError(error: Response) {
             return Observable.throw(error.statusText);

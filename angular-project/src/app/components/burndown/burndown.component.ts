@@ -58,31 +58,14 @@ export class BurndownComponent implements OnInit {
                 fill: false,
                 borderColor: '#4bc0c0'
             } // ,
-            // {
-            //     label: 'Second Dataset',
-            //     data: [28, 48, 40, 19, 86, 27, 90],
-            //     fill: false,
-            //     borderColor: '#565656'
-            // }
         ]
-    };
-
-      // for(let i = 0; i < arrayLength; i++) {
-
-      //   this.chartData[i] = history[i].value;
-      //   this.chartLabels[i] = history[i].key;
-      // }
-      
-      
+      };      
     }
 
   constructor(private burndownService: BurndownService) { // added service to constructor
     
     this.chartData = [0];
     this.chartLabels = [''];
-    
-    
-    
    }
 
    selectData(event) {
