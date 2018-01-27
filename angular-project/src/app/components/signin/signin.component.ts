@@ -13,6 +13,9 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent implements OnInit {
   user: User;
+  userDTO: User;
+  username: string;
+  userId: number;
 
   constructor(private userService: UserService, private router: Router) { }
 

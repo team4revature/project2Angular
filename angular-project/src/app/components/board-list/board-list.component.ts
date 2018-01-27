@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BoardListService } from '../../services/board-list-service.service';
 import { BoardItemComponent } from '../board-item/board-item.component';
 import { User } from '../../models/user.model';
@@ -12,6 +12,7 @@ import { UserService } from '../../services/user.service';
 import { UserListServiceService } from '../../services/user-list-service.service';
 import { Router } from '@angular/router';
 
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   observe: 'response' as 'response'
@@ -23,37 +24,33 @@ const httpOptions = {
   styleUrls: ['./board-list.component.css']
 })
 export class BoardListComponent implements OnInit {
+  @Input()boards;
+  @Input()user;
   userDTO: any;
   apiURL: any;
 
-  public  boards: Board[];
-  public user: User;
-  public bIn: string;
   
-  constructor(private _boardListService: BoardListService, public http: HttpClient, private _userListService: UserListServiceService,
-  private router: Router ) {}
+ // public user: User;
+  public bIn: string;
+  public uid: number;
+  router: Router;
+  constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-  this._boardListService.getBoardListByUser().subscribe(data => this.boards=data);
-
-   this._userListService.getUser().subscribe(data=> this.user=data);
-
-    
-      
+  ngOnInit() {      
   }
 
   
   createBoard(){
     let boardD = new Board(null,this.bIn, null, this.user, null, null);
-
+    console.log(this.user);
     //console.log(boardD);
     this.user.boards.push(boardD);
     let s: string = this.circular(boardD);
     //console.log('boardL ' + s);
     let surl: string = 'http://localhost:80/api/v1/createBoard';
    this.http.post(surl,s,httpOptions ).subscribe();
- 
-   window.location.href = "/boardpage";
+   window.location.reload();
+  // window.location.href = "/boardpage";
    //console.log(this.user);
   }
 
@@ -71,9 +68,5 @@ export class BoardListComponent implements OnInit {
       return value;
     });
   };
-
-  reload(){
-    this.router.navigate(["boardpage"]);
-  }
 
 }

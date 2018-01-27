@@ -6,6 +6,7 @@ import 'rxjs/Rx';
 // Models
 import { User } from '../models/user.model';
 import { Token } from '../models/token.model';
+import { Router } from '@angular/router';
 
 //observe required to see all headers and body
 const httpOptions = {
@@ -15,6 +16,7 @@ const httpOptions = {
 
 const loginUrl = 'http://localhost:80/api/v1/login';
 const getUserUrl = 'http://localhost:80/api/v1/userName/';
+const getUserByIdURI= 'http://localhost:80/api/v1/user/';
 
 @Injectable()
 export class UserService {
@@ -22,7 +24,7 @@ export class UserService {
     //for testing
     username: string = 'larry';
     // Injecting the http object
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private router: Router) {
         this.init();
     }
 
@@ -34,12 +36,15 @@ export class UserService {
         this.http.post<any>(loginUrl,
             JSON.stringify({ username: user.username, password: user.password }),
             httpOptions).subscribe(
-            response => {
-                user = <User>JSON.parse(JSON.stringify(response.body));
-                this.username = user.username;
-                localStorage.setItem('username', this.username);
-            }
-            );
+                response => {
+                    user = <User>JSON.parse(JSON.stringify(response.body));
+                    this.username = user.username;
+                    localStorage.setItem('username', this.username);
+                    localStorage.setItem('userId' , user.uid.toString());
+                    this.router.navigate(['','boardpage' , user.uid]);
+    
+                }
+                );
         }
 
             //get user by username
@@ -53,6 +58,15 @@ export class UserService {
     }
 
 
+    public getUserbyId(uid: number): Observable<User> {
+        
+ 
+         return this.http.get(getUserByIdURI + uid, httpOptions)
+             .map(response => {
+                 console.log(response);
+                 return JSON.parse(JSON.stringify(response.body));
+             });
+     }
         /*
     public get(user: User): Observable<User> {
         return this.http.get<User>(databaseUrl, httpOptions)
