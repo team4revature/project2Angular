@@ -11,7 +11,7 @@
 				<label for="inputPassword" class="sr-only">Password</label>
 				<input type="password" name="inputPassword" id="inputPassword" class="form-control form-control-lg" placeholder="Password"
 				 [(ngModel)]="user.password" required>
-				<button class="btn btn-block btn-lg" type="submit">Login</button>
+				<button class="btn btn-block btn-lg" (click)=login()>Login</button>
 			</form>
 		</div>
 	</div>

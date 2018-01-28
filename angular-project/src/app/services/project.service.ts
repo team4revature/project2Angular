@@ -8,6 +8,7 @@ import 'rxjs/Rx';
 import { Swimlane } from '../models/swimlane.model';
 import { Board } from '../models/board.model';
 import { Story } from '../models/story.model';
+import { Task } from '../models/task.model';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -16,6 +17,7 @@ const httpOptions = {
 const getBoardUrl = 'http://localhost:80/api/v1/board/';
 const createSwimLaneUrl = 'http://localhost:80/api/v1/board/addswimlane';
 const createStoryUrl = 'http://localhost:80/api/v1/swimlane/addstory';
+const createTaskUrl = 'http://localhost:80/api/v1/story/addtask';
 @Injectable()
 export class ProjectService {
 
@@ -37,6 +39,14 @@ export class ProjectService {
     public createStory(swimlane: Swimlane, story: Story): Observable<Swimlane> {
         return this.http.post<any>(createStoryUrl,
             JSON.stringify({ swimlaneId: swimlane.sid, story: story }), httpOptions)
+            .map(response => {
+                return JSON.parse(JSON.stringify(response.body));
+            })
+    }
+
+    public createTask(story: Story, task: Task): Observable<Swimlane> {
+        return this.http.post<any>(createTaskUrl,
+            JSON.stringify({ storyId: story.stId, task: task }), httpOptions)
             .map(response => {
                 return JSON.parse(JSON.stringify(response.body));
             })

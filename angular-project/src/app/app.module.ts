@@ -12,6 +12,19 @@ import { MatTabsModule} from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 
+
+import {ChartModule, GrowlModule} from 'primeng/primeng'; // David Graves
+
+// IF BURNDOWN DOESN'T WORK, TRY THIS
+// npm install primeng --save
+// npm install @angular/animations --save
+// 
+// PREVIOUSLY TRIED: SHOULD NOT NEED THIS
+// npm install ng2-charts --save
+// npm install chart.js --save
+// typings install dt~chart.js --save --global
+
+
 import { Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -28,6 +41,7 @@ import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 
 // services
 import { UserService } from './services/user.service';
+import { BurndownService } from './services/burndown.service'; // David Graves
 import { BoardPageComponent } from './components/board-page/board-page.component';
 import { BoardListComponent } from './components/board-list/board-list.component';
 import { BoardItemComponent } from './components/board-item/board-item.component';
@@ -65,7 +79,8 @@ import { CreateStoryComponent } from './components/create-story/create-story.com
     ViewStoryComponent,
     TaskComponent,
     ModalComponent,
-    CreateStoryComponent
+    CreateStoryComponent,
+    BurndownComponent, // David Graves
   ],
   imports: [
     BrowserModule,
@@ -79,10 +94,19 @@ import { CreateStoryComponent } from './components/create-story/create-story.com
     MatTabsModule, 
     BrowserAnimationsModule,
     DragulaModule,    
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+     //    NgbModule.forRoot(),
+     MatCardModule,
+     ChartModule, // David Graves
+     GrowlModule, // David Graves
+    //  AccordionModule, // David Graves
+     BrowserAnimationsModule // David Graves
   ],
-  providers: [UserService, BoardListService, UserStoriesService, UserListServiceService,ProjectService],
-  bootstrap: [AppComponent]
+  providers: [UserService, BoardListService, UserStoriesService, UserListServiceService,
+    ProjectService, BurndownService], // David Graves
+  bootstrap: [ AppComponent ]
+
+
 })
 export class AppModule {
   constructor(router: Router) {
