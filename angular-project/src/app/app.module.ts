@@ -13,7 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 
 
-//import {ChartModule, GrowlModule} from 'primeng/primeng'; // David Graves
+import {ChartModule, GrowlModule} from 'primeng/primeng'; // David Graves
 
 // IF BURNDOWN DOESN'T WORK, TRY THIS
 // npm install primeng --save
@@ -34,12 +34,14 @@ import { BurndownComponent } from './components/burndown/burndown.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { ProjectSwimlaneComponent } from './components/project-swimlane/project-swimlane.component';
-
 import { ModalModule } from 'ngx-bootstrap';
+
+// drag and Drop 
+import { DragulaModule } from 'ng2-dragula/ng2-dragula';
 
 // services
 import { UserService } from './services/user.service';
-//import { BurndownService } from './services/burndown.service'; // David Graves
+import { BurndownService } from './services/burndown.service'; // David Graves
 import { BoardPageComponent } from './components/board-page/board-page.component';
 import { BoardListComponent } from './components/board-list/board-list.component';
 import { BoardItemComponent } from './components/board-item/board-item.component';
@@ -77,8 +79,8 @@ import { TaskService } from './services/task.service';
     ViewStoryComponent,
     TaskComponent,
     ModalComponent,
-    CreateStoryComponent
-    //BurndownComponent, // David Graves
+    CreateStoryComponent,
+    BurndownComponent, // David Graves
   ],
   imports: [
     BrowserModule,
@@ -91,25 +93,24 @@ import { TaskService } from './services/task.service';
     MatInputModule,
     MatTabsModule, 
     BrowserAnimationsModule,
+    DragulaModule,    
     ModalModule.forRoot(),
      //    NgbModule.forRoot(),
      MatCardModule,
-    // ChartModule, // David Graves
-    // GrowlModule, // David Graves
+     ChartModule, // David Graves
+     GrowlModule, // David Graves
     //  AccordionModule, // David Graves
-     //BrowserAnimationsModule // David Graves
+     BrowserAnimationsModule // David Graves
   ],
   providers: [
     UserService, 
     BoardListService, 
-    StoryService, 
     UserListServiceService,
-   // UserStoriesService,
-    ProjectService,
-    SwimlaneService,
-    TaskService,
-    //BurndownService
-  ],
+    ProjectService, 
+    BurndownService, 
+    SwimlaneService, 
+    TaskService, 
+    StoryService], // David Graves
   bootstrap: [ AppComponent ]
 
 

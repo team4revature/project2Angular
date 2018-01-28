@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { StoryComponent } from './components/story/story.component'; 
 import {SigninComponent } from './components/signin/signin.component'; 
-//import { BurndownComponent } from './components/burndown/burndown.component'; // David Graves
+import { BurndownComponent } from './components/burndown/burndown.component'; // David Graves
 import { BoardPageComponent } from './components/board-page/board-page.component';
 import { projection } from '@angular/core/src/render3/instructions';
 import { ProjectPageComponent } from './components/project-page/project-page.component';
@@ -14,8 +14,7 @@ import { ModalComponent } from './components/modal/modal.component';
 const appRoutes: Routes = [
   { path:'login', component: SigninComponent }, 
   { path:'story', component: StoryComponent }, 
-
- // { path:'burndown', component: BurndownComponent }, // David Graves
+  { path:'burndown', component: BurndownComponent }, // David Graves
   { path:'', redirectTo: '/login', pathMatch: 'full'},
   { path:'boardpage/:uid', component: BoardPageComponent}, 
   { path:'', redirectTo: '/login', pathMatch: 'full'},

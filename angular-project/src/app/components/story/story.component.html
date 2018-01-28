@@ -1,5 +1,5 @@
 <mat-card id="story" data-target="#myModal">
-    <span id="title">{{story.difficulty}} {{ story.storyName }} </span>
+    <span id="title">{{story.stId}} {{story.difficulty}} {{ story.storyName }} </span>
     <i class="fa fa-bars" data-toggle="dropdown" aria-haspopup="true" aria-hidden="true">
     </i>
     <div class="dropdown-menu">
@@ -16,7 +16,6 @@
 
 </mat-card>
 
-<!-- The Modal -->
 <div class="modal fade" id="myModal{{story.stId}}" name="myModalName">
     <div class="modal-dialog">
         <div class="modal-content">

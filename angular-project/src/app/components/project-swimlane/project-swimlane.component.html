@@ -1,9 +1,9 @@
-<div class="swimlane" [ngStyle]="{'background-color':getBackgroundColor(index)}">
+<div class="swimlane" [dragula]="'bag-one'" [dragulaOptions]="options" [dragulaModel]='swimlane.stories' 
+[ngStyle]="{'background-color':getBackgroundColor(index)}"> 
     <button class="btn close" type="submit" aria-label="Close" (click)="deleteSwimlane()">
         <span aria-hidden="true">&times;</span>
     </button>
     <span class="title">{{swimlane.swimlaneName}}</span>
-    <app-story *ngFor="let story of swimlane.stories" [story]=story (onDelete)="deleteStoryEvent($event)">
-    </app-story>
+    <app-story *ngFor="let story of swimlane.stories" [story]="story" [attr.data-id]="story.stId" (onDelete)="deleteStoryEvent($event)"></app-story>
     <app-create-story (createStoryEvent)="newStoryEvent($event)" [swimlane]="swimlane"></app-create-story>
 </div>
