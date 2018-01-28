@@ -16,7 +16,7 @@ export class ProjectSwimlaneComponent implements OnInit {
 
   //Options for Dragula Drag and Drop 
   options: any = {
-    removeOnSpill: true,
+    removeOnSpill: false,
   }
 
   stories: Story[] = []; 
@@ -36,20 +36,20 @@ export class ProjectSwimlaneComponent implements OnInit {
       this.onDrag.emit(e.dataset.id); 
     });
   }
-
+  
   getIdOfSwimlane() : number {
     return 0; 
   }
-
+  
   ngOnInit() { }
-
+  
   newStoryEvent(story: Story) {
     this.swimlane.stories.push(story);
   }
-
+  
   onDelete(m_story: Story) {
     var index = this.swimlane.stories.indexOf(m_story);
     this.swimlane.stories.splice(index, 1);
   }
-
+  
 }
