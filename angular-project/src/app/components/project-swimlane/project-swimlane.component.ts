@@ -23,28 +23,17 @@ export class ProjectSwimlaneComponent implements OnInit {
 
   constructor(private dragulaService: DragulaService) {
 
-    console.log("constructor: swimlane: " + this.swimlane); 
-
-    dragulaService.dropModel.subscribe((value) => {
-      this.onDropModel(value.slice(1));
-      // console.log("value: " + JSON.stringify(value)); 
-      // console.log("swimlane: " + JSON.stringify(this.swimlane));
-      // console.log("stories: " + JSON.stringify(this.stories) );
-      // console.log("Emmiting Dropped"); 
-      // this.onDrop.emit(value);
-    });
+    //Drop 
     dragulaService.drop.subscribe(value => {
       const [bagName, e, el] = value;
-      console.log('Drop: story id is: ', e.dataset.id);
+      //Here we grab the id that was set with the story and Dragula component 
       this.onDrop.emit(e.dataset.id);
     });
+
+    //Drag 
     dragulaService.drag.subscribe(value => {
       const [bagName, e, el] = value;
-      console.log('Drag: story id is: ', e.dataset.id);
       this.onDrag.emit(e.dataset.id); 
-    });
-    dragulaService.removeModel.subscribe((value) => {
-      this.onRemoveModel(value.slice(1));
     });
   }
 
@@ -52,32 +41,15 @@ export class ProjectSwimlaneComponent implements OnInit {
     return 0; 
   }
 
-  ngOnInit() {
-    //console.log("ngOnInit: swimlane: " + JSON.stringify(this.swimlane)); 
-   }
+  ngOnInit() { }
 
   newStoryEvent(story: Story) {
     this.swimlane.stories.push(story);
-    //console.log('in update swimlane');
-    //console.log(JSON.stringify(this.swimlane));
   }
 
-  onDelete(agreed: boolean) {
-    this.swimlane.stories.pop();
-  }
-
-  private onDropModel(args) {
-    let [el, target, source] = args;
-    //console.log("onDropModel: " + args); 
-    //console.log("swimlane: " + JSON.stringify(this.swimlane));
-    // do something else
-  }
-
-  private onRemoveModel(args) {
-    let [el, source] = args;
-    //console.log("onRemoveModel: " + args); 
-    //console.log("swimlane: " + JSON.stringify(this.swimlane));
-    // do something else
+  onDelete(m_story: Story) {
+    var index = this.swimlane.stories.indexOf(m_story);
+    this.swimlane.stories.splice(index, 1);
   }
 
 }

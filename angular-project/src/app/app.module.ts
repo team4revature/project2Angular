@@ -21,7 +21,6 @@ import { BurndownComponent } from './components/burndown/burndown.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { ProjectSwimlaneComponent } from './components/project-swimlane/project-swimlane.component';
-
 import { ModalModule } from 'ngx-bootstrap';
 
 // drag and Drop 
