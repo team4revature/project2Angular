@@ -57,6 +57,7 @@ import { ViewStoryComponent } from './components/view-story/view-story.component
 import { TaskComponent } from './components/task/task.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateStoryComponent } from './components/create-story/create-story.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { CreateStoryComponent } from './components/create-story/create-story.com
     ModalComponent,
     CreateStoryComponent,
     BurndownComponent, // David Graves
+    RegisterComponent, // David Graves
   ],
   imports: [
     BrowserModule,

@@ -25,7 +25,6 @@ export class SigninComponent implements OnInit {
 
   login() {
     this.userService.login(this.user);
-    this.router.navigate(['','boardpage/' + localStorage.getItem('userId')]);
     // .subscribe(returnedUser =>{ sessionStorage.setItem('user', JSON.stringify(returnedUser))});
     
   }

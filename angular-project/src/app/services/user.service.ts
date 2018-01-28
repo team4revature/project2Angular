@@ -17,6 +17,7 @@ const httpOptions = {
 const loginUrl = 'http://localhost:80/api/v1/login';
 const getUserUrl = 'http://localhost:80/api/v1/userName/';
 const getUserByIdURI= 'http://localhost:80/api/v1/user/';
+const registerUserUrl = 'http://localhost:80/api/v1/register';
 
 @Injectable()
 export class UserService {
@@ -73,60 +74,24 @@ export class UserService {
         .catch(this.handleError);
     }*/
 
-    private handleError(error: Response) {
-        return Observable.throw(error.statusText);
-    }
-}
-
-/*
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { HttpParams } from '@angular/common/http';
-import 'rxjs/Rx';
-// Models
-import { User } from '../models/user.model';
-import { Token } from '../models/token.model';
-//observe required to see all headers and body
-const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    observe: 'response' as 'response'
-};
-const loginUrl = 'http://localhost:80/api/v1/login';
-const getUserUrl = 'http://localhost:80/api/v1/userName/';
-@Injectable()
-export class UserService {
-    //username: string;
-    //for testing
-    username: string = 'larry';
-    // Injecting the http object
-    constructor(private http: HttpClient) { }
-    public login(user: User) {
-        this.http.post<any>(loginUrl,
-            JSON.stringify({ username: user.username, password: user.password }),
+    public registerUser(newUser: User){
+        this.http.post<any>(registerUserUrl,
+            JSON.stringify(newUser),
             httpOptions).subscribe(
-            response => {
-                user = <User>JSON.parse(JSON.stringify(response.body));
-                this.username = user.username;
-                localStorage.setItem('username', this.username);
-            }
-            );
-        
-        
+                response => {
+                    newUser = <User>JSON.parse(JSON.stringify(response.body));
+                    this.username = newUser.username;
+                    localStorage.setItem('username', this.username);
+                    localStorage.setItem('userId' , newUser.uid.toString());
+                    this.router.navigate(['','login']);
+    
+                }
+                );
     }
-    //get user by username
-    public getUser(username: string): Observable<User> {
-       
-        return this.http.get(getUserUrl + username, httpOptions)
-            .map(response => {
-                console.log(response);
-                return JSON.parse(JSON.stringify(response.body));
-            });
-    }
+
     private handleError(error: Response) {
         return Observable.throw(error.statusText);
     }
 }
 
-*/
 

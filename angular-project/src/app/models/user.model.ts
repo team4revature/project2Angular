@@ -5,8 +5,8 @@ export class User {
     username: string;
     password: string;
     email: string;
-    firstname: string;
-    lastname: string;
+    firstName: string;
+    lastName: string;
     boards: Board[];
 
     constructor(uid: number, username: string, password: string, email: string,
@@ -14,8 +14,8 @@ export class User {
         this.uid = uid;
         this.username = username;
         this.email = email;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstname;
+        this.lastName = lastname;
         this.boards = boards;
     }
 }
