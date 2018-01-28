@@ -1,4 +1,13 @@
-h1 {
+.sidebyleft, .sidebyright{
+	position: absolute;
+	display: inline;
+}
+
+.sidebyright{
+	right: 0;
+}
+
+.headerStyle {
 	background-color: white;
 	color: black;
 	font-size: 2.4em;
@@ -10,3 +19,38 @@ h1 {
 	padding-bottom:1.9%;
 	margin:0%;
 }
+
+.headerContents {
+	position: relative;
+	background-color: white;
+}
+/*
+nav {
+	background-color: #4484CE;
+	color: white;
+}
+
+#hamburgerbutton {
+	color: green; 
+	background-color: transparent; 
+	border-color: green;
+	border-bottom-width: 2px
+}
+
+nav a {
+	color: white;
+	font-weight: 400;
+}
+
+nav li {
+	margin-right: 1.8em;
+}
+
+nav a:hover {
+	color: #F19F4D;
+}
+
+.navbar {
+	padding-left: 7%;
+}
+*/
