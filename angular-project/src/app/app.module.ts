@@ -43,6 +43,11 @@ import { ViewStoryComponent } from './components/view-story/view-story.component
 import { TaskComponent } from './components/task/task.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateStoryComponent } from './components/create-story/create-story.component';
+import { AddUsersToProjectComponent } from './components/add-users-to-project/add-users-to-project.component';
+import { UserItemComponent } from './user-item/user-item.component';
+import { UserListItemComponent } from './user-list-item/user-list-item.component';
+import { ParentComponentComponent } from './parent-component/parent-component.component';
+import { ContextmenuComponent } from './contextmenu/contextmenu.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +68,12 @@ import { CreateStoryComponent } from './components/create-story/create-story.com
     ViewStoryComponent,
     TaskComponent,
     ModalComponent,
-    CreateStoryComponent
+    CreateStoryComponent,
+    AddUsersToProjectComponent,
+    UserItemComponent,
+    UserListItemComponent,
+    ParentComponentComponent,
+    ContextmenuComponent
   ],
   imports: [
     BrowserModule,

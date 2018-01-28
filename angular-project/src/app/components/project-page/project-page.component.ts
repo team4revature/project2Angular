@@ -5,6 +5,7 @@ import { Swimlane } from '../../models/swimlane.model';
 import { UserService } from '../../services/user.service';
 import { ProjectService } from '../../services/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserListServiceService } from '../../services/user-list-service.service';
 
 @Component({
   selector: 'app-project-page',
@@ -17,9 +18,10 @@ export class ProjectPageComponent implements OnInit {
   user: User;
   board: Board;
   bid: number;
+  users: User[];
   swimlanes: Swimlane[] = [];
 
-  constructor(private userService: UserService, 
+  constructor(private userService: UserService, private _userListService: UserListServiceService,
     private projectService: ProjectService,
     private router: Router, private route: ActivatedRoute) {
       this.route.params.subscribe(params => {
@@ -38,6 +40,9 @@ export class ProjectPageComponent implements OnInit {
           this.board = data;
           console.log(this.board); 
         });
-    //this.board = new Board(5, "", this.swimlanes, null, null, null);
+    this._userListService.getAllUsers().subscribe(
+      data=>{this.users = data;
+      console.log(this.users);
+      });
   }
 }
