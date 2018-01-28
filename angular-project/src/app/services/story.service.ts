@@ -17,14 +17,15 @@ const httpOptions = {
 
 const getStoryUrl   = `http://localhost:80/api/v1/story/50`;
 const createUserUrl = 'http://localhost:80/api/v1/createStory'; 
+const deleteStoryUrl = 'http://localhost:80/api/v1/story/delete';
 
 @Injectable()
-export class UserStoriesService {
+export class StoryService {
 
     story: Story; 
 
     // Injecting the http object
-    constructor(private httpGet: Http, private httpCli: HttpClient)
+    constructor(private httpGet: Http, private http: HttpClient)
     {
         // this.init();
     }
@@ -39,7 +40,12 @@ export class UserStoriesService {
     }
 
     public addStory(story: Story): Observable<Story> { 
-        return this.httpCli.post<Story>(createUserUrl, JSON.stringify(story), httpOptions); 
+        return this.http.post<Story>(createUserUrl, JSON.stringify(story), httpOptions); 
+    }
+
+    public deleteStory(story: Story) {
+        this.http.post(deleteStoryUrl, JSON.stringify(story), httpOptions)
+        .subscribe();
     }
        
     private handleError(error: Response) {

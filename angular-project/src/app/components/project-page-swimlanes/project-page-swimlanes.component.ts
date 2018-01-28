@@ -16,6 +16,12 @@ export class ProjectPageSwimlanesComponent implements OnInit {
     this.board.swimlanes.push(swimlane);
   }
 
+  removeSwimlaneEvent(swimlane: Swimlane) {
+    this.board.swimlanes.forEach((item, index) => {
+      if (item === swimlane) this.board.swimlanes.splice(index, 1);
+    });
+  }
+
   constructor() { }
 
   ngOnInit() { }

@@ -14,6 +14,7 @@ const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     observe: 'response' as 'response'
 };
+
 const getBoardUrl = 'http://localhost:80/api/v1/board/';
 const createSwimLaneUrl = 'http://localhost:80/api/v1/board/addswimlane';
 const createStoryUrl = 'http://localhost:80/api/v1/swimlane/addstory';
@@ -21,45 +22,35 @@ const createTaskUrl = 'http://localhost:80/api/v1/story/addtask';
 const deleteSwimlaneUrl = 'http://localhost:80/api/v1/swimlane/delete';
 
 @Injectable()
-export class ProjectService {
+export class SwimlaneService {
 
     public constructor(private http: HttpClient) { }
 
-    public getBoard(boardId: number): Observable<Board> {
-        return this.http.get<any>(getBoardUrl + boardId);
+    public deleteSwimlane(swimlane: Swimlane) {
+        console.log(swimlane);
+        this.http.post(deleteSwimlaneUrl, JSON.stringify(swimlane), httpOptions)
+        .subscribe();
     }
 
-    public createSwimLane(board: Board, swimlane: Swimlane): Observable<Swimlane> {
+    public createSwimlane(board: Board, swimlane: Swimlane): Observable<Board> {
         //for testing only set boardid static
         return this.http.post<any>(createSwimLaneUrl,
             JSON.stringify({ boardId: board.bid, swimlane: swimlane }), httpOptions)
             .map(response => {
                 return JSON.parse(JSON.stringify(response.body));
-            })
-    }
+            });
+        }
 
-    public createStory(swimlane: Swimlane, story: Story): Observable<Story> {
-        return this.http.post<any>(createStoryUrl,
-            JSON.stringify({ swimlaneId: swimlane.sid, story: story }), httpOptions)
-            .map(response => {
-                return JSON.parse(JSON.stringify(response.body));
-            })
-            .catch(this.handleError);
-    }
-
-    public createTask(story: Story, task: Task): Observable<Swimlane> {
-        return this.http.post<any>(createTaskUrl,
-            JSON.stringify({ storyId: story.stId, task: task }), httpOptions)
-            .map(response => {
-                return JSON.parse(JSON.stringify(response.body));
-            })
-    }
-
-/*
-    public deleteSwimlane(swimlane: Swimlane) {
-        this.http.post(deleteSwimlaneUrl,
-            JSON.stringify({ swimlaneId: swimlane.sid }), httpOptions);
+    
+    /*
+    public deleteSwimlane(swimlane: Swimlane): Observable<boolean> {
         console.log('deleting swimlane on server' + swimlane.sid);
+        return this.http.post<any>('http://localhost:80/api/v1/swimlane/delete',
+            swimlane.sid)
+            .map(response => {
+                return true;
+                //return JSON.parse(JSON.stringify(response.body));
+            });
     }*/
 
     private handleError(error: Response) {

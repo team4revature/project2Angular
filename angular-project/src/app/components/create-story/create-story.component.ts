@@ -34,15 +34,18 @@ export class CreateStoryComponent implements OnInit {
 
   addStory() {
     if(this.story.storyName.length < 1) {
-      //maybe popup for invalid submission
       return;
     }
 
     this.projectService.createStory(this.swimlane, this.story)
       .subscribe(data => {
-        this.swimlane = data;
+        //update story with id from server
+        this.swimlane.stories[this.swimlane.stories.length - 1].stId = data.stId;
+        console.log('returned with new swimlane');
       })
-    this.sendNewStory();
+    console.log('adding story');
+    this.swimlane.stories.push(this.story);
+    //this.sendNewStory();
     //new story object so that it no longer references sent object
     this.story = new Story("", 0);
     this.toggleCreate();

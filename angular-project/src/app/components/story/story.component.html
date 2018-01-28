@@ -1,35 +1,42 @@
-<mat-card id="story">
-  <p id="title">{{story.difficulty}} {{ story.storyName }} </p>
-  <!-- <mat-card-subtitle> Story Id: {{ story.stId }} </mat-card-subtitle> -->
-  <!-- <p> Story Difficulty: {{ story.difficulty }} </p>  -->
-  <button class="btn btn-primary" (click)="deleteStory()"> Delete </button>
-  <button type="button" id="editStoryButton" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Edit Story
-  </button>
+<mat-card id="story" data-target="#myModal">
+    <span id="title">{{story.difficulty}} {{ story.storyName }} </span>
+    <i class="fa fa-bars" data-toggle="dropdown" aria-haspopup="true" aria-hidden="true">
+    </i>
+    <div class="dropdown-menu">
+        <button id="editStoryButton" class="btn dropdown-item" data-toggle="modal" data-target="#myModal">
+            Edit
+        </button>
+        <button class="btn dropdown-item" (click)="deleteStory()"> Delete </button>
+    </div>
+
+
+
+    <!-- <mat-card-subtitle> Story Id: {{ story.stId }} </mat-card-subtitle> -->
+    <!-- <p> Story Difficulty: {{ story.difficulty }} </p>  -->
 
 </mat-card>
 
 <!-- The Modal -->
-<div class="modal fade" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
+<div class="modal fade" id="myModal" name="myModalName">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title"> {{story.difficulty}} {{story.storyName}}</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title"> {{story.difficulty}} {{story.storyName}}</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
 
-      <!-- Modal body -->
-      <div class="modal-body" *ngIf='story'>
-        <app-view-story [story]="story"></app-view-story>
-      </div>
+            <!-- Modal body -->
+            <div class="modal-body" *ngIf='story'>
+                <app-view-story [story]="story"></app-view-story>
+            </div>
 
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
 
+        </div>
     </div>
-  </div>
 </div>

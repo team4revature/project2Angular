@@ -1,6 +1,7 @@
 <div class="row">
   <div *ngFor="let swimlane of board?.swimlanes;" class="col">
-    <app-project-swimlane [swimlane]="swimlane"></app-project-swimlane>
+    <app-project-swimlane (deleteSwimlaneEvent)="removeSwimlaneEvent($event)" [swimlane]="swimlane">
+    </app-project-swimlane>
   </div>
   <div class="col">
     <app-create-swimlane [board]="board" (createSwimlaneEvent)="newSwimlaneEvent($event)">

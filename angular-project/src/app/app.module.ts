@@ -30,9 +30,8 @@ import { BoardPageComponent } from './components/board-page/board-page.component
 import { BoardListComponent } from './components/board-list/board-list.component';
 import { BoardItemComponent } from './components/board-item/board-item.component';
 import { ProjectPageComponent } from './components/project-page/project-page.component';
-import { UserStoriesComponent } from './components/user-stories/user-stories.component';
 import { HeaderComponent } from './components/header/header.component';
-import { UserStoriesService } from './services/user-stories.service';
+import { StoryService } from './services/story.service';
 import { BoardListService } from './services/board-list-service.service';
 import { CreateSwimlaneComponent } from './components/create-swimlane/create-swimlane.component';
 import { UserListServiceService } from './services/user-list-service.service';
@@ -43,6 +42,8 @@ import { ViewStoryComponent } from './components/view-story/view-story.component
 import { TaskComponent } from './components/task/task.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateStoryComponent } from './components/create-story/create-story.component';
+import { SwimlaneService } from './services/swimlane.service';
+import { TaskService } from './services/task.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,6 @@ import { CreateStoryComponent } from './components/create-story/create-story.com
     HeaderComponent,
     ProjectSwimlaneComponent,
     CreateSwimlaneComponent,
-    UserStoriesComponent,
     HeaderComponent,
     ProjectPageSwimlanesComponent,
     ViewStoryComponent,
@@ -78,7 +78,14 @@ import { CreateStoryComponent } from './components/create-story/create-story.com
     BrowserAnimationsModule,
     ModalModule.forRoot()
   ],
-  providers: [UserService, BoardListService, UserStoriesService, UserListServiceService,ProjectService],
+  providers: [
+    UserService, 
+    BoardListService, 
+    StoryService, 
+    UserListServiceService,
+    ProjectService,
+    SwimlaneService,
+    TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

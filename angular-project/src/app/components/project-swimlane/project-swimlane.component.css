@@ -4,4 +4,10 @@
     margin: 0.2%;
     min-height: 40em;
     padding: 1em;
+    color: black;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 400;
 }

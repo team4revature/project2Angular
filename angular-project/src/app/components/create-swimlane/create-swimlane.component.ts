@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProjectService } from '../../services/project.service';
 import { Board } from '../../models/board.model';
 import { Swimlane } from '../../models/swimlane.model';
+import { SwimlaneService } from '../../services/swimlane.service';
 
 @Component({
   selector: 'app-create-swimlane',
@@ -17,7 +18,7 @@ export class CreateSwimlaneComponent implements OnInit {
   createSwimlaneEvent = new EventEmitter<Swimlane>();
   swimlane: Swimlane;
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private swimlaneService: SwimlaneService) { }
 
   ngOnInit() {
     this.swimlane = new Swimlane("");
@@ -39,12 +40,13 @@ export class CreateSwimlaneComponent implements OnInit {
       return; 
     }
 
-    this.projectService.createSwimLane(this.board, this.swimlane)
+    this.swimlaneService.createSwimlane(this.board, this.swimlane)
       .subscribe(
       data => {
-        this.swimlane = data;
+        this.board.swimlanes[this.board.swimlanes.length - 1].sid = data.swimlanes.pop().sid;
       })
-      this.sendNewSwimlane();
+      
+      this.board.swimlanes.push(this.swimlane);
       //new story object so that it no longer references sent object
       this.swimlane = new Swimlane("");
       this.toggleCreate();
