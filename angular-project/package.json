@@ -30,6 +30,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "ng2-charts": "^1.6.0",
+    "ng2-dragula": "^1.5.0",
     "ngx-bootstrap": "^2.0.2",
     "popper.js": "^1.12.9",
     "primeng": "^5.2.0-rc.2",

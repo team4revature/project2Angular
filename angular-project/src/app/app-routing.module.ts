@@ -15,7 +15,6 @@ import { RegisterComponent } from './components/register/register.component';
 const appRoutes: Routes = [
   { path:'login', component: SigninComponent }, 
   { path:'story', component: StoryComponent }, 
-
   { path:'burndown', component: BurndownComponent }, // David Graves
   { path:'', redirectTo: '/login', pathMatch: 'full'},
   { path:'boardpage/:uid', component: BoardPageComponent}, 

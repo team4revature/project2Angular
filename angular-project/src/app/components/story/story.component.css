@@ -3,6 +3,8 @@
     border-color: black;
     background-color:  darkslategrey;
     margin-top: 2px; 
+    min-width: 16em;
+    max-width: 16em;
 }
 
 #title
