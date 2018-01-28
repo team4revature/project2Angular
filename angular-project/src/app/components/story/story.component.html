@@ -3,7 +3,7 @@
     <i class="fa fa-bars" data-toggle="dropdown" aria-haspopup="true" aria-hidden="true">
     </i>
     <div class="dropdown-menu">
-        <button id="editStoryButton" class="btn dropdown-item" data-toggle="modal" data-target="#myModal">
+        <button id="editStoryButton" class="btn dropdown-item" data-toggle="modal" attr.data-target="#myModal{{story.stId}}">
             Edit
         </button>
         <button class="btn dropdown-item" (click)="deleteStory()"> Delete </button>
@@ -17,7 +17,7 @@
 </mat-card>
 
 <!-- The Modal -->
-<div class="modal fade" id="myModal" name="myModalName">
+<div class="modal fade" id="myModal{{story.stId}}" name="myModalName">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -28,7 +28,7 @@
             </div>
 
             <!-- Modal body -->
-            <div class="modal-body" *ngIf='story'>
+            <div class="modal-body">
                 <app-view-story [story]="story"></app-view-story>
             </div>
 

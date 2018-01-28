@@ -9,6 +9,7 @@ import {MatCardModule} from '@angular/material/card';
 
 export class BoardItemComponent implements OnInit {
   @Input()bName;
+  @Input()bid;
   constructor() {
     this.bName = 'Create new board.';
   }

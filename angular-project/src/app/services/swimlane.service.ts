@@ -26,9 +26,8 @@ export class SwimlaneService {
 
     public constructor(private http: HttpClient) { }
 
-    public deleteSwimlane(swimlane: Swimlane) {
-        console.log(swimlane);
-        this.http.post(deleteSwimlaneUrl, JSON.stringify(swimlane), httpOptions)
+    public deleteSwimlane(board: Board, index: number) {
+        this.http.post(deleteSwimlaneUrl, JSON.stringify({ objectId: board.bid, index: index }), httpOptions)
         .subscribe();
     }
 
@@ -40,18 +39,6 @@ export class SwimlaneService {
                 return JSON.parse(JSON.stringify(response.body));
             });
         }
-
-    
-    /*
-    public deleteSwimlane(swimlane: Swimlane): Observable<boolean> {
-        console.log('deleting swimlane on server' + swimlane.sid);
-        return this.http.post<any>('http://localhost:80/api/v1/swimlane/delete',
-            swimlane.sid)
-            .map(response => {
-                return true;
-                //return JSON.parse(JSON.stringify(response.body));
-            });
-    }*/
 
     private handleError(error: Response) {
         return Observable.throw(error.statusText);

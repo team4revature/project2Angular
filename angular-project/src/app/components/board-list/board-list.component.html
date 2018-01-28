@@ -1,7 +1,7 @@
 <label class="bList">Personal Boards</label>
 <ul class="nav nav-justified">
   <li  *ngFor="let board of boards"  >
-    <app-board-item [bName]=board.boardName></app-board-item>
+    <app-board-item [bName]=board.boardName [bid]=board.bid></app-board-item>
   </li>
   <br/>
   <li class="default" (click)="staticModal.show()">

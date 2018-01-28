@@ -47,21 +47,6 @@ export class ProjectService {
             .catch(this.handleError);
     }
 
-    public createTask(story: Story, task: Task): Observable<Swimlane> {
-        return this.http.post<any>(createTaskUrl,
-            JSON.stringify({ storyId: story.stId, task: task }), httpOptions)
-            .map(response => {
-                return JSON.parse(JSON.stringify(response.body));
-            })
-    }
-
-/*
-    public deleteSwimlane(swimlane: Swimlane) {
-        this.http.post(deleteSwimlaneUrl,
-            JSON.stringify({ swimlaneId: swimlane.sid }), httpOptions);
-        console.log('deleting swimlane on server' + swimlane.sid);
-    }*/
-
     private handleError(error: Response) {
         return Observable.throw(error.statusText);
     }

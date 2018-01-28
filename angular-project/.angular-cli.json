@@ -3,6 +3,7 @@
   "project": {
     "name": "angular-project"
   },
+  
   "apps": [
     {
       "root": "src",
@@ -19,9 +20,11 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css", 
-        "../node_modules/bootstrap/dist/css/bootstrap.css"      ],
+        "styles.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.css"
+      ],
       "scripts": [
+        "../node_modules/chart.js/dist/Chart.js",
         "../node_modules/jquery/dist/jquery.js",
         "../node_modules/popper.js/dist/umd/popper.js",
         "../node_modules/bootstrap/dist/js/bootstrap.js"

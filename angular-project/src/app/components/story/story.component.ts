@@ -17,15 +17,12 @@ export class StoryComponent implements OnInit {
   editStoryEvent = new EventEmitter<Story>(); 
   @Output() 
   onDelete = new EventEmitter<Story>();
-  @ViewChild('myModalName') 
-  modal: ElementRef;
 
   constructor(private storyService: StoryService) { } 
 
   ngOnInit() { }
 
   deleteStory() {
-    this.storyService.deleteStory(this.story);
     this.onDelete.emit(this.story);
   }
 
