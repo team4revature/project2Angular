@@ -1,10 +1,13 @@
-.sidebyleft, .sidebyright{
-	position: absolute;
-	display: inline;
+.sidebyleft{
+	/*position: absolute;*/
+	float:left;
+/*	display: inline; */
 }
 
 .sidebyright{
 	right: 0;
+	position: absolute;
+	display: inline;
 }
 
 .headerStyle {
@@ -17,13 +20,13 @@
 	padding-left:7%;
 	padding-right:1%;
 	padding-bottom:1.9%;
-	margin:0%;
-}
-
-.headerContents {
+	margin:auto;
 	position: relative;
 	background-color: white;
+	float: left; 
+	width: 100%;
 }
+
 /*
 nav {
 	background-color: #4484CE;
