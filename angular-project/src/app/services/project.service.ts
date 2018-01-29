@@ -47,6 +47,8 @@ export class ProjectService {
             .catch(this.handleError);
     }
 
+   
+
     private handleError(error: Response) {
         return Observable.throw(error.statusText);
     }

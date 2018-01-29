@@ -20,6 +20,8 @@ const createSwimLaneUrl = 'http://localhost:80/api/v1/board/addswimlane';
 const createStoryUrl = 'http://localhost:80/api/v1/swimlane/addstory';
 const createTaskUrl = 'http://localhost:80/api/v1/story/addtask';
 const deleteSwimlaneUrl = 'http://localhost:80/api/v1/swimlane/delete';
+const updateSwimlanesUrl = 'http://localhost:80/api/v1/board/updateswimlanes';
+const updateSwimlaneUrl = 'http://localhost:80/api/v1/swimlane/update';
 
 @Injectable()
 export class SwimlaneService {
@@ -28,7 +30,7 @@ export class SwimlaneService {
 
     public deleteSwimlane(board: Board, index: number) {
         this.http.post(deleteSwimlaneUrl, JSON.stringify({ objectId: board.bid, index: index }), httpOptions)
-        .subscribe();
+            .subscribe();
     }
 
     public createSwimlane(board: Board, swimlane: Swimlane): Observable<Board> {
@@ -38,7 +40,26 @@ export class SwimlaneService {
             .map(response => {
                 return JSON.parse(JSON.stringify(response.body));
             });
-        }
+    }
+
+    public updateSwimlanes(board: Board): Observable<Swimlane[]> {
+        return this.http.post<any>(updateSwimlanesUrl,
+            JSON.stringify(board), httpOptions)
+            //parse response to json
+            .map(response => {
+                console.log(response.body);
+                return <Swimlane[]>JSON.parse(JSON.stringify(response.body));
+            });
+    }
+
+    public updateSwimlane(swimlane: Swimlane): Observable<Swimlane[]> {
+        return this.http.post<any>(updateSwimlaneUrl,
+            JSON.stringify(swimlane), httpOptions)
+            //parse response to json
+            .map(response => {
+                return <Swimlane[]>JSON.parse(JSON.stringify(response.body));
+            });
+    }
 
     private handleError(error: Response) {
         return Observable.throw(error.statusText);

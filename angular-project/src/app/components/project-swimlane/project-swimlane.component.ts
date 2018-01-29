@@ -30,7 +30,7 @@ export class ProjectSwimlaneComponent implements OnInit {
           //Drop 
     dragulaService.drop.subscribe(value => {
       const [bagName, e, el] = value;
-      //Here we grab the id that was set with the story and Dragula component 
+      //Here we grab the id that was set with the story and Dragula component
       this.onDrop.emit(e.dataset.id);
     });
 
@@ -39,6 +39,10 @@ export class ProjectSwimlaneComponent implements OnInit {
       const [bagName, e, el] = value;
       this.onDrag.emit(e.dataset.id); 
     });
+
+    dragulaService.dropModel.subscribe(value => {
+      console.log('Hello');
+    })
   }
   
   ngOnInit() { }
