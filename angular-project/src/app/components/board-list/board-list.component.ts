@@ -49,7 +49,7 @@ export class BoardListComponent implements OnInit {
     //console.log('boardL ' + s);
     let surl: string = 'http://localhost:80/api/v1/createBoard';
    this.http.post(surl,s,httpOptions ).subscribe();
-   window.location.reload();
+     window.location.reload();
   // window.location.href = "/boardpage";
    //console.log(this.user);
   }

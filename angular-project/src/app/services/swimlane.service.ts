@@ -20,7 +20,7 @@ const createSwimLaneUrl = 'http://localhost:80/api/v1/board/addswimlane';
 const createStoryUrl = 'http://localhost:80/api/v1/swimlane/addstory';
 const createTaskUrl = 'http://localhost:80/api/v1/story/addtask';
 const deleteSwimlaneUrl = 'http://localhost:80/api/v1/swimlane/delete';
-const updateSwimlanesUrl = 'http://localhost:80/api/v1/board/updateswimlanes';
+const updateSwimlanesUrl = 'http://localhost:80/api/v1/swimlane/updateAll';
 const updateSwimlaneUrl = 'http://localhost:80/api/v1/swimlane/update';
 
 @Injectable()
@@ -42,9 +42,9 @@ export class SwimlaneService {
             });
     }
 
-    public updateSwimlanes(board: Board): Observable<Swimlane[]> {
+    public updateSwimlanes(swimlanes: Swimlane[]): Observable<Swimlane[]> {
         return this.http.post<any>(updateSwimlanesUrl,
-            JSON.stringify(board), httpOptions)
+            JSON.stringify(swimlanes), httpOptions)
             //parse response to json
             .map(response => {
                 console.log(response.body);

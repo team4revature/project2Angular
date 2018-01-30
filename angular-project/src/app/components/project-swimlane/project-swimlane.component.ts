@@ -31,13 +31,17 @@ export class ProjectSwimlaneComponent implements OnInit {
     dragulaService.drop.subscribe(value => {
       const [bagName, e, el] = value;
       //Here we grab the id that was set with the story and Dragula component
-      this.onDrop.emit(e.dataset.id);
+      //this.onDrop.emit(e.dataset.id);
+      if(this.inDroppedSwimlane(e.dataset.id)) {
+        this.onDrop.emit(0);
+      }
     });
 
     //Drag 
     dragulaService.drag.subscribe(value => {
       const [bagName, e, el] = value;
-      this.onDrag.emit(e.dataset.id); 
+      //this.onDrag.emit(e.dataset.id); 
+      //this.updateSwimlane(e.dataset.id);
     });
 
     dragulaService.dropModel.subscribe(value => {
@@ -58,11 +62,9 @@ export class ProjectSwimlaneComponent implements OnInit {
   
   newStoryEvent(story: Story) {
     this.swimlane.stories.push(story);
-    console.log(this.swimlane);
   }
 
   deleteStoryEvent(story: Story) {
-    
     this.swimlane.stories.forEach((item, index) => {
       this.storyService.deleteStory(this.swimlane, index);
       if (item === story) this.swimlane.stories.splice(index, 1);
@@ -70,8 +72,22 @@ export class ProjectSwimlaneComponent implements OnInit {
   }
 
   deleteSwimlane() {
-    console.log('deleting swimlane ' + this.swimlane.sid);
     this.deleteSwimlaneEvent.emit(this.swimlane);
+  }
+
+  inDroppedSwimlane(storyId: number): boolean {
+    var inDropped = false;
+
+    this.swimlane.stories.forEach((item, index) => {
+      if(item.stId == storyId) {
+        inDropped = true;
+      }
+    });
+    return inDropped;
+  }
+
+  updateSwimlane(storyId: number) {
+   
   }
 
   getBackgroundColor(i: number) {
