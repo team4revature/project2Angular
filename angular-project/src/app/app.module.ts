@@ -59,6 +59,7 @@ import { ViewStoryComponent } from './components/view-story/view-story.component
 import { TaskComponent } from './components/task/task.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateStoryComponent } from './components/create-story/create-story.component';
+import { GlobalEventsManager } from './services/global-events.service';
 
 @NgModule({
   declarations: [
@@ -103,7 +104,7 @@ import { CreateStoryComponent } from './components/create-story/create-story.com
      BrowserAnimationsModule // David Graves
   ],
   providers: [UserService, BoardListService, UserStoriesService, UserListServiceService,
-    ProjectService, BurndownService], // David Graves
+    ProjectService, BurndownService, GlobalEventsManager], // David Graves
   bootstrap: [ AppComponent ]
 
 

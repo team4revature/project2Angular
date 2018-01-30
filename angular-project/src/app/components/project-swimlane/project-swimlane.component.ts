@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Story } from '../../models/story.model';
 import { Swimlane } from '../../models/swimlane.model';
 import { DragulaService } from 'ng2-dragula';
+import { GlobalEventsManager } from '../../services/global-events.service';
 
 @Component({
   selector: 'app-project-swimlane',
@@ -21,7 +22,10 @@ export class ProjectSwimlaneComponent implements OnInit {
 
   stories: Story[] = []; 
 
-  constructor(private dragulaService: DragulaService) {
+  constructor(private dragulaService: DragulaService, private globalEventsManager: GlobalEventsManager) {
+
+    //For Navbar 
+    this.globalEventsManager.showNavBar.emit(true); 
 
     //Drop 
     dragulaService.drop.subscribe(value => {

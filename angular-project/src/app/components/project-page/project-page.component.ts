@@ -5,6 +5,7 @@ import { Swimlane } from '../../models/swimlane.model';
 import { UserService } from '../../services/user.service';
 import { ProjectService } from '../../services/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { GlobalEventsManager } from '../../services/global-events.service';
 
 @Component({
   selector: 'app-project-page',
@@ -21,7 +22,11 @@ export class ProjectPageComponent implements OnInit {
 
   constructor(private userService: UserService, 
     private projectService: ProjectService,
-    private router: Router, private route: ActivatedRoute) {
+    private router: Router, private route: ActivatedRoute, private globalEventsManager: GlobalEventsManager) {
+
+      //Navbar stuff 
+      this.globalEventsManager.showNavBar.emit(true); 
+
       this.route.params.subscribe(params => {
         this.bid = params.bid;
         console.log('bid :'+this.bid);

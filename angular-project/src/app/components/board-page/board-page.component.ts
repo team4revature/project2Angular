@@ -5,6 +5,7 @@ import { ProjectService } from '../../services/project.service';
 import { User } from '../../models/user.model';
 import { BoardListService } from '../../services/board-list-service.service';
 import { Board } from '../../models/board.model';
+import { GlobalEventsManager } from '../../services/global-events.service';
 
 @Component({
   selector: 'app-board-page',
@@ -12,37 +13,41 @@ import { Board } from '../../models/board.model';
   styleUrls: ['./board-page.component.css']
 })
 export class BoardPageComponent implements OnInit {
-  @Input()userDTO;
-uid: number;
-user: User;
-boards: Board[];
-constructor(private userService: UserService, private _boardService: BoardListService, 
-  private router: Router, private route: ActivatedRoute) {
+  @Input() userDTO;
+  uid: number;
+  user: User;
+  boards: Board[];
+  constructor(private userService: UserService, private _boardService: BoardListService,
+    private router: Router, private route: ActivatedRoute, private globalEventsManager: GlobalEventsManager) {
+    
+    //For Navbar 
+    globalEventsManager.showNavBar.emit(true); 
+
     this.route.params.subscribe(params => {
       this.uid = params.uid;
-      console.log('uid :'+this.uid);
- }); 
+      console.log('uid :' + this.uid);
+    });
 
 
-}
+  }
 
 
-ngOnInit() {
-  this._boardService.getBoardListByUser(this.uid)
-    .subscribe( 
-      data => { 
+  ngOnInit() {
+    this._boardService.getBoardListByUser(this.uid)
+      .subscribe(
+      data => {
         this.boards = data;
-        console.log(this.boards); 
+        console.log(this.boards);
       });
-  this.userService.getUserbyId(this.uid)
-  .subscribe(
-    data=>{
-      this.user = data;
-      console.log(this.user);
-    }
-  )
+    this.userService.getUserbyId(this.uid)
+      .subscribe(
+      data => {
+        this.user = data;
+        console.log(this.user);
+      }
+      )
 
-  //this.board = new Board(5, "", this.swimlanes, null, null, null);
-}
-  
+    //this.board = new Board(5, "", this.swimlanes, null, null, null);
+  }
+
 }
