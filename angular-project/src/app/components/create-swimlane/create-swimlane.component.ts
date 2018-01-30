@@ -30,8 +30,8 @@ export class CreateSwimlaneComponent implements OnInit {
     this.createIsOpen = !this.createIsOpen;
   }
 
-  sendNewSwimlane() {
-    this.createSwimlaneEvent.emit(this.swimlane);
+  sendNewSwimlane(swimlane: Swimlane) {
+    this.createSwimlaneEvent.emit(swimlane);
   }
 
   addSwimlane() {

@@ -1,0 +1,34 @@
+<button class="default bnt-lg .btn-block" type="button" 
+    class="btn btn-primary btn-xl" (click)="staticModal.show()">Add user to project</button>
+
+<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        Add users to project
+        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- your whole html is wrapped in a div so anywhere you click you disable contextmenu,
+        also the div is responsible for suppressing the default browser contextmenu -->
+        <div (click)="disableContextMenu()" oncontextmenu="return false;">
+            <!-- this is the usage -->
+            <ul  *ngFor="let user of users">
+                <li>
+
+                  <app-parent-component [user]= user [board]= board ></app-parent-component>
+                </li>
+            </ul>
+            <!--you have to write this only once in your component-->
+            <div *ngIf="contextmenu==true">
+                <app-user-item [x]="contextmenuX" [y]="contextmenuY"></app-user-item>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

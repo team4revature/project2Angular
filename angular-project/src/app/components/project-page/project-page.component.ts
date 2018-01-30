@@ -5,6 +5,7 @@ import { Swimlane } from '../../models/swimlane.model';
 import { UserService } from '../../services/user.service';
 import { ProjectService } from '../../services/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserListServiceService } from '../../services/user-list-service.service';
 
 @Component({
   selector: 'app-project-page',
