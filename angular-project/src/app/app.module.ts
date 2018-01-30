@@ -58,9 +58,6 @@ import { ViewStoryComponent } from './components/view-story/view-story.component
 import { TaskComponent } from './components/task/task.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateStoryComponent } from './components/create-story/create-story.component';
-<<<<<<< HEAD
-import { GlobalEventsManager } from './services/global-events.service';
-=======
 import { AddUsersToProjectComponent } from './components/add-users-to-project/add-users-to-project.component';
 import { UserItemComponent } from './user-item/user-item.component';
 import { UserListItemComponent } from './user-list-item/user-list-item.component';
@@ -68,7 +65,7 @@ import { ParentComponentComponent } from './parent-component/parent-component.co
 import { ContextmenuComponent } from './contextmenu/contextmenu.component';
 import { SwimlaneService } from './services/swimlane.service';
 import { TaskService } from './services/task.service';
->>>>>>> 4b586c583a0155455d2d672744acb4952a3fe306
+import { GlobalEventsManager } from './services/global-events.service';
 
 @NgModule({
   declarations: [
