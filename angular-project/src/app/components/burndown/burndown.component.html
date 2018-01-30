@@ -1,3 +1,21 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+  <title>Burndown</title>
+  
+   <link rel="stylesheet" type="text/css" href="/node_modules/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/themes/omega/theme.css" />
+<link rel="stylesheet" type="text/css" href="/node_modules/primeng/resources/primeng.min.css" />
+</head>
+
+<p-growl [value]="msgs"></p-growl>
+
+<p-chart type="line" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
+
 <p>
   burndown works!
 </p>
+

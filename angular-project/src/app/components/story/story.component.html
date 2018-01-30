@@ -1,5 +1,6 @@
+<!-- The Card --> 
 <mat-card id="story">
-  <p id="title">{{story.difficulty}} {{ story.storyName }} </p>
+  <p id="title">{{story.difficulty}} {{ story.storyName }} {{ story.stId }}</p>
   <!-- <mat-card-subtitle> Story Id: {{ story.stId }} </mat-card-subtitle> -->
   <!-- <p> Story Difficulty: {{ story.difficulty }} </p>  -->
   <button class="btn btn-primary" (click)="deleteStory()"> Delete </button>
