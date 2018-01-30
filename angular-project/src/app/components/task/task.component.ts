@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { Task } from '../../models/task.model';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-task',
@@ -11,15 +12,23 @@ export class TaskComponent implements OnInit {
   @Input() task : Task; 
   @Output() onDelete = new EventEmitter<Task>();
 
-  constructor() {
-    this.task = new Task(0, "Some random task"); 
+  constructor(private taskService: TaskService) {
   }
 
   ngOnInit() {
   }
 
-  deleteTask(){
+  resolveTask() {
+    this.task.completed = !this.task.completed;
+    this.taskService.updateTask(this.task).subscribe();
+  }
+
+  deleteTask() {
     this.onDelete.emit(this.task); 
+  }
+
+  getColor() {
+    return this.task.completed ? '#8de082' : '#D9D9D9';
   }
 
 } 

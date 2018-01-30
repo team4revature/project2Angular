@@ -10,38 +10,30 @@ import 'rxjs/Rx';
 // Models
 import { User } from '../models/user.model';
 import { Story } from '../models/story.model'; 
+import { Swimlane } from '../models/swimlane.model';
 
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const getStoryUrl   = `http://localhost:80/api/v1/story/50`;
-const createUserUrl = 'http://localhost:80/api/v1/createStory'; 
+const deleteStoryUrl = 'http://localhost:80/api/v1/swimlane/removestory';
 
 @Injectable()
-export class UserStoriesService {
+export class StoryService {
 
     story: Story; 
 
     // Injecting the http object
-    constructor(private httpGet: Http, private httpCli: HttpClient)
+    constructor(private httpGet: Http, private http: HttpClient)
     {
         // this.init();
     }
-    
-    getStoryInformation(id: number): Observable<Story> {
-        return this.httpGet
-        .get(getStoryUrl)
-        .map((response: Response) => {
-            console.log(response);
-            return <Story> response.json(); 
-        }); 
-    }
 
-    public addStory(story: Story): Observable<Story> { 
-        return this.httpCli.post<Story>(createUserUrl, JSON.stringify(story), httpOptions); 
+    public deleteStory(swimlane: Swimlane, index: number) {
+        this.http.post(deleteStoryUrl, JSON.stringify({ objectId: swimlane.sid, index: index }), httpOptions)
+        .subscribe();
     }
-       
+ 
     private handleError(error: Response) {
         return Observable.throw(error.statusText);
     }

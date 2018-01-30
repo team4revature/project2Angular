@@ -1,25 +1,15 @@
+i {
+    cursor: pointer;
+}
+
 mat-card{
-    background-color: teal;
-    margin-bottom: 2px; 
+    background-color: #D9D9D9;
+    margin-bottom: 2px;
+    font-size: 18px;
 }
 
-button {
-    background-color: red; /* Green */
-    border: none;
-    color: white;
-    padding: 5px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    
-    /* Move to the left*/ 
-    /* float: left;
-    clear:both;  */
-}
-
-#task_content{
-    /* float: left;
-    overflow: hidden;  */
+  .fa {
+    color:black;
+    float:right;
 }
 

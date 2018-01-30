@@ -1,6 +1,12 @@
-<mat-card>
+<mat-card [ngStyle]="{'background-color':getColor()}">
   <div id="task_content">
-    <mat-card-title> {{ task.content }} </mat-card-title>
-    <button (click)="deleteTask()"> Delete </button>
+    {{ task.taskDesc }}
+    <i class="fa fa-bars" data-toggle="dropdown" aria-haspopup="true" aria-hidden="true">
+    </i>
+    <div class="dropdown-menu">
+      <button *ngIf="!task.completed" class="btn dropdown-item" (click)="resolveTask()">Complete</button>
+      <button *ngIf="task.completed" class="btn dropdown-item" (click)="resolveTask()">Incomplete</button>
+      <button class="btn dropdown-item" (click)="deleteTask()"> Delete </button>
+    </div>
   </div>
 </mat-card>

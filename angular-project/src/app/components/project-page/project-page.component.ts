@@ -18,10 +18,9 @@ export class ProjectPageComponent implements OnInit {
   user: User;
   board: Board;
   bid: number;
-  users: User[];
   swimlanes: Swimlane[] = [];
 
-  constructor(private userService: UserService, private _userListService: UserListServiceService,
+  constructor(private userService: UserService, 
     private projectService: ProjectService,
     private router: Router, private route: ActivatedRoute) {
       this.route.params.subscribe(params => {
@@ -30,7 +29,7 @@ export class ProjectPageComponent implements OnInit {
    }); 
 
 
-  }//constructor end
+  }
 
   ngOnInit() {
     this.userService.getUser(localStorage.getItem('username')).subscribe(user => this.user = user);
@@ -40,9 +39,5 @@ export class ProjectPageComponent implements OnInit {
           this.board = data;
           console.log(this.board); 
         });
-    this._userListService.getAllUsers().subscribe(
-      data=>{this.users = data;
-      console.log(this.users);
-      });
   }
 }
