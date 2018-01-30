@@ -6,6 +6,7 @@ import { ProjectService } from '../../services/project.service';
 import { Board } from '../../models/board.model';
 import { StoryService } from '../../services/story.service';
 import { DragulaService } from 'ng2-dragula';
+import { GlobalEventsManager } from '../../services/global-events.service';
 
 @Component({
   selector: 'app-project-swimlane',
@@ -21,18 +22,23 @@ export class ProjectSwimlaneComponent implements OnInit {
   @Output()
   deleteSwimlaneEvent = new EventEmitter<Swimlane>();
   @Output() onDrop = new EventEmitter<number>();
-  @Output() onDrag = new EventEmitter<number>(); 
+  @Output() onDrag = new EventEmitter<number>();
 
   constructor(
-    private swimlaneService: SwimlaneService, 
-    private storyService: StoryService, 
-    private dragulaService: DragulaService) { 
-          //Drop 
+    private swimlaneService: SwimlaneService,
+    private storyService: StoryService,
+    private dragulaService: DragulaService,
+    private globalEventsManager: GlobalEventsManager) {
+
+    //For Navbar 
+    this.globalEventsManager.showNavBar.emit(true);
+
+    //Drop 
     dragulaService.drop.subscribe(value => {
       const [bagName, e, el] = value;
       //Here we grab the id that was set with the story and Dragula component
       //this.onDrop.emit(e.dataset.id);
-      if(this.inDroppedSwimlane(e.dataset.id)) {
+      if (this.inDroppedSwimlane(e.dataset.id)) {
         this.onDrop.emit(0);
       }
     });
@@ -48,18 +54,18 @@ export class ProjectSwimlaneComponent implements OnInit {
       console.log('Hello');
     })
   }
-  
+
   ngOnInit() { }
 
   //Options for Dragula Drag and Drop 
   options: any = {
     removeOnSpill: false,
   }
-  
-  getIdOfSwimlane() : number {
-    return 0; 
+
+  getIdOfSwimlane(): number {
+    return 0;
   }
-  
+
   newStoryEvent(story: Story) {
     this.swimlane.stories.push(story);
   }
@@ -79,7 +85,7 @@ export class ProjectSwimlaneComponent implements OnInit {
     var inDropped = false;
 
     this.swimlane.stories.forEach((item, index) => {
-      if(item.stId == storyId) {
+      if (item.stId == storyId) {
         inDropped = true;
       }
     });
@@ -87,17 +93,17 @@ export class ProjectSwimlaneComponent implements OnInit {
   }
 
   updateSwimlane(storyId: number) {
-   
+
   }
 
   getBackgroundColor(i: number) {
-    if(i % 3 == 0) {
+    if (i % 3 == 0) {
       return 'rgba(68,132,206,0.5)';
-    } else if(i % 3 == 1) {
+    } else if (i % 3 == 1) {
       return 'rgba(249,207,0,0.5)';
     } else {
       return 'rgba(241,159,77,0.5)';
     }
   }
-  
+
 }

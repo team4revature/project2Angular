@@ -5,6 +5,7 @@ import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 
 import { Router } from '@angular/router';
+import { GlobalEventsManager } from '../../services/global-events.service';
 
 @Component({
   selector: 'app-signin',
@@ -17,7 +18,10 @@ export class SigninComponent implements OnInit {
   username: string;
   userId: number;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private globalEventsManager: GlobalEventsManager) {
+    //For NavBar
+    globalEventsManager.hideNavBar.emit(true);
+  }
 
   ngOnInit() {
     this.user = new User(0, "", "", "", "", "", null);
