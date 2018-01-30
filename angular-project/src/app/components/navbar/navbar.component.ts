@@ -9,34 +9,52 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  showNavbar : boolean = false; 
+  showNavbar: boolean = true;
+  showBoardPageLink: boolean = true;
+  showBurnDownLink: boolean = true;
 
-  constructor(private globalEventsManager: GlobalEventsManager,private router : Router) {
+  constructor(private globalEventsManager: GlobalEventsManager, private router: Router) {
 
-     this.globalEventsManager.showNavBar.subscribe((mode: any) => {
+    this.globalEventsManager.showNavBar.subscribe((mode: any) => {
       this.showNavbar = true;
+    });
 
-      //if (this.showNavBar = true) {
-      //    this.getFeatureListByLoggedInUser(1)
-      //        .then(list => { this.featureList = list; });
-      //}
-  });
-
-  this.globalEventsManager.hideNavBar.subscribe((mode: any) => {
+    this.globalEventsManager.hideNavBar.subscribe((mode: any) => {
       this.showNavbar = false;
-      //this.featureList = [];
-  });
+    });
 
-  this.globalEventsManager.emitPage.subscribe((page: String) => {
-    //TODO: switch on the page and add the buttons dynamically. 
-  }); 
+    this.globalEventsManager.emitShowBoardPage.subscribe((mode: any) => {
+      this.showBoardPageLink = true;
+    });
+
+    this.globalEventsManager.emitHideBoardPage.subscribe((mode: any) => {
+      this.showBoardPageLink = false;
+    });
+
+    this.globalEventsManager.emitShowBurnDownPage.subscribe((mode: any) => {
+      this.showBurnDownLink = true;
+    });
+
+    this.globalEventsManager.emitHideBurnDownPage.subscribe((mode: any) => {
+      this.showBurnDownLink = false;
+    });
 
   }
 
   ngOnInit() {
   }
 
-  logout(){
+  logout() {
     this.router.navigate(['./login']);
   }
+
+  goToBoardPage() {
+    var m_u_id = localStorage.getItem('userId');
+    this.router.navigate(['./boardpage/' + m_u_id]);
+  }
+
+  goToBurnDown() {
+    this.router.navigate(['./burndown']);
+  }
+
 }

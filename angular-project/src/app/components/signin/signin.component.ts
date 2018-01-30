@@ -19,7 +19,8 @@ export class SigninComponent implements OnInit {
   userId: number;
 
   constructor(private userService: UserService, private router: Router, private globalEventsManager: GlobalEventsManager) {
-    this.globalEventsManager.hideNavBar.emit(true);
+    //For NavBar
+    globalEventsManager.hideNavBar.emit(true);
   }
 
   ngOnInit() {

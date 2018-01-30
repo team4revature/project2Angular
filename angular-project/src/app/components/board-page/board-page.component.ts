@@ -22,6 +22,9 @@ export class BoardPageComponent implements OnInit {
     
     //For Navbar 
     globalEventsManager.showNavBar.emit(true); 
+    globalEventsManager.emitHideBurnDownPage.emit(true);
+    globalEventsManager.emitHideBoardPage.emit(true); 
+
 
     this.route.params.subscribe(params => {
       this.uid = params.uid;

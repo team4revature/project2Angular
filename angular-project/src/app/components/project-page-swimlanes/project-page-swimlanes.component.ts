@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Board } from '../../models/board.model';
 import { Swimlane } from '../../models/swimlane.model';
 import { Story } from '../../models/story.model';
+import { GlobalEventsManager } from '../../services/global-events.service';
 
 @Component({
   selector: 'app-project-page-swimlanes',
@@ -17,7 +18,10 @@ export class ProjectPageSwimlanesComponent implements OnInit {
     console.log(this.board.swimlanes);
   }
 
-  constructor() {
+  constructor(private globalEventsManager: GlobalEventsManager) {
+    //For Navbar
+    globalEventsManager.emitShowBurnDownPage.emit(true);
+    globalEventsManager.emitShowBoardPage.emit(true);
   }
 
   ngOnInit() { }
@@ -43,5 +47,5 @@ export class ProjectPageSwimlanesComponent implements OnInit {
     }
     return null;
   }
-  
+
 }
