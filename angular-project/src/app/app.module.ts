@@ -46,9 +46,8 @@ import { BoardPageComponent } from './components/board-page/board-page.component
 import { BoardListComponent } from './components/board-list/board-list.component';
 import { BoardItemComponent } from './components/board-item/board-item.component';
 import { ProjectPageComponent } from './components/project-page/project-page.component';
-import { UserStoriesComponent } from './components/user-stories/user-stories.component';
 import { HeaderComponent } from './components/header/header.component';
-import { UserStoriesService } from './services/user-stories.service';
+import { StoryService } from './services/story.service';
 import { BoardListService } from './services/board-list-service.service';
 import { CreateSwimlaneComponent } from './components/create-swimlane/create-swimlane.component';
 import { UserListServiceService } from './services/user-list-service.service';
@@ -59,7 +58,17 @@ import { ViewStoryComponent } from './components/view-story/view-story.component
 import { TaskComponent } from './components/task/task.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateStoryComponent } from './components/create-story/create-story.component';
+<<<<<<< HEAD
 import { GlobalEventsManager } from './services/global-events.service';
+=======
+import { AddUsersToProjectComponent } from './components/add-users-to-project/add-users-to-project.component';
+import { UserItemComponent } from './user-item/user-item.component';
+import { UserListItemComponent } from './user-list-item/user-list-item.component';
+import { ParentComponentComponent } from './parent-component/parent-component.component';
+import { ContextmenuComponent } from './contextmenu/contextmenu.component';
+import { SwimlaneService } from './services/swimlane.service';
+import { TaskService } from './services/task.service';
+>>>>>>> 4b586c583a0155455d2d672744acb4952a3fe306
 
 @NgModule({
   declarations: [
@@ -74,13 +83,17 @@ import { GlobalEventsManager } from './services/global-events.service';
     HeaderComponent,
     ProjectSwimlaneComponent,
     CreateSwimlaneComponent,
-    UserStoriesComponent,
     HeaderComponent,
     ProjectPageSwimlanesComponent,
     ViewStoryComponent,
     TaskComponent,
     ModalComponent,
     CreateStoryComponent,
+    AddUsersToProjectComponent,
+    UserItemComponent,
+    UserListItemComponent,
+    ParentComponentComponent,
+    ContextmenuComponent, 
     BurndownComponent, // David Graves
   ],
   imports: [
@@ -103,8 +116,14 @@ import { GlobalEventsManager } from './services/global-events.service';
     //  AccordionModule, // David Graves
      BrowserAnimationsModule // David Graves
   ],
-  providers: [UserService, BoardListService, UserStoriesService, UserListServiceService,
-    ProjectService, BurndownService, GlobalEventsManager], // David Graves
+  providers: [
+    UserService, 
+    BoardListService, 
+    UserListServiceService,
+    ProjectService, 
+    BurndownService, 
+    StoryService, 
+    GlobalEventsManager], // David Graves
   bootstrap: [ AppComponent ]
 
 

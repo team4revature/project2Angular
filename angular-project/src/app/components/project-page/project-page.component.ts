@@ -6,6 +6,7 @@ import { UserService } from '../../services/user.service';
 import { ProjectService } from '../../services/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GlobalEventsManager } from '../../services/global-events.service';
+import { UserListServiceService } from '../../services/user-list-service.service';
 
 @Component({
   selector: 'app-project-page',
@@ -33,7 +34,7 @@ export class ProjectPageComponent implements OnInit {
    }); 
 
 
-  }//constructor end
+  }
 
   ngOnInit() {
     this.userService.getUser(localStorage.getItem('username')).subscribe(user => this.user = user);
@@ -43,6 +44,5 @@ export class ProjectPageComponent implements OnInit {
           this.board = data;
           console.log(this.board); 
         });
-    //this.board = new Board(5, "", this.swimlanes, null, null, null);
   }
 }

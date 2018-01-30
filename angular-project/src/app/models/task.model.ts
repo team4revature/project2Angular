@@ -1,15 +1,15 @@
 export class Task {
-    stId: number;
-    content: string;
-    isComplete: boolean; 
+    tid: number;
+    taskDesc: string;
+    completed: boolean; 
 
-    constructor(stId: number, content: string) {
-        this.stId = stId;
-        this.content = content;
-        this.isComplete = false; 
+    constructor(tid: number, taskDesc: string) {
+        this.tid = tid;
+        this.taskDesc = taskDesc;
+        this.completed = false; 
     }
 
     setAsComplete(){
-        this.isComplete = true; 
+        this.completed = true; 
     }
 }

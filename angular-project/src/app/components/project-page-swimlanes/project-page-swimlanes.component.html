@@ -1,11 +1,10 @@
 <div class="row">
-  <div *ngFor="let swimlane of board.swimlanes" class="col">
-    <app-project-swimlane (onDrop)="onDrop($event)" (onDrag)="onDrag($event)" [swimlane]="swimlane" ></app-project-swimlane>
+  <div *ngFor="let swimlane of board?.swimlanes; let i = index;" class="col">
+    <app-project-swimlane (onDrop)="onDrop($event)" (onDrag)="onDrag($event)" (deleteSwimlaneEvent)="removeSwimlaneEvent($event)" [swimlane]="swimlane" [index]="i">
+    </app-project-swimlane>
   </div>
   <div class="col">
     <app-create-swimlane [board]="board" (createSwimlaneEvent)="newSwimlaneEvent($event)">
     </app-create-swimlane>
   </div>
 </div>
-
-<!-- <div *ngFor="let swimlane of board?.swimlanes;" class="col"> -->

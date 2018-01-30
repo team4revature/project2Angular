@@ -10,6 +10,7 @@ export class Board {
         this.scrumMaster=scrumMaster;
         this.scrumProductOwner=scrumProductOwner;
         this.scrumTeam = scrumTeam;
+        this.burnDown = [];
      }
     bid: number;
     boardName: string;
@@ -17,5 +18,6 @@ export class Board {
     scrumMaster: User;
     scrumProductOwner: User;
     scrumTeam: User[];
+    burnDown: History[];
 }
 

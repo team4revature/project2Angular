@@ -23,10 +23,14 @@
 /* } */
 
 /* Used to color and set border for the container card.*/ 
+#container {
+    background-color: white;
+    font-size: 22px;
+}
 #card {
     border-width: 2px;
     border-color: black;
-    background-color: darkslategrey;
+    background-color: white;
     margin-top: 2px; 
 }
 
@@ -42,7 +46,7 @@
     
 /* Used for the task cards and Add a task card */ 
 #input_card{
-    background-color: teal;
+    background-color: #D9D9D9;
 }
 
 /* For Add a task button */ 

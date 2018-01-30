@@ -1,36 +1,28 @@
+i {
+    cursor: pointer;
+}
+
 #story {
-    border-width: 2px;
     border-color: black;
-    background-color:  darkslategrey;
-    margin-top: 2px; 
-    min-width: 16em;
-    max-width: 16em;
+    background-color:  white;
+    color: black;
+    margin-top: 4px; 
 }
 
 #title
 {
-    font-size: 20px;
+    font-size: 16px;
 }
 
 #card2{
     background-color: powderblue;
 }
 
-button {
-    background-color: red; /* Green */
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-}
-
-#editStoryButton {
-    background-color: #4CAF50; /* Green */
-}
-
 .modal-title{
     color:black; 
+}
+
+.fa {
+    color:black;
+    float:right;
 }
