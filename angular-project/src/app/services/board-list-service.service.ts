@@ -15,10 +15,14 @@ const httpOptions = {
 
 export class BoardListService {
   constructor(private http: HttpClient) { }
-  private _url  = 'http://localhost:80/api/v1/getboards/';
+  private _masterUrl  = 'http://localhost:80/api/v1/getMasterBoards/';
+  private _memberUrl  = 'http://localhost:80/api/v1/getMemberBoards/';
+  getMasterBoards(uid: number): Observable<Board[]> {
 
-  getBoardListByUser(uid: number): Observable<Board[]> {
-
-    return this.http.get<Board[]>(this._url + uid);
+    return this.http.get<Board[]>(this._masterUrl + uid);
    }
+
+  getMemberBoards(uid:number): Observable<Board[]>{
+    return this.http.get<Board[]>(this._memberUrl + uid);
+  }
 }

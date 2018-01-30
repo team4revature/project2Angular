@@ -16,6 +16,10 @@ export class BoardPageComponent implements OnInit {
 uid: number;
 user: User;
 boards: Board[];
+
+masterBoards: Board[];
+memberBoards: Board[];
+
 constructor(private userService: UserService, private _boardService: BoardListService, 
   private router: Router, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
@@ -28,12 +32,20 @@ constructor(private userService: UserService, private _boardService: BoardListSe
 
 
 ngOnInit() {
-  this._boardService.getBoardListByUser(this.uid)
+  this._boardService.getMasterBoards(this.uid)
     .subscribe( 
       data => { 
-        this.boards = data;
+        this.masterBoards = data;
         console.log(this.boards); 
       });
+
+      this._boardService.getMemberBoards(this.uid)
+      .subscribe( 
+        data => { 
+          this.memberBoards = data;
+          console.log(this.boards); 
+        });
+
   this.userService.getUserbyId(this.uid)
   .subscribe(
     data=>{

@@ -27,8 +27,8 @@ export class CreateSwimlaneComponent implements OnInit {
     this.createIsOpen = !this.createIsOpen;
   }
 
-  sendNewSwimlane() {
-    this.createSwimlaneEvent.emit(this.swimlane);
+  sendNewSwimlane(swimlane: Swimlane) {
+    this.createSwimlaneEvent.emit(swimlane);
   }
 
   addSwimlane() {
@@ -43,8 +43,9 @@ export class CreateSwimlaneComponent implements OnInit {
       .subscribe(
       data => {
         this.swimlane = data;
+        this.sendNewSwimlane(this.swimlane);
       })
-      this.sendNewSwimlane();
+      
       //new story object so that it no longer references sent object
       this.swimlane = new Swimlane("");
       this.toggleCreate();
