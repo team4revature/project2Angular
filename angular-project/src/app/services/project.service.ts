@@ -18,6 +18,8 @@ const getBoardUrl = 'http://localhost:80/api/v1/board/';
 const createSwimLaneUrl = 'http://localhost:80/api/v1/board/addswimlane';
 const createStoryUrl = 'http://localhost:80/api/v1/swimlane/addstory';
 const createTaskUrl = 'http://localhost:80/api/v1/story/addtask';
+const updateBurndownUrl = 'http://localhost:80/api/v1/story/updateburndown';
+
 @Injectable()
 export class ProjectService {
 
