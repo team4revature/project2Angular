@@ -1,4 +1,16 @@
-h1 {
+.sidebyleft{
+	/*position: absolute;*/
+	float:left;
+/*	display: inline; */
+}
+
+.sidebyright{
+	right: 0;
+	position: absolute;
+	display: inline;
+}
+
+.headerStyle {
 	background-color: white;
 	color: black;
 	font-size: 2.4em;
@@ -8,5 +20,15 @@ h1 {
 	padding-left:7%;
 	padding-right:1%;
 	padding-bottom:1.9%;
-	margin:0%;
+	margin:auto;
+	position: relative;
+	background-color: white;
 }
+
+#headerList {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+}
+li { display: inline; }
