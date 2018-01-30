@@ -1,6 +1,6 @@
-<label class="bList">Personal Boards</label>
+<label class="bList">Scrum Master Boards</label>
 <ul class="nav nav-justified">
-  <li  *ngFor="let board of boards"  >
+  <li  *ngFor="let board of masterBoards"  >
     <app-board-item [bName]=board.boardName [bid]=board.bid></app-board-item>
   </li>
   <br/>
@@ -9,6 +9,14 @@
     class="btn btn-primary btn-xl" (click)="staticModal.show()">Create New Board</button>
   </li>
   
+</ul>
+
+<label class="bList">Member Boards</label>
+<ul class="nav nav-justified">
+  <li  *ngFor="let board of memberBoards"  >
+    <app-board-item [bName]=board.boardName [bid]=board.bid></app-board-item>
+  </li>
+  <br/>  
 </ul>
 
 <div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"

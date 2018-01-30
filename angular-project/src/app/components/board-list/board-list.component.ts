@@ -26,6 +26,9 @@ const httpOptions = {
 export class BoardListComponent implements OnInit {
   @Input()boards;
   @Input()user;
+  @Input()masterBoards;
+  @Input()memberBoards;
+
   userDTO: any;
   apiURL: any;
 
@@ -37,6 +40,8 @@ export class BoardListComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {      
+    console.log("master" , this.masterBoards);
+    console.log("member", this.memberBoards);
   }
 
   
