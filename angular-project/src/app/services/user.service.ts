@@ -17,6 +17,7 @@ const httpOptions = {
 const loginUrl = 'http://localhost:80/api/v1/login';
 const getUserUrl = 'http://localhost:80/api/v1/userName/';
 const getUserByIdURI= 'http://localhost:80/api/v1/user/';
+const registerUserUrl = 'http://localhost:80/api/v1/register';
 
 @Injectable()
 export class UserService {
@@ -71,6 +72,21 @@ export class UserService {
         return this.http.get<User>(databaseUrl, httpOptions)
         .catch(this.handleError);
     }*/
+
+    public registerUser(newUser: User){
+        this.http.post<any>(registerUserUrl,
+            JSON.stringify(newUser),
+            httpOptions).subscribe(
+                response => {
+                    newUser = <User>JSON.parse(JSON.stringify(response.body));
+                    this.username = newUser.username;
+                    localStorage.setItem('username', this.username);
+                    localStorage.setItem('userId' , newUser.uid.toString());
+                    this.router.navigate(['','login']);
+    
+                }
+                );
+    }
 
     private handleError(error: Response) {
         return Observable.throw(error.statusText);
