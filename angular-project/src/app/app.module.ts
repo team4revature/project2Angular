@@ -58,6 +58,7 @@ import { ViewStoryComponent } from './components/view-story/view-story.component
 import { TaskComponent } from './components/task/task.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateStoryComponent } from './components/create-story/create-story.component';
+import { GlobalEventsManager } from './services/global-events.service';
 import { AddUsersToProjectComponent } from './components/add-users-to-project/add-users-to-project.component';
 import { UserItemComponent } from './user-item/user-item.component';
 import { UserListItemComponent } from './user-list-item/user-list-item.component';
@@ -91,7 +92,8 @@ import { EditStoryComponent } from './components/edit-story/edit-story.component
     UserListItemComponent,
     ParentComponentComponent,
     ContextmenuComponent, 
-    BurndownComponent, EditStoryComponent, // David Graves
+    BurndownComponent, 
+    EditStoryComponent, // David Graves
   ],
   imports: [
     BrowserModule,
@@ -119,9 +121,8 @@ import { EditStoryComponent } from './components/edit-story/edit-story.component
     UserListServiceService,
     ProjectService, 
     BurndownService, 
-    SwimlaneService, 
-    TaskService, 
-    StoryService], // David Graves
+    StoryService, 
+    GlobalEventsManager], // David Graves
   bootstrap: [ AppComponent ]
 
 

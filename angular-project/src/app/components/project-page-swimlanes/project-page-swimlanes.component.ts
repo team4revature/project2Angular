@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Board } from '../../models/board.model';
 import { Swimlane } from '../../models/swimlane.model';
 import { Story } from '../../models/story.model';
+import { GlobalEventsManager } from '../../services/global-events.service';
 import { SwimlaneService } from '../../services/swimlane.service';
 
 @Component({
@@ -13,8 +14,6 @@ export class ProjectPageSwimlanesComponent implements OnInit {
   @Input() board;
   count: number = 0;
   
-  constructor(private swimlaneService: SwimlaneService) { }
-
   ngOnInit() { }
 
   //handler for child output
@@ -23,6 +22,12 @@ export class ProjectPageSwimlanesComponent implements OnInit {
     console.log(this.board.swimlanes);
   }
 
+  constructor(private swimlaneService: SwimlaneService, private globalEventsManager: GlobalEventsManager) {
+    //For Navbar
+    globalEventsManager.emitShowBurnDownPage.emit(true);
+    globalEventsManager.emitShowBoardPage.emit(true);
+  }
+  
   removeSwimlaneEvent(swimlane: Swimlane) {
     this.board.swimlanes.forEach((item, index) => {
       if (item === swimlane) {
