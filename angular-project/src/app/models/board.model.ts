@@ -3,7 +3,7 @@ import { User } from '../models/user.model';
 
 export class Board {
 
-     constructor(bid: number, boardName: string, swimlanes: Swimlane[], scrumMaster: number, scrumProductOwner: User, scrumTeam: User[]){
+     constructor(bid: number, boardName: string, swimlanes: Swimlane[], scrumMaster: User, scrumProductOwner: User, scrumTeam: User[]){
         this.boardName=boardName;
         this.bid=bid;
         this.swimlanes=swimlanes;
@@ -15,7 +15,7 @@ export class Board {
     bid: number;
     boardName: string;
     swimlanes: Swimlane[];
-    scrumMaster: number;
+    scrumMaster: User;
     scrumProductOwner: User;
     scrumTeam: User[];
     burnDown: History[];
