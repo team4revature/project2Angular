@@ -72,8 +72,10 @@ export class ProjectSwimlaneComponent implements OnInit {
 
   deleteStoryEvent(story: Story) {
     this.swimlane.stories.forEach((item, index) => {
-      this.storyService.deleteStory(this.swimlane, index);
-      if (item === story) this.swimlane.stories.splice(index, 1);
+      if (item === story) {
+       this.storyService.deleteStory(this.swimlane, index);
+       this.swimlane.stories.splice(index, 1);
+      }
     });
   }
 

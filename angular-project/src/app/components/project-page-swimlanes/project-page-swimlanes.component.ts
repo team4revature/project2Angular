@@ -38,17 +38,10 @@ export class ProjectPageSwimlanesComponent implements OnInit {
   }
 
   onDrop(my_story_id: number) {
-    //Here we handle the drop and can get the swimlane the story was dropped to. 
-    //console.log("Drop: story: " + JSON.stringify(my_story_id) + " into swimlane: " + this.getSwimLaneIdWithStory(my_story_id).sid);
-    //console.log(this.board);
-    //this.swimlaneService.updateSwimlanes(this.board).subscribe();
     this.swimlaneService.updateSwimlanes(this.board.swimlanes).subscribe();
   }
 
   onDrag(my_story_id: number) {
-    //Here we handle the drag and can get the swimlane the story was selected from. 
-   // console.log("Drag: story: " + JSON.stringify(my_story_id) + " from swimlane: " + this.getSwimLaneIdWithStory(my_story_id).sid);
-    //this.swimlaneService.updateSwimlane(this.getSwimLaneIdWithStory(my_story_id)).subscribe();
   }
 
   // Method to obtain swimlane id that contains the story  
