@@ -6,6 +6,7 @@ import { BurndownService } from '../../services/burndown.service';
 import { History } from '../../models/history.model';
 import { forEach } from '@angular/router/src/utils/collection';
 import { DatePipe } from '@angular/common';
+import { GlobalEventsManager } from '../../services/global-events.service';
 
 
 @Component({
@@ -62,9 +63,13 @@ export class BurndownComponent implements OnInit {
         ]
       };      
     }
+  
 
-  constructor(private burndownService: BurndownService, private datePipe: DatePipe) { // added service to constructor
-    
+  constructor(private burndownService: BurndownService, private datePipe: DatePipe, 
+    private globalEventsManager: GlobalEventsManager) { // added service to constructor
+    //For the Navbar 
+    globalEventsManager.showNavBar.emit(true); 
+
     this.chartData = [0];
     this.chartLabels = [''];
    }

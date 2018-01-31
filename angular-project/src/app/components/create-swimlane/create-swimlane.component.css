@@ -1,3 +1,8 @@
+.create-lane-button {
+    width: 18em;
+    display: inline-block;
+}
+
 mat-card {
     border:0;
     padding: 0.5em;

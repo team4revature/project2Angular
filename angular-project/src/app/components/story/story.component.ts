@@ -26,4 +26,9 @@ export class StoryComponent implements OnInit {
     this.onDelete.emit(this.story);
   }
 
+  openModal() {
+    console.log('edit story');
+    this.storyService.openEditModal(this.story);
+    this.editStoryEvent.emit(this.story);
+  }
 }

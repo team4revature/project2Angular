@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Http, Response } from '@angular/http';
 
@@ -22,6 +22,9 @@ const deleteStoryUrl = 'http://localhost:80/api/v1/swimlane/removestory';
 export class StoryService {
 
     story: Story; 
+    private newStory: Story;
+    @Output()
+    openStoryModalEvent: EventEmitter<Story> = new EventEmitter();
 
     // Injecting the http object
     constructor(private httpGet: Http, private http: HttpClient)
@@ -36,5 +39,11 @@ export class StoryService {
  
     private handleError(error: Response) {
         return Observable.throw(error.statusText);
+    }
+
+    public openEditModal(story: Story) {
+        console.log('emitting');
+        this.newStory = story;
+        this.openStoryModalEvent.emit(this.newStory);
     }
 }

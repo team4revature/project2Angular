@@ -33,7 +33,5 @@ export class AddUsersToProjectComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
-
 }

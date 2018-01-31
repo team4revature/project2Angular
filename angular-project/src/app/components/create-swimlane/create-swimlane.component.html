@@ -1,15 +1,17 @@
-<button *ngIf="!createIsOpen" class="btn btn-success btn-block" type="submit" (click)="toggleCreate()">
-    New List
-</button>
+<div class="create-lane-button">
+    <button *ngIf="!createIsOpen" class="btn btn-success btn-block" type="submit" (click)="toggleCreate()">
+        New List
+    </button>
 
-<div *ngIf="createIsOpen">
-    <mat-card [ngStyle]="{'background-color':getBackgroundColor(index)}">
-        <button class="btn close" type="reset" aria-label="Close" (click)="toggleCreate()">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <input class="form-control input-lg" type="text" [(ngModel)]="swimlane.swimlaneName" placeholder="New List">
-        <button class="btn btn-link" type="submit" (click)="addSwimlane()">
-            Submit
-        </button>
-    </mat-card>
+    <div *ngIf="createIsOpen">
+        <mat-card [ngStyle]="{'background-color':getBackgroundColor(index)}">
+            <button class="btn close" type="reset" aria-label="Close" (click)="toggleCreate()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <input class="form-control input-lg" type="text" [(ngModel)]="swimlane.swimlaneName" placeholder="New List">
+            <button class="btn btn-link" type="submit" (click)="addSwimlane()">
+                Submit
+            </button>
+        </mat-card>
+    </div>
 </div>
