@@ -14,7 +14,7 @@ import { ModalComponent } from './components/modal/modal.component';
 const appRoutes: Routes = [
   { path:'login', component: SigninComponent }, 
   { path:'story', component: StoryComponent }, 
-  { path:'burndown', component: BurndownComponent }, // David Graves
+  { path:'burndown/:bid', component: BurndownComponent }, // David Graves
   { path:'', redirectTo: '/login', pathMatch: 'full'},
   { path:'boardpage/:uid', component: BoardPageComponent}, 
   { path:'', redirectTo: '/login', pathMatch: 'full'},

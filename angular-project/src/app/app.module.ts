@@ -65,6 +65,7 @@ import { ParentComponentComponent } from './parent-component/parent-component.co
 import { ContextmenuComponent } from './contextmenu/contextmenu.component';
 import { SwimlaneService } from './services/swimlane.service';
 import { TaskService } from './services/task.service';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { TaskService } from './services/task.service';
     BurndownService, 
     SwimlaneService, 
     TaskService, 
-    StoryService], // David Graves
+    StoryService,
+    DatePipe], // David Graves
   bootstrap: [ AppComponent ]
 
 

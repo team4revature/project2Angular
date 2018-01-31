@@ -1,5 +1,6 @@
 import { Swimlane } from './swimlane.model';
 import { User } from '../models/user.model';
+import { History } from '../models/history.model';
 
 export class Board {
 

@@ -2,13 +2,15 @@
 export class History {
 
     hid: number;
-    key: string;
+    key: Date;
     value: number;
+    bid: number;
 
 
-    constructor(key: string, value: number) {
+    constructor(key: Date, value: number, bid: number) {
         this.key = key;
         this.value = value;
+        this.bid = bid;
     }
 
 }
