@@ -35,6 +35,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { ProjectSwimlaneComponent } from './components/project-swimlane/project-swimlane.component';
 import { ModalModule } from 'ngx-bootstrap';
+import { RegisterComponent } from './components/register/register.component';
 
 // drag and Drop 
 import { DragulaModule } from 'ng2-dragula/ng2-dragula';
@@ -95,6 +96,7 @@ import { EditStoryComponent } from './components/edit-story/edit-story.component
     ContextmenuComponent, 
     BurndownComponent, 
     EditStoryComponent, // David Graves
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -39,6 +39,25 @@ export class BurndownComponent implements OnInit {
       
       // let arrayLength = this.history.length;
       let iterations = 0;
+
+      for(const h of burndown){
+        console.log("" + h.hid);
+      }
+      
+      for(let i = burndown.length -1; i >= 0; i--){
+        for(let j = 1; j <= i; j++){
+          if(burndown[j-1].hid > burndown[j].hid){
+            let tempHist = burndown[j-1];
+            burndown[j-1] = burndown[j];
+            burndown[j] = tempHist;
+          }
+        }
+      }
+      
+      for(const h of burndown){
+        console.log("" + h.hid);
+      }
+
       for(const h of burndown){
         if(iterations == 0 && this.chartData.length == 1 && this.chartLabels.length == 1 ){
           this.chartData[0] = h.value;
