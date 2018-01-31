@@ -40,7 +40,7 @@ export class ProjectPageComponent implements OnInit {
     this.projectService.getBoard(this.bid)  
       .subscribe( 
         data => { 
-          this.board = data;
+          this.board = data; sessionStorage.setItem("BoardId", ("" + data.bid));
           console.log(this.board); 
         });
   }

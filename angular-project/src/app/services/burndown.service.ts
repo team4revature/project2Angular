@@ -16,12 +16,12 @@ const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
-const HISTORY : History[] = [
-    {hid: 1, key: '2016-04-17', value: 300},
-    {hid: 2, key: '2016-04-18', value: 200},
-    {hid: 3, key: '2016-04-19', value: 100},
-    {hid: 4, key: '2016-04-20', value: 50}
-];
+// const HISTORY : History[] = [
+//     {hid: 1, key: '2016-04-17', value: 300},
+//     {hid: 2, key: '2016-04-18', value: 200},
+//     {hid: 3, key: '2016-04-19', value: 100},
+//     {hid: 4, key: '2016-04-20', value: 50}
+// ];
 
 // const loginUrl = `http://localhost:80/api/v1/login`;
 
@@ -29,7 +29,7 @@ const HISTORY : History[] = [
 @Injectable()
 export class BurndownService {
 
-    url = `http://localhost:80/api/v1/burndown/351`;
+    url = 'http://localhost:80/api/v1/burndown/';
     //url2 = `http://localhost:80/api/vi/history/`;
 
    // argBoard: Board;
@@ -47,7 +47,7 @@ export class BurndownService {
         getHistory(): Observable<History[]> { // change out for real data
             
             return this.http
-            .get<History[]>(this.url, {withCredentials: true});
+            .get<History[]>(this.url + sessionStorage.getItem('BoardId'), {withCredentials: true});
 
         }
 

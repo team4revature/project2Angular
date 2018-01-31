@@ -9,10 +9,12 @@ import { projection } from '@angular/core/src/render3/instructions';
 import { ProjectPageComponent } from './components/project-page/project-page.component';
 import { ProjectSwimlaneComponent } from './components/project-swimlane/project-swimlane.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { StoryComponent } from './components/story/story.component';
 
 const appRoutes: Routes = [
   { path:'login', component: SigninComponent }, 
-  { path:'burndown', component: BurndownComponent }, // David Graves
+  { path:'story', component: StoryComponent }, 
+  { path:'burndown/:bid', component: BurndownComponent }, // David Graves
   { path:'', redirectTo: '/login', pathMatch: 'full'},
   { path:'boardpage/:uid', component: BoardPageComponent}, 
   { path:'', redirectTo: '/login', pathMatch: 'full'},

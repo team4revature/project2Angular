@@ -5,6 +5,7 @@ import {MenuItem} from 'primeng/api';                   //api David Graves
 import { BurndownService } from '../../services/burndown.service';
 import { History } from '../../models/history.model';
 import { forEach } from '@angular/router/src/utils/collection';
+import { DatePipe } from '@angular/common';
 import { GlobalEventsManager } from '../../services/global-events.service';
 
 
@@ -41,10 +42,10 @@ export class BurndownComponent implements OnInit {
       for(const h of burndown){
         if(iterations == 0 && this.chartData.length == 1 && this.chartLabels.length == 1 ){
           this.chartData[0] = h.value;
-          this.chartLabels[0] = h.key;
+          this.chartLabels[0] = this.datePipe.transform(h.key,'yyyy-MM-dd');
         } else {
           this.chartData.push(h.value);
-          this.chartLabels.push(h.key);
+          this.chartLabels.push(this.datePipe.transform(h.key,'yyyy-MM-dd'));
         }
         iterations++;
       }
@@ -62,8 +63,10 @@ export class BurndownComponent implements OnInit {
         ]
       };      
     }
+  
 
-  constructor(private burndownService: BurndownService, private globalEventsManager: GlobalEventsManager) { // added service to constructor
+  constructor(private burndownService: BurndownService, private datePipe: DatePipe, 
+    private globalEventsManager: GlobalEventsManager) { // added service to constructor
     //For the Navbar 
     globalEventsManager.showNavBar.emit(true); 
 

@@ -66,6 +66,7 @@ import { ParentComponentComponent } from './parent-component/parent-component.co
 import { ContextmenuComponent } from './contextmenu/contextmenu.component';
 import { SwimlaneService } from './services/swimlane.service';
 import { TaskService } from './services/task.service';
+import { DatePipe } from '@angular/common';
 import { EditStoryComponent } from './components/edit-story/edit-story.component';
 
 @NgModule({
@@ -124,6 +125,7 @@ import { EditStoryComponent } from './components/edit-story/edit-story.component
     StoryService, 
     SwimlaneService,
     TaskService,
+    DatePipe,
     GlobalEventsManager], // David Graves
   bootstrap: [ AppComponent ]
 
