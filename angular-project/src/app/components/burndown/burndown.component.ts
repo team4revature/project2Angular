@@ -39,7 +39,8 @@ export class BurndownComponent implements OnInit {
       // let arrayLength = this.history.length;
       let iterations = 0;
       for(const h of burndown){
-        if(iterations == 0 && this.chartData.length == 1 && this.chartLabels.length == 1 ){
+        if(iterations == 0 && 
+          this.chartData.length == 1 && this.chartLabels.length == 1 ){
           this.chartData[0] = h.value;
           this.chartLabels[0] = h.key;
         } else {
@@ -51,14 +52,14 @@ export class BurndownComponent implements OnInit {
 
       
       this.data = {
-        labels: this.chartLabels, // ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: this.chartLabels, 
         datasets: [
             {
-                label: 'First Dataset',
-                data: this.chartData, // [65, 59, 80, 81, 56, 55, 40],
+                label: 'Progress',
+                data: this.chartData,
                 fill: false,
                 borderColor: '#4bc0c0'
-            } // ,
+            } 
         ]
       };      
     }
