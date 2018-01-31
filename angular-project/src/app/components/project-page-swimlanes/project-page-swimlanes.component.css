@@ -1,5 +1,16 @@
+.row {
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
 .col {
     padding: 1em;
     min-width: 20em;
     max-width: 20em;
+    
+    display: inline-block;
+    float: none;
+}
+
+.swimlanes-container {
 }

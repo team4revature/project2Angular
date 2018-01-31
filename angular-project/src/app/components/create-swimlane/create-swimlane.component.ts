@@ -47,7 +47,7 @@ export class CreateSwimlaneComponent implements OnInit {
       data => {
         this.board.swimlanes[this.board.swimlanes.length - 1].sid = data.swimlanes.pop().sid;
       })
-
+    //executed before subscribe
     this.board.swimlanes.push(this.swimlane);
     //new story object so that it no longer references sent object
     this.swimlane = new Swimlane("");
@@ -55,9 +55,11 @@ export class CreateSwimlaneComponent implements OnInit {
   }
 
   getBackgroundColor(i: number) {
-    if (i % 3 == 0) {
+    var lanes = this.board.swimlanes.length;
+
+    if (lanes % 3 == 0) {
       return 'rgba(68,132,206,0.5)';
-    } else if (i % 3 == 1) {
+    } else if (lanes % 3 == 1) {
       return 'rgba(249,207,0,0.5)';
     } else {
       return 'rgba(241,159,77,0.5)';

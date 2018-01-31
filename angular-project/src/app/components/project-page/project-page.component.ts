@@ -6,6 +6,7 @@ import { UserService } from '../../services/user.service';
 import { ProjectService } from '../../services/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserListServiceService } from '../../services/user-list-service.service';
+import { Story } from '../../models/story.model';
 
 @Component({
   selector: 'app-project-page',
@@ -27,8 +28,6 @@ export class ProjectPageComponent implements OnInit {
         this.bid = params.bid;
         console.log('bid :'+this.bid);
    }); 
-
-
   }
 
   ngOnInit() {

@@ -65,6 +65,7 @@ import { ParentComponentComponent } from './parent-component/parent-component.co
 import { ContextmenuComponent } from './contextmenu/contextmenu.component';
 import { SwimlaneService } from './services/swimlane.service';
 import { TaskService } from './services/task.service';
+import { EditStoryComponent } from './components/edit-story/edit-story.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,7 @@ import { TaskService } from './services/task.service';
     UserListItemComponent,
     ParentComponentComponent,
     ContextmenuComponent, 
-    BurndownComponent, // David Graves
+    BurndownComponent, EditStoryComponent, // David Graves
   ],
   imports: [
     BrowserModule,

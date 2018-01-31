@@ -15,8 +15,7 @@ export class TaskComponent implements OnInit {
   constructor(private taskService: TaskService) {
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   resolveTask() {
     this.task.completed = !this.task.completed;
