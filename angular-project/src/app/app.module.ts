@@ -122,6 +122,8 @@ import { EditStoryComponent } from './components/edit-story/edit-story.component
     ProjectService, 
     BurndownService, 
     StoryService, 
+    SwimlaneService,
+    TaskService,
     GlobalEventsManager], // David Graves
   bootstrap: [ AppComponent ]
 
