@@ -46,14 +46,14 @@ export class BoardListComponent implements OnInit {
 
   
   createBoard(){
-    let boardD = new Board(null,this.bIn, null, this.user, null, null);
-    console.log(this.user);
+    let boardD = new Board(null,this.bIn, null, this.user.uid, null, null);
+    console.log('this user: ' , this.user);
     //console.log(boardD);
     this.user.boards.push(boardD);
     let s: string = this.circular(boardD);
     //console.log('boardL ' + s);
     let surl: string = 'http://localhost:80/api/v1/createBoard';
-   this.http.post(surl,s,httpOptions ).subscribe();
+   this.http.post(surl,boardD,httpOptions ).subscribe();
    window.location.reload();
   // window.location.href = "/boardpage";
    //console.log(this.user);
