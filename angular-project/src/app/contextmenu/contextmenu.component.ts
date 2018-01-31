@@ -32,7 +32,8 @@ export class ContextmenuComponent implements OnInit {
       s.push(this.user.uid);
     console.log(s);
     let surl: string = 'http://localhost:80/api/v1/updateBoard';
-    this.http.post(surl,s,httpOptions).subscribe();
+    this.http.post(surl, JSON.stringify({ bid: this.board.bid, uid: this.user.uid }), httpOptions).subscribe();
+    //this.http.post(surl,s,httpOptions ).subscribe();
   }
 
   circular(v) {

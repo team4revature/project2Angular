@@ -22,7 +22,6 @@ export class EditStoryComponent implements OnInit, AfterViewInit {
   constructor(private taskService: TaskService, private storyService: StoryService) { }
 
   ngOnInit() {
-    console.log("in on init");
     this.storyService.openStoryModalEvent.subscribe(
       modalStory => {
         this.story = modalStory;
