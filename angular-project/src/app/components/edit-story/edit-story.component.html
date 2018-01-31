@@ -1,0 +1,31 @@
+<div class="modal fade" #myModal name="myModalName">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"> {{story.storyName}}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div id="container">
+          <!-- <input [value]="story.storyName" (input)="story.storyName=$event.target.value">
+          <input type="number" name="difficulty" [value]="story.difficulty" (input)="story.difficulty=$event.target.value" min="1"
+            max="10" /> -->
+          <p>Difficulty: {{story.difficulty}}</p>
+          Tasks
+          <app-task *ngFor="let task of story.tasks" [task]="task" (onDelete)="deleteTask($event)">
+          </app-task>
+          <br><input #titleInput placeholder="New task">
+          <button id="addTaskButton" class="btn btn-submit btn-sm" type="submit" (click)="addTask(titleInput.value)"> Add </button>
+          <!-- Some bottom card -->
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

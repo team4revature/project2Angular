@@ -25,12 +25,14 @@ export class ContextmenuComponent implements OnInit {
 
   }
   addUser(){
-    this.board.scrumTeam.push(this.user);
-    console.log(this.board);
-    let s: string;
-    s = this.circular(this.board);
+    
+    let s: number[];
+    let send: string;
+      s.push(this.board.bid);
+      s.push(this.user.uid);
+    console.log(s);
     let surl: string = 'http://localhost:80/api/v1/updateBoard';
-    this.http.post(surl,s,httpOptions ).subscribe();
+    this.http.post(surl,s,httpOptions).subscribe();
   }
 
   circular(v) {

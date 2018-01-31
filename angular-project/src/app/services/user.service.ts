@@ -41,7 +41,7 @@ export class UserService {
                     this.username = user.username;
                     localStorage.setItem('username', this.username);
                     localStorage.setItem('userId' , user.uid.toString());
-                    this.router.navigate(['','boardpage' , user.uid]);
+                    this.router.navigate(['/boardpage' , user.uid]);
                 }
                 );
         }

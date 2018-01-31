@@ -1,20 +1,3 @@
-<div id="container">
-  <input [value]="story.storyName" (input)="story.storyName=$event.target.value">
 
-  <input type="number" name="difficulty" [value]="story.difficulty" (input)="story.difficulty=$event.target.value" min="1"
-    max="10" />
-
-  <br/>
-  <br/> Tasks
-  <app-task *ngFor="let task of story.tasks" [task]="task" (onDelete)="deleteTask($event)">
-  </app-task>
-  <!-- </div> -->
-
-
-  <input #titleInput placeholder="New task">
-  <button id="addTaskButton" class="btn btn-submit btn-sm" type="submit" (click)="addTask(titleInput.value)"> Add </button>
-  <!-- Some bottom card -->
-
-</div>
 
 <!-- <button (click)="addTask()"> Add a Task </button> -->

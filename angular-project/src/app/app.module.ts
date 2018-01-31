@@ -58,6 +58,7 @@ import { ViewStoryComponent } from './components/view-story/view-story.component
 import { TaskComponent } from './components/task/task.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateStoryComponent } from './components/create-story/create-story.component';
+import { GlobalEventsManager } from './services/global-events.service';
 import { AddUsersToProjectComponent } from './components/add-users-to-project/add-users-to-project.component';
 import { UserItemComponent } from './user-item/user-item.component';
 import { UserListItemComponent } from './user-list-item/user-list-item.component';
@@ -65,7 +66,7 @@ import { ParentComponentComponent } from './parent-component/parent-component.co
 import { ContextmenuComponent } from './contextmenu/contextmenu.component';
 import { SwimlaneService } from './services/swimlane.service';
 import { TaskService } from './services/task.service';
-import { GlobalEventsManager } from './services/global-events.service';
+import { EditStoryComponent } from './components/edit-story/edit-story.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { GlobalEventsManager } from './services/global-events.service';
     UserListItemComponent,
     ParentComponentComponent,
     ContextmenuComponent, 
-    BurndownComponent, // David Graves
+    BurndownComponent, 
+    EditStoryComponent, // David Graves
   ],
   imports: [
     BrowserModule,
@@ -120,6 +122,8 @@ import { GlobalEventsManager } from './services/global-events.service';
     ProjectService, 
     BurndownService, 
     StoryService, 
+    SwimlaneService,
+    TaskService,
     GlobalEventsManager], // David Graves
   bootstrap: [ AppComponent ]
 

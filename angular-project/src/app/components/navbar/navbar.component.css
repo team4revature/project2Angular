@@ -1,6 +1,9 @@
 nav {
 	background-color: #4484CE;
 	color: white;
+	position: fixed;
+	widtH: 100vw;
+	z-index: 1;
 }
 
 #hamburgerbutton {
