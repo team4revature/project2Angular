@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { HttpParams } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
-// map() function which maps http responses into our objects
 import 'rxjs/Rx';
 
 import { Swimlane } from '../models/swimlane.model';
@@ -52,7 +51,7 @@ export class ProjectService {
 
     public createStory(swimlane: Swimlane, story: Story): Observable<Story> {
         
-    
+        //make sure this stays ----------------------- start
         let h;
         this.burndownService.getHistory()
         .subscribe(history1 =>{
@@ -70,39 +69,10 @@ export class ProjectService {
             this.http.post<any>(addHistoryUrl, 
                 JSON.stringify(this.tempHist), httpOptions).subscribe();
         });
-        //if(h != null && h.length > 0)
-
-        
+        //make sure this stays ----------------------- end
         return this.http.post<any>(createStoryUrl,
             JSON.stringify({ swimlaneId: swimlane.sid, story: story }), httpOptions)
             .map(response => {
-                
-                //Begin David Added Code
-                
-                
-
-                // this.getBoard( +sessionStorage.getItem("BoardId"))
-                //     .subscribe(data => {
-                //         console.log('got board');
-                //         this.tempBoard = data;
-                //         this.tempHist = this.tempBoard.burnDown;
-                //         let v = this.tempHist[this.tempHist.length].value;
-                //         let n = 0;
-                //         if(v != null){
-                //             n = v;
-                //         }
-                //         this.now = new Date();
-                //         this.tempBoard.burnDown.push(new History(
-                //             this.datePipe.transform(this.now,'yyyy-MM-dd'),
-                //             story.difficulty + n));
-
-                //         this.http.post<any>(updateBurndownUrl + this.tempBoard.bid, 
-                //            JSON.stringify(this.tempBoard), 
-                //            httpOptions);
-                //     });
-                    //End David Added Code
-               
-                
                 return JSON.parse(JSON.stringify(response.body));
             })
             .catch(this.handleError);

@@ -10,6 +10,7 @@ import { ProjectPageComponent } from './components/project-page/project-page.com
 import { ProjectSwimlaneComponent } from './components/project-swimlane/project-swimlane.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { StoryComponent } from './components/story/story.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const appRoutes: Routes = [
   { path:'login', component: SigninComponent }, 
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
   { path:'', redirectTo: '/login', pathMatch: 'full'},
   { path:'projectpage/:bid', component: ProjectPageComponent}, 
   { path:'swimlane', component: ProjectSwimlaneComponent }, 
+  { path:'register', component: RegisterComponent }
 ];
 
 @NgModule({

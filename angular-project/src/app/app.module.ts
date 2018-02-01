@@ -13,17 +13,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 
 
-import {ChartModule, GrowlModule} from 'primeng/primeng'; // David Graves
+import {ChartModule, GrowlModule} from 'primeng/primeng'; 
 
 // IF BURNDOWN DOESN'T WORK, TRY THIS
 // npm install primeng --save
 // npm install @angular/animations --save
-// 
-// PREVIOUSLY TRIED: SHOULD NOT NEED THIS
-// npm install ng2-charts --save
-// npm install chart.js --save
-// typings install dt~chart.js --save --global
-
 
 import { Router } from '@angular/router';
 
@@ -35,6 +29,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { ProjectSwimlaneComponent } from './components/project-swimlane/project-swimlane.component';
 import { ModalModule } from 'ngx-bootstrap';
+import { RegisterComponent } from './components/register/register.component';
 
 // drag and Drop 
 import { DragulaModule } from 'ng2-dragula/ng2-dragula';
@@ -95,6 +90,7 @@ import { EditStoryComponent } from './components/edit-story/edit-story.component
     ContextmenuComponent, 
     BurndownComponent, 
     EditStoryComponent, // David Graves
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
