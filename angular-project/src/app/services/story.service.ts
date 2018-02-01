@@ -1,10 +1,7 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Http, Response } from '@angular/http';
-
 import { Observable } from 'rxjs/Observable';
-
-// map() function which maps http responses into our objects
 import 'rxjs/Rx';
 
 // Models
@@ -26,10 +23,7 @@ export class StoryService {
     @Output()
     openStoryModalEvent: EventEmitter<Story> = new EventEmitter();
 
-    // Injecting the http object
-    constructor(private httpGet: Http, private http: HttpClient)
-    {
-        // this.init();
+    constructor(private httpGet: Http, private http: HttpClient){
     }
 
     public deleteStory(swimlane: Swimlane, index: number) {

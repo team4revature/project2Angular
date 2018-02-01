@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { HttpParams } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
-// map() function which maps http responses into our objects
 import 'rxjs/Rx';
 
 import { Swimlane } from '../models/swimlane.model';
@@ -52,7 +51,7 @@ export class ProjectService {
 
     public createStory(swimlane: Swimlane, story: Story): Observable<Story> {
         
-    
+        //make sure this stays ----------------------- start
         let h;
         this.burndownService.getHistory()
         .subscribe(history1 =>{
@@ -70,7 +69,7 @@ export class ProjectService {
             this.http.post<any>(addHistoryUrl, 
                 JSON.stringify(this.tempHist), httpOptions).subscribe();
         });
-        
+        //make sure this stays ----------------------- end
         return this.http.post<any>(createStoryUrl,
             JSON.stringify({ swimlaneId: swimlane.sid, story: story }), httpOptions)
             .map(response => {

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { HttpParams } from '@angular/common/http';
-// map() function which maps http responses into our objects
 import 'rxjs/Rx';
 
 import { Swimlane } from '../models/swimlane.model';

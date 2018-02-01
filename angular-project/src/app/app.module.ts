@@ -13,17 +13,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 
 
-import {ChartModule, GrowlModule} from 'primeng/primeng'; // David Graves
+import {ChartModule, GrowlModule} from 'primeng/primeng'; 
 
 // IF BURNDOWN DOESN'T WORK, TRY THIS
 // npm install primeng --save
 // npm install @angular/animations --save
-// 
-// PREVIOUSLY TRIED: SHOULD NOT NEED THIS
-// npm install ng2-charts --save
-// npm install chart.js --save
-// typings install dt~chart.js --save --global
-
 
 import { Router } from '@angular/router';
 

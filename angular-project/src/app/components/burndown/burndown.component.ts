@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Messages, Message} from 'primeng/primeng'; // REMEMBER THIS
-//import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab David Graves
-import {MenuItem} from 'primeng/api';                   //api David Graves
+import {Messages, Message} from 'primeng/primeng';
+import {MenuItem} from 'primeng/api';
 import { BurndownService } from '../../services/burndown.service';
 import { History } from '../../models/history.model';
 import { forEach } from '@angular/router/src/utils/collection';
@@ -20,25 +19,20 @@ export class BurndownComponent implements OnInit {
 
   history: History[];
 
-    msgs: Message[];
+  msgs: Message[];
 
-    chartLabels: string[];
+  chartLabels: string[];
 
-    chartData: number[];
+  chartData: number[];
 
 
     getHistory(): void{
       this.burndownService.getHistory()
         .subscribe(history1 =>{ this.history = history1; this.bindData(history1); });
-
-      // this.history = this.burndownService.getHistory(); // add to the service
     }
   
 
     bindData(burndown: History[]): void{
-      
-      // let arrayLength = this.history.length;
-      let iterations = 0;
 
       for(const h of burndown){
         console.log("" + h.hid);
@@ -57,6 +51,8 @@ export class BurndownComponent implements OnInit {
       for(const h of burndown){
         console.log("" + h.hid);
       }
+      
+      let iterations = 0;
 
       for(const h of burndown){
         if(iterations == 0 && this.chartData.length == 1 && this.chartLabels.length == 1 ){
@@ -71,14 +67,14 @@ export class BurndownComponent implements OnInit {
 
       
       this.data = {
-        labels: this.chartLabels, // ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: this.chartLabels,
         datasets: [
             {
-                label: 'First Dataset',
-                data: this.chartData, // [65, 59, 80, 81, 56, 55, 40],
+                label: 'Burndown',
+                data: this.chartData, 
                 fill: false,
                 borderColor: '#4bc0c0'
-            } // ,
+            } 
         ]
       };      
     }
