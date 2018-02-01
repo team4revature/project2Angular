@@ -47,7 +47,7 @@ export class BoardListComponent implements OnInit {
   
   createBoard(){
     let boardD = new Board(null,this.bIn, null, this.user, null, null);
-    console.log(this.user);
+    console.log('this user: ' , this.user);
     //console.log(boardD);
     this.user.boards.push(boardD);
     let s: string = this.circular(boardD);

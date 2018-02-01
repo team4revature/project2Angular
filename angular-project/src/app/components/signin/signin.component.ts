@@ -20,7 +20,9 @@ export class SigninComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router, private globalEventsManager: GlobalEventsManager) {
     //For NavBar
-    globalEventsManager.hideNavBar.emit(true);
+    globalEventsManager.showNavBar.emit(true);
+    globalEventsManager.emitHideBurnDownPage.emit(true);
+    globalEventsManager.emitHideBoardPage.emit(true);
   }
 
   ngOnInit() {
@@ -29,7 +31,7 @@ export class SigninComponent implements OnInit {
 
   login() {
     this.userService.login(this.user);
-    this.router.navigate(['','boardpage/' + localStorage.getItem('userId')]);
+    //this.router.navigate(['boardpage/' + localStorage.getItem('userId')]);
     // .subscribe(returnedUser =>{ sessionStorage.setItem('user', JSON.stringify(returnedUser))});
     
   }
